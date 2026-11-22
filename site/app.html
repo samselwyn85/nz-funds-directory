@@ -117,9 +117,28 @@ form.sub input[type=email],form.sub select{font:inherit;padding:10px 12px;border
 .tablewrap{overflow-x:auto}
 footer.site{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.88rem}
 
-@media (max-width:760px){
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.plan.best{border:2px solid var(--accent)}
+.plan h2{font-size:1.2rem}
+.price{font-family:var(--display);font-size:2rem;font-weight:700;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--body);font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.94rem}
+.plan .btn{justify-content:center;margin-top:auto}
+.toggle{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:3px;margin-top:16px;background:var(--surface)}
+.toggle button{font:inherit;border:0;background:none;color:var(--fg);padding:6px 14px;border-radius:999px;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.paywith{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--muted);font-size:.88rem;margin-top:18px}
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(8,20,16,.5);display:flex;align-items:flex-end;justify-content:center;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sheet>div{background:var(--surface);color:var(--fg);border-radius:16px;padding:22px;max-width:440px;width:100%;display:grid;gap:12px}
+.paybtn{font:inherit;font-weight:600;border-radius:10px;padding:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.paybtn.dark{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+@media (min-width:700px){.sheet{align-items:center}}
+@media (max-width:900px){
   .detail{grid-template-columns:1fr}
   aside.panel{position:static}
+}
+@media (max-width:760px){
   nav.main{margin-left:0;width:100%}
   select#sort{margin-left:0}
   .facts-table{grid-template-columns:1fr;gap:2px}
@@ -139,6 +158,7 @@ footer.site{border-top:1px solid var(--line);padding-block:24px;color:var(--mute
       <a href="#browse" data-nav="browse">Browse funds</a>
       <a href="#match" data-nav="match">Find my match</a>
       <a href="#about" data-nav="about">How it works</a>
+      <a href="#pricing" data-nav="pricing">Plans</a>
       <a href="#alerts" data-nav="alerts" class="cta">Get free alerts</a>
     </nav>
   </div>
@@ -364,6 +384,46 @@ function about(){
       </tbody></table></div>
   </section>`;
 }
+let yearly = false, chosen = null;
+const PLANS = [
+  {id:"free", name:"Free", m:0, y:0, blurb:"For anyone looking for funding.", feats:["Search every fund","Three-question match","Weekly email of changes"], cta:"Start free"},
+  {id:"alerts", name:"Alerts", m:15, y:150, best:true, blurb:"For groups that apply often.", feats:["Everything in Free","Same-day alerts for funds you follow","Closing dates in your calendar","Saved shortlists for your team"], cta:"Choose Alerts"},
+  {id:"writer", name:"Writer", m:39, y:390, blurb:"Help writing the application.", feats:["Everything in Alerts","AI first drafts matched to each funder's criteria","Uses your impact and SROI evidence","Up to 3 team members"], cta:"Choose Writer"},
+];
+function pricing(){
+  app.innerHTML = `<section class="wrap page" style="max-width:1000px">
+    <div class="eyebrow">Plans · NZD, GST included</div>
+    <h1>Searching is free. Pay only for the extras.</h1>
+    <p>Every fund stays free to find. Paid plans save you time when you apply.</p>
+    <div class="toggle" role="group" aria-label="Billing period">
+      <button type="button" data-bill="m" aria-pressed="${!yearly}">Monthly</button>
+      <button type="button" data-bill="y" aria-pressed="${yearly}">Yearly · 2 months free</button>
+    </div>
+    <div class="plans">${PLANS.map(p=>`<div class="plan ${p.best?"best":""}">
+      ${p.best?`<span class="pill type" style="align-self:start">Most popular</span>`:""}
+      <h2>${p.name}</h2><div style="color:var(--muted);font-size:.94rem;margin-top:-6px">${p.blurb}</div>
+      <div class="price">$${yearly?p.y:p.m}<small> ${p.m? (yearly?"/ year":"/ month") : "forever"}</small></div>
+      <ul>${p.feats.map(f=>`<li>${f}</li>`).join("")}</ul>
+      ${p.m ? `<button class="btn" type="button" data-plan="${p.id}">${p.cta}</button>` : `<a class="btn ghost" href="#alerts">${p.cta}</a>`}
+    </div>`).join("")}</div>
+    <div class="paywith">Pay with <span class="pill">Apple Pay</span><span class="pill">PayPal</span><span class="pill">Visa</span><span class="pill">Mastercard</span><span class="pill">Amex</span> · Cancel anytime</div>
+    <p style="margin-top:22px">Councils, umbrella groups and libraries: ask about a licence that covers every group you support.</p>
+  </section>
+  ${chosen?checkout():""}`;
+}
+function checkout(){
+  const p = PLANS.find(x=>x.id===chosen);
+  return `<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="ckt"><div>
+    <h2 id="ckt" style="font-size:1.25rem">${p.name} plan · $${yearly?p.y+" a year":p.m+" a month"}</h2>
+    <p style="margin:0;color:var(--muted)">Choose how to pay. You can cancel anytime from your account.</p>
+    <button class="paybtn dark" data-pay="Apple Pay">Pay with Apple Pay</button>
+    <button class="paybtn" data-pay="PayPal">Pay with PayPal</button>
+    <button class="paybtn" data-pay="card">Pay by credit or debit card</button>
+    <p id="payok" hidden class="ok-msg" style="margin:0"></p>
+    <button class="linkbtn" id="closesheet" style="justify-self:start">Cancel</button>
+  </div></div>`;
+}
+
 function route(){
   const h = location.hash.replace(/^#/,"") || "browse";
   const nav = h.startsWith("fund-") ? "browse" : h;
@@ -373,6 +433,7 @@ function route(){
   else if (h === "match") match();
   else if (h === "alerts") alerts();
   else if (h === "about") about();
+  else if (h === "pricing") pricing();
   else browse();
 }
 function rerender(keepFocus){ browse(); if (keepFocus){ const el = document.querySelector(`[data-chip="${state.open}"]`); el && el.focus(); } }
@@ -386,6 +447,13 @@ app.addEventListener("click", e => {
   if (t.dataset.m){ M[t.dataset.m] = t.dataset.v; match(); return; }
   if (t.id==="showmatch"){ state.who=new Set([M.who]); state.region=new Set([M.region]); state.sector=new Set([M.sector]); location.hash="browse"; return; }
   if (t.dataset.follow){ follow = t.dataset.follow; }
+  if (t.dataset.bill){ yearly = t.dataset.bill==="y"; pricing(); return; }
+  if (t.dataset.plan){ chosen = t.dataset.plan; pricing(); const b=document.querySelector("[data-pay]"); b&&b.focus(); return; }
+  if (t.id==="closesheet"){ chosen=null; pricing(); return; }
+  if (t.dataset.pay){
+    if (CONFIG.checkout){ CONFIG.checkout(chosen, yearly, t.dataset.pay); return; }
+    const ok=document.getElementById("payok"); ok.textContent=`Preview only: no payment taken. On the live site this opens a secure ${t.dataset.pay==="card"?"card":t.dataset.pay} checkout.`; ok.hidden=false; return;
+  }
   if (t.id==="report"){ document.getElementById("reported").hidden=false; t.hidden=true; }
 });
 app.addEventListener("change", e => {
@@ -416,7 +484,7 @@ app.addEventListener("submit", async e => {
   }
 });
 document.addEventListener("click", e => { if (state.open && !e.target.closest(".chip")){ state.open=null; if (!location.hash || location.hash==="#browse") rerender(); } });
-document.addEventListener("keydown", e => { if (e.key==="Escape" && state.open){ const k=state.open; state.open=null; rerender(); const b=document.querySelector(`[data-chip="${k}"]`); b&&b.focus(); } });
+document.addEventListener("keydown", e => { if (e.key==="Escape" && chosen){ chosen=null; pricing(); return; } if (e.key==="Escape" && state.open){ const k=state.open; state.open=null; rerender(); const b=document.querySelector(`[data-chip="${k}"]`); b&&b.focus(); } });
 window.addEventListener("hashchange", () => { route(); window.scrollTo(0,0); });
 
 fetch("data/funds.json").then(r => r.json()).then(d => { DATA = d; route(); })
