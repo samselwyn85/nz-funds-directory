@@ -1,0 +1,425 @@
+<title>Puna Pūtea</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Every New Zealand fund and grant in one free, searchable place, checked every night.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: sticky search header, chip filter row, card list; detail and matcher as hash views */
+:root{
+  --bg:#f6f8f6; --surface:#ffffff; --fg:#14211d; --muted:#5b6b65; --line:#dbe3df;
+  --accent:#0d6b57; --accent-ink:#ffffff; --accent-soft:#e2f1ec;
+  --kowhai:#f2c230; --kowhai-soft:#fdf3cf; --kowhai-ink:#5a4300;
+  --ok:#1f7a45; --warn:#a35b00; --bad:#b42318;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1714; --surface:#16211d; --fg:#e6eeea; --muted:#9db0a8; --line:#28362f;
+  --accent:#4cc3a3; --accent-ink:#06231b; --accent-soft:#173b31;
+  --kowhai:#f2c230; --kowhai-soft:#3a3115; --kowhai-ink:#f7dc84;
+  --ok:#5fd08f; --warn:#f0a94a; --bad:#ff8a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1714; --surface:#16211d; --fg:#e6eeea; --muted:#9db0a8; --line:#28362f;
+  --accent:#4cc3a3; --accent-ink:#06231b; --accent-soft:#173b31;
+  --kowhai:#f2c230; --kowhai-soft:#3a3115; --kowhai-ink:#f7dc84;
+  --ok:#5fd08f; --warn:#f0a94a; --bad:#ff8a80; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--kowhai);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg);font-family:var(--display);font-weight:700;font-size:1.2rem}
+.brand svg{flex:none}
+nav.main{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav.main a{text-decoration:none;color:var(--fg);padding:8px 12px;border-radius:999px;font-weight:500;font-size:.95rem}
+nav.main a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+nav.main a.cta{background:var(--accent);color:var(--accent-ink)}
+
+.hero{padding-block:36px 20px}
+.hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;max-width:20ch}
+.hero p.lede{color:var(--muted);max-width:60ch;margin:10px 0 0;font-size:1.05rem}
+.search{margin-top:22px;display:flex;gap:8px;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:6px 6px 6px 14px;align-items:center;max-width:720px}
+.search:focus-within{border-color:var(--accent)}
+.search input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:1.05rem;color:var(--fg);padding:10px 0}
+.search input:focus{outline:none}
+.btn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:10px 16px;cursor:pointer;background:var(--accent);color:var(--accent-ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent)}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px;color:var(--muted);font-size:.92rem}
+.facts b{display:block;font-family:var(--display);font-size:1.5rem;color:var(--fg);font-variant-numeric:tabular-nums}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-block:14px;border-top:1px solid var(--line)}
+.chip{position:relative}
+.chip>button{font:inherit;font-size:.92rem;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chip>button[aria-expanded="true"],.chip.on>button{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.chip .count{font-variant-numeric:tabular-nums;background:var(--accent);color:var(--accent-ink);border-radius:999px;font-size:.72rem;padding:0 7px;font-weight:600}
+.menu{position:absolute;top:calc(100% + 6px);left:0;z-index:6;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(10,30,25,.16);padding:8px;min-width:240px;max-height:340px;overflow:auto}
+.menu label{display:flex;gap:10px;align-items:center;padding:7px 8px;border-radius:8px;cursor:pointer;font-size:.95rem}
+.menu label:hover{background:var(--accent-soft)}
+.menu label span.n{margin-left:auto;color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums}
+.menu input{accent-color:var(--accent);width:16px;height:16px}
+select#sort{font:inherit;font-size:.92rem;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:7px 12px;margin-left:auto}
+.applied{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding-bottom:10px}
+.applied:empty{display:none}
+.tagx{font:inherit;font-size:.85rem;border:0;background:var(--fg);color:var(--bg);border-radius:999px;padding:4px 10px;cursor:pointer}
+.linkbtn{font:inherit;font-size:.85rem;background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer}
+
+.resultbar{display:flex;justify-content:space-between;align-items:baseline;padding-block:6px 12px;color:var(--muted);font-size:.92rem}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;padding-bottom:40px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--fg);min-width:0;transition:border-color .15s, transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.12rem;font-weight:700}
+.card .by{color:var(--muted);font-size:.9rem;margin-top:-6px}
+.card p{margin:0;font-size:.94rem;color:var(--fg)}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:.78rem;border-radius:999px;padding:3px 9px;background:var(--bg);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.pill.type{background:var(--accent-soft);border-color:transparent;color:var(--accent);font-weight:600}
+.pill.soon{background:var(--kowhai-soft);border-color:transparent;color:var(--kowhai-ink);font-weight:600}
+.pill.anytime{background:transparent;border-color:var(--accent);color:var(--accent)}
+.foot{display:flex;justify-content:space-between;gap:8px;font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:auto}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle;background:var(--muted)}
+.dot.ok{background:var(--ok)} .dot.moved{background:var(--warn)} .dot.broken{background:var(--bad)}
+.empty{grid-column:1/-1;background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:28px;text-align:center;color:var(--muted)}
+
+.detail{padding-block:28px 56px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px}
+.detail h1{font-size:clamp(1.7rem,4vw,2.4rem)}
+.detail .back{font-size:.92rem;display:inline-block;margin-bottom:14px}
+.facts-table{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px 16px;margin:22px 0;font-size:.96rem}
+.facts-table dt{color:var(--muted)} .facts-table dd{margin:0}
+aside.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px;align-self:start;position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px)}
+.note{font-size:.88rem;color:var(--muted);background:var(--kowhai-soft);border-radius:8px;padding:10px 12px}
+
+.page{padding-block:32px 56px;max-width:760px}
+.page h1{font-size:clamp(1.7rem,4vw,2.4rem)}
+.page p{max-width:65ch}
+.steps{display:flex;flex-direction:column;gap:22px;margin-top:22px}
+.step h2{font-size:1.15rem;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{font:inherit;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+form.sub{display:grid;gap:14px;margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+form.sub label.f{display:grid;gap:6px;font-weight:600;font-size:.94rem}
+form.sub input[type=email],form.sub select{font:inherit;padding:10px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg)}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{display:flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.9rem;cursor:pointer}
+.checks input{accent-color:var(--accent)}
+.ok-msg{background:var(--accent-soft);color:var(--fg);border-radius:8px;padding:12px 14px}
+.compare{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:14px}
+.compare th,.compare td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+.compare td.y{color:var(--ok);font-weight:600}
+.tablewrap{overflow-x:auto}
+footer.site{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.88rem}
+
+@media (max-width:760px){
+  .detail{grid-template-columns:1fr}
+  aside.panel{position:static}
+  nav.main{margin-left:0;width:100%}
+  select#sort{margin-left:0}
+  .facts-table{grid-template-columns:1fr;gap:2px}
+  .facts-table dd{margin-bottom:10px}
+  .menu{position:fixed;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-height:60vh}
+}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#browse" aria-label="Puna Pūtea home">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--accent)"/><path d="M8 19c3-6 13-6 16 0" stroke="var(--accent-ink)" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M11 23c2-3 8-3 10 0" stroke="var(--kowhai)" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="11" r="2.6" fill="var(--kowhai)"/></svg>
+      Puna Pūtea
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#browse" data-nav="browse">Browse funds</a>
+      <a href="#match" data-nav="match">Find my match</a>
+      <a href="#about" data-nav="about">How it works</a>
+      <a href="#alerts" data-nav="alerts" class="cta">Get free alerts</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site">
+  <div class="wrap">Puna Pūtea is a free directory of New Zealand funding. We check every funder's page nightly, but always confirm details with the funder before you apply. <a href="#about">How we check</a>.</div>
+</footer>
+
+<script>
+(function(){
+const CONFIG = Object.assign({ buttondownUser: "" }, window.PUNA_CONFIG || {});
+const SECTORS = ["Community","Arts & culture","Sport & recreation","Environment","Māori & iwi","Education & youth","Health & wellbeing","Business & innovation","Heritage","Media"];
+const REGIONS = ["Northland","Auckland","Waikato","Bay of Plenty","Gisborne","Hawke's Bay","Taranaki","Manawatū-Whanganui","Wellington","Tasman","Nelson","Marlborough","West Coast","Canterbury","Otago","Southland","Chatham Islands"];
+const TYPES = ["Government","Gaming trust","Community trust","Philanthropic","Council","Corporate"];
+const WHEN = ["Open anytime","Set rounds","Closing in 30 days","Check funder"];
+const WHO = ["Community groups","Charities","Marae, iwi & hapū","Schools","Businesses","Individuals"];
+
+let DATA = {updated:null, funds:[]};
+const state = { q:"", sector:new Set(), region:new Set(), type:new Set(), when:new Set(), who:new Set(), sort:"relevance", open:null };
+const app = document.getElementById("app");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function daysUntil(d){ if(!d) return null; const t = new Date(d+"T23:59:59+13:00"); return Math.ceil((t - Date.now())/864e5); }
+function whenOf(f){
+  const d = daysUntil(f.nextDeadline);
+  if (d !== null && d >= 0 && d <= 30) return "Closing in 30 days";
+  return f.howToApply;
+}
+function ago(iso){
+  if(!iso) return null;
+  const h = Math.round((Date.now() - new Date(iso))/36e5);
+  if (h < 1) return "just now"; if (h < 24) return h+"h ago";
+  const d = Math.round(h/24); return d === 1 ? "yesterday" : d+" days ago";
+}
+function linkLine(f){
+  const a = ago(f.lastChecked);
+  if (!a) return `<span><span class="dot"></span>First check tonight</span>`;
+  const label = {ok:"Link working", moved:"Page moved", broken:"Link broken"}[f.linkStatus] || "Checked";
+  return `<span><span class="dot ${esc(f.linkStatus)}"></span>${label} · checked ${a}</span>`;
+}
+function matches(f, skip){
+  if (state.q){
+    const hay = (f.name+" "+f.funder+" "+f.summary+" "+f.sectors.join(" ")+" "+f.regions.join(" ")+" "+f.funderType).toLowerCase();
+    if (!state.q.toLowerCase().split(/\s+/).every(w => hay.includes(w))) return false;
+  }
+  if (skip!=="sector" && state.sector.size && !f.sectors.some(s => state.sector.has(s))) return false;
+  if (skip!=="region" && state.region.size && !(f.regions.includes("Nationwide") || f.regions.some(r => state.region.has(r)))) return false;
+  if (skip!=="type" && state.type.size && !state.type.has(f.funderType)) return false;
+  if (skip!=="when" && state.when.size && !state.when.has(whenOf(f))) return false;
+  if (skip!=="who" && state.who.size && !f.eligible.some(e => state.who.has(e))) return false;
+  return true;
+}
+function results(){
+  let r = DATA.funds.filter(f => matches(f));
+  if (state.sort === "deadline") r.sort((a,b) => (daysUntil(a.nextDeadline) ?? 9e9) - (daysUntil(b.nextDeadline) ?? 9e9));
+  else if (state.sort === "az") r.sort((a,b) => a.name.localeCompare(b.name));
+  else if (state.sort === "local") r.sort((a,b) => (a.regions.includes("Nationwide")) - (b.regions.includes("Nationwide")));
+  return r;
+}
+function card(f){
+  const d = daysUntil(f.nextDeadline);
+  const when = d !== null && d >= 0
+    ? `<span class="pill soon">Closes in ${d} day${d===1?"":"s"}</span>`
+    : f.howToApply === "Open anytime" ? `<span class="pill anytime">Apply anytime</span>` : `<span class="pill">${esc(f.howToApply)}</span>`;
+  const region = f.regions.includes("Nationwide") ? "Nationwide" : f.regions.slice(0,2).join(", ") + (f.regions.length>2 ? " +"+(f.regions.length-2) : "");
+  return `<a class="card" href="#fund-${esc(f.id)}">
+    <div class="meta"><span class="pill type">${esc(f.funderType)}</span>${when}</div>
+    <h3>${esc(f.name)}</h3>
+    <div class="by">${esc(f.funder)}</div>
+    <p>${esc(f.summary)}</p>
+    <div class="meta">${f.sectors.slice(0,3).map(s=>`<span class="pill">${esc(s)}</span>`).join("")}<span class="pill">📍 ${esc(region)}</span></div>
+    <div class="foot">${linkLine(f)}<span>${esc(f.amount)}</span></div>
+  </a>`;
+}
+function chip(key, label, options){
+  const set = state[key];
+  const on = set.size>0;
+  const menu = state.open === key ? `<div class="menu" role="group" aria-label="${esc(label)}">${options.map(o => {
+      const n = DATA.funds.filter(f => matches(f, key) && (
+        key==="sector" ? f.sectors.includes(o) : key==="region" ? (f.regions.includes(o) || f.regions.includes("Nationwide")) :
+        key==="type" ? f.funderType===o : key==="who" ? f.eligible.includes(o) : whenOf(f)===o)).length;
+      return `<label><input type="checkbox" data-k="${key}" value="${esc(o)}" ${set.has(o)?"checked":""}> ${esc(o)} <span class="n">${n}</span></label>`;
+    }).join("")}</div>` : "";
+  return `<div class="chip ${on?"on":""}"><button type="button" data-chip="${key}" aria-expanded="${state.open===key}">${esc(label)}${on?` <span class="count">${set.size}</span>`:""} <span aria-hidden="true">▾</span></button>${menu}</div>`;
+}
+function browse(){
+  const r = results();
+  const funders = new Set(DATA.funds.map(f=>f.funder)).size;
+  const applied = [];
+  ["sector","region","type","when","who"].forEach(k => state[k].forEach(v => applied.push(`<button class="tagx" data-rm="${k}" data-v="${esc(v)}">${esc(v)} ✕</button>`)));
+  app.innerHTML = `
+  <section class="wrap hero">
+    <div class="eyebrow">Ngā pūtea katoa · every fund in Aotearoa</div>
+    <h1>Find funding for your mahi, in one place.</h1>
+    <p class="lede">Government, gaming trusts, community trusts, councils and philanthropy. Free to search, no login. We re-check every funder's page each night and tell you when something changes.</p>
+    <form class="search" role="search" id="sform">
+      <span aria-hidden="true">🔎</span>
+      <input id="q" type="search" placeholder="Try “marae”, “sports gear”, “Waikato arts”" value="${esc(state.q)}" aria-label="Search funds">
+      <button class="btn" type="submit">Search</button>
+    </form>
+    <div class="facts">
+      <div><b>${DATA.funds.length}</b>funds listed</div>
+      <div><b>${funders}</b>funders</div>
+      <div><b>6</b>funder types</div>
+      <div><b>${DATA.updated ? esc(ago(DATA.updated)) : "Nightly"}</b>last full check</div>
+    </div>
+  </section>
+  <section class="wrap">
+    <div class="filters">
+      ${chip("sector","Kaupapa · Sector",SECTORS)}
+      ${chip("region","Rohe · Region",REGIONS)}
+      ${chip("type","Funder type",TYPES)}
+      ${chip("when","When to apply",WHEN)}
+      ${chip("who","Who can apply",WHO)}
+      <select id="sort" aria-label="Sort">
+        <option value="relevance" ${state.sort==="relevance"?"selected":""}>Sort: Best match</option>
+        <option value="deadline" ${state.sort==="deadline"?"selected":""}>Sort: Closing soonest</option>
+        <option value="local" ${state.sort==="local"?"selected":""}>Sort: Local funders first</option>
+        <option value="az" ${state.sort==="az"?"selected":""}>Sort: A to Z</option>
+      </select>
+    </div>
+    <div class="applied">${applied.join("")}${applied.length?`<button class="linkbtn" id="clear">Clear all</button>`:""}</div>
+    <div class="resultbar"><span><b>${r.length}</b> of ${DATA.funds.length} funds</span><a href="#alerts">Email me when these change →</a></div>
+    <div class="list">${r.length ? r.map(card).join("") : `<div class="empty">No funds match all of those filters. Try removing one, or <button class="linkbtn" id="clear2">clear all filters</button>.</div>`}</div>
+  </section>`;
+}
+function detail(id){
+  const f = DATA.funds.find(x => x.id === id);
+  if (!f){ app.innerHTML = `<section class="wrap page"><h1>We couldn't find that fund</h1><p><a href="#browse">Back to all funds</a></p></section>`; return; }
+  const d = daysUntil(f.nextDeadline);
+  const changes = (f.history||[]).slice(-5).reverse();
+  app.innerHTML = `<section class="wrap detail">
+    <div style="min-width:0">
+      <a class="back" href="#browse">← All funds</a>
+      <div class="meta" style="margin-bottom:10px"><span class="pill type">${esc(f.funderType)}</span>${f.verified?`<span class="pill anytime">Checked by a person</span>`:""}</div>
+      <h1>${esc(f.name)}</h1>
+      <p style="color:var(--muted);margin:6px 0 0">${esc(f.funder)}</p>
+      <p style="font-size:1.08rem;max-width:62ch">${esc(f.summary)}</p>
+      <dl class="facts-table">
+        <dt>Kaupapa · Sector</dt><dd>${f.sectors.map(esc).join(", ")}</dd>
+        <dt>Rohe · Region</dt><dd>${f.regions.map(esc).join(", ")}</dd>
+        <dt>Who can apply</dt><dd>${f.eligible.map(esc).join(", ")}</dd>
+        <dt>How to apply</dt><dd>${esc(f.howToApply)}</dd>
+        <dt>Next closing date</dt><dd>${f.nextDeadline ? esc(new Date(f.nextDeadline).toLocaleDateString("en-NZ",{day:"numeric",month:"long",year:"numeric"})) + (d>=0?` (in ${d} days)`:" (passed)") : "Not published yet. We'll email you when one appears."}</dd>
+        <dt>Typical amount</dt><dd>${esc(f.amount)}</dd>
+        <dt>Funder's page</dt><dd><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.url.replace(/^https?:\/\//,""))}</a></dd>
+        <dt>Link health</dt><dd>${linkLine(f)}</dd>
+      </dl>
+      <h2 style="font-size:1.15rem">Recent changes</h2>
+      ${changes.length ? `<ul>${changes.map(c=>`<li>${esc(c.date)}: ${esc(c.text)}</li>`).join("")}</ul>` : `<p style="color:var(--muted)">No changes recorded yet. Our nightly check logs every change to this page here.</p>`}
+    </div>
+    <aside class="panel">
+      <a class="btn" href="${esc(f.url)}" target="_blank" rel="noopener">Go to the funder's page ↗</a>
+      <a class="btn ghost" href="#alerts" data-follow="${esc(f.id)}">Alert me when this changes</a>
+      <div class="note">Always confirm dates and criteria on the funder's own page before applying.</div>
+      <button class="linkbtn" style="text-align:left" id="report">Something wrong? Tell us</button>
+      <p id="reported" hidden style="margin:0;font-size:.88rem;color:var(--muted)">Thanks. In the live site this goes to the editor's review queue.</p>
+    </aside>
+  </section>`;
+}
+const M = { who:null, region:null, sector:null };
+function match(){
+  const opt = (k, list) => `<div class="opts">${list.map(o=>`<button type="button" class="opt" data-m="${k}" data-v="${esc(o)}" aria-pressed="${M[k]===o}">${esc(o)}</button>`).join("")}</div>`;
+  const ready = M.who && M.region && M.sector;
+  let n = 0;
+  if (ready) n = DATA.funds.filter(f => f.eligible.includes(M.who) && (f.regions.includes("Nationwide")||f.regions.includes(M.region)) && f.sectors.includes(M.sector)).length;
+  app.innerHTML = `<section class="wrap page">
+    <div class="eyebrow">Three questions</div>
+    <h1>Which funds suit you?</h1>
+    <p>Answer three quick questions and we'll shortlist the funds you're most likely eligible for.</p>
+    <div class="steps">
+      <div class="step"><h2>1. Who is applying?</h2>${opt("who",WHO)}</div>
+      <div class="step"><h2>2. Where are you based?</h2>${opt("region",REGIONS)}</div>
+      <div class="step"><h2>3. What is the money for?</h2>${opt("sector",SECTORS)}</div>
+    </div>
+    <p style="margin-top:24px">${ready ? `<button class="btn" id="showmatch">Show my ${n} fund${n===1?"":"s"} →</button>` : `<span style="color:var(--muted)">Pick one answer for each question.</span>`}</p>
+  </section>`;
+}
+let follow = null;
+function alerts(){
+  const f = follow && DATA.funds.find(x=>x.id===follow);
+  app.innerHTML = `<section class="wrap page">
+    <div class="eyebrow">Free alerts</div>
+    <h1>Hear about new rounds before they close.</h1>
+    <p>Each week we email you what changed for the funds you care about: new rounds, closing dates, moved pages and new funders. Unsubscribe in one click.</p>
+    <form class="sub" id="subform" novalidate>
+      ${f?`<div class="ok-msg">You'll also get alerts for <b>${esc(f.name)}</b>.</div>`:""}
+      <label class="f" for="email">Email address<input id="email" name="email" type="email" autocomplete="email" required placeholder="you@yourgroup.org.nz"></label>
+      <div><div style="font-weight:600;font-size:.94rem;margin-bottom:6px">Kaupapa you care about</div>
+        <div class="checks">${SECTORS.map((s,i)=>`<label><input type="checkbox" name="tag" id="t${i}" value="${esc(s)}"> ${esc(s)}</label>`).join("")}</div></div>
+      <label class="f" for="rohe">Your region<select id="rohe" name="region"><option value="">All of New Zealand</option>${REGIONS.map(r=>`<option>${esc(r)}</option>`).join("")}</select></label>
+      <button class="btn" type="submit" style="justify-self:start">Send me alerts</button>
+      <p id="suberr" hidden style="color:var(--bad);margin:0"></p>
+      <p style="font-size:.85rem;color:var(--muted);margin:0">We only use your email to send these alerts. Every email has an unsubscribe link, as required by the Unsolicited Electronic Messages Act.</p>
+    </form>
+    <div id="subok" class="ok-msg" hidden style="margin-top:16px"></div>
+  </section>`;
+}
+function about(){
+  app.innerHTML = `<section class="wrap page">
+    <div class="eyebrow">How it works</div>
+    <h1>A funding directory that keeps itself up to date.</h1>
+    <p>Every night a set of small automated checkers visits each funder's page. They look for four things:</p>
+    <ul>
+      <li><b>Broken or moved links</b>, so you never click through to a dead page.</li>
+      <li><b>Page changes</b>, so we know when criteria or forms have been updated.</li>
+      <li><b>New rounds and closing dates</b>, picked out of the page text.</li>
+      <li><b>Open or closed wording</b>, such as “applications are now open”.</li>
+    </ul>
+    <p>Anything new is flagged for a person to confirm, then sent to subscribers in a weekly email.</p>
+    <h2 style="font-size:1.2rem;margin-top:28px">How this compares</h2>
+    <div class="tablewrap"><table class="compare">
+      <thead><tr><th></th><th>Puna Pūtea</th><th>Library / council databases</th><th>Single-funder sites</th></tr></thead>
+      <tbody>
+        <tr><td>Free, no login</td><td class="y">Yes</td><td>Via library or council only</td><td>Yes</td></tr>
+        <tr><td>All sectors and funder types</td><td class="y">Yes</td><td>Mostly</td><td>One funder</td></tr>
+        <tr><td>Shows when each listing was last checked</td><td class="y">Yes, nightly</td><td>No</td><td>No</td></tr>
+        <tr><td>Emails you when a fund changes</td><td class="y">Yes</td><td>Some</td><td>Rarely</td></tr>
+        <tr><td>Three-question eligibility match</td><td class="y">Yes</td><td>Filters only</td><td>No</td></tr>
+      </tbody></table></div>
+  </section>`;
+}
+function route(){
+  const h = location.hash.replace(/^#/,"") || "browse";
+  const nav = h.startsWith("fund-") ? "browse" : h;
+  document.querySelectorAll("[data-nav]").forEach(a => a.dataset.nav===nav ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
+  state.open = null;
+  if (h.startsWith("fund-")) detail(h.slice(5));
+  else if (h === "match") match();
+  else if (h === "alerts") alerts();
+  else if (h === "about") about();
+  else browse();
+}
+function rerender(keepFocus){ browse(); if (keepFocus){ const el = document.querySelector(`[data-chip="${state.open}"]`); el && el.focus(); } }
+
+app.addEventListener("click", e => {
+  const t = e.target.closest("button, a");
+  if (!t) return;
+  if (t.dataset.chip){ state.open = state.open===t.dataset.chip ? null : t.dataset.chip; rerender(true); return; }
+  if (t.dataset.rm){ state[t.dataset.rm].delete(t.dataset.v); rerender(); return; }
+  if (t.id==="clear"||t.id==="clear2"){ ["sector","region","type","when","who"].forEach(k=>state[k].clear()); state.q=""; rerender(); return; }
+  if (t.dataset.m){ M[t.dataset.m] = t.dataset.v; match(); return; }
+  if (t.id==="showmatch"){ state.who=new Set([M.who]); state.region=new Set([M.region]); state.sector=new Set([M.sector]); location.hash="browse"; return; }
+  if (t.dataset.follow){ follow = t.dataset.follow; }
+  if (t.id==="report"){ document.getElementById("reported").hidden=false; t.hidden=true; }
+});
+app.addEventListener("change", e => {
+  const t = e.target;
+  if (t.dataset.k){ t.checked ? state[t.dataset.k].add(t.value) : state[t.dataset.k].delete(t.value); state.open=t.dataset.k; rerender(); const m=document.querySelector(`.menu input[value="${CSS.escape(t.value)}"]`); m&&m.focus(); }
+  if (t.id==="sort"){ state.sort=t.value; rerender(); }
+});
+app.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (e.target.id==="sform"){ state.q=document.getElementById("q").value.trim(); rerender(); return; }
+  if (e.target.id==="subform"){
+    const fd = new FormData(e.target);
+    const email = String(fd.get("email")||"").trim();
+    const err = document.getElementById("suberr");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent="Please enter a full email address, like name@example.org.nz."; err.hidden=false; return; }
+    err.hidden=true;
+    const tags = fd.getAll("tag"); const region = fd.get("region"); if (region) tags.push("Region: "+region); if (follow) tags.push("Fund: "+follow);
+    const ok = document.getElementById("subok");
+    if (CONFIG.buttondownUser){
+      const body = new FormData(); body.append("email", email); tags.forEach(t=>body.append("tag", t));
+      try { await fetch(`https://buttondown.com/api/emails/embed-subscribe/${encodeURIComponent(CONFIG.buttondownUser)}`, {method:"POST", body, mode:"no-cors"});
+        ok.textContent = `Check ${email} for a confirmation email. Tap the link in it to start your alerts.`; }
+      catch(_){ err.textContent="We couldn't reach the alerts service. Please try again in a minute."; err.hidden=false; return; }
+    } else {
+      ok.textContent = `Preview only: no email was sent. On the live site, ${email} would get a confirmation email and then weekly alerts${tags.length?` for ${tags.join(", ")}`:""}.`;
+    }
+    e.target.hidden = true; ok.hidden = false;
+  }
+});
+document.addEventListener("click", e => { if (state.open && !e.target.closest(".chip")){ state.open=null; if (!location.hash || location.hash==="#browse") rerender(); } });
+document.addEventListener("keydown", e => { if (e.key==="Escape" && state.open){ const k=state.open; state.open=null; rerender(); const b=document.querySelector(`[data-chip="${k}"]`); b&&b.focus(); } });
+window.addEventListener("hashchange", () => { route(); window.scrollTo(0,0); });
+
+fetch("data/funds.json").then(r => r.json()).then(d => { DATA = d; route(); })
+  .catch(() => { app.innerHTML = `<section class="wrap page"><h1>We couldn't load the fund list</h1><p>Refresh the page to try again.</p></section>`; });
+})();
+</script>

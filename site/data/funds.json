@@ -1,0 +1,1337 @@
+{
+  "updated": null,
+  "funds": [
+    {
+      "id": "lottery-community",
+      "name": "Lottery Community",
+      "funder": "Lottery Grants Board (DIA)",
+      "funderType": "Government",
+      "sectors": [
+        "Community",
+        "Health & wellbeing"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.communitymatters.govt.nz/",
+      "summary": "Funding for community groups that build stronger, more resilient communities. Applied for through DIA Community Matters.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "community-organisation-grants-scheme-cogs",
+      "name": "Community Organisation Grants Scheme (COGS)",
+      "funder": "Department of Internal Affairs",
+      "funderType": "Government",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Usually small grants",
+      "url": "https://www.communitymatters.govt.nz/",
+      "summary": "Locally decided grants for grassroots groups, run through 37 local distribution committees across Aotearoa.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "creative-new-zealand-funding",
+      "name": "Creative New Zealand funding",
+      "funder": "Creative New Zealand",
+      "funderType": "Government",
+      "sectors": [
+        "Arts & culture"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Individuals",
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.creativenz.govt.nz/funding-and-support",
+      "summary": "Grants and programmes for artists, arts organisations and Pacific and Māori arts.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "creative-communities-scheme",
+      "name": "Creative Communities Scheme",
+      "funder": "Creative New Zealand via local councils",
+      "funderType": "Government",
+      "sectors": [
+        "Arts & culture"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Individuals",
+        "Community groups"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Usually small grants",
+      "url": "https://www.creativenz.govt.nz/funding-and-support",
+      "summary": "Small grants for local arts projects, administered by each district or city council.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "sport-nz-funding",
+      "name": "Sport NZ funding",
+      "funder": "Sport New Zealand",
+      "funderType": "Government",
+      "sectors": [
+        "Sport & recreation",
+        "Education & youth"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Schools"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://sportnz.org.nz/funding/",
+      "summary": "Funds for play, active recreation and sport, including Tū Manawa Active Aotearoa via regional sports trusts.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "nz-on-air-funding",
+      "name": "NZ On Air funding",
+      "funder": "NZ On Air",
+      "funderType": "Government",
+      "sectors": [
+        "Arts & culture",
+        "Media"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Businesses",
+        "Individuals"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.nzonair.govt.nz/",
+      "summary": "Funding for New Zealand screen, music, podcasts and journalism content.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "ministry-for-culture-and-heritage-funds",
+      "name": "Ministry for Culture and Heritage funds",
+      "funder": "Manatū Taonga",
+      "funderType": "Government",
+      "sectors": [
+        "Heritage",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.mch.govt.nz/",
+      "summary": "Heritage, commemoration and cultural sector funds from Manatū Taonga.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "doc-community-fund",
+      "name": "DOC Community Fund",
+      "funder": "Department of Conservation",
+      "funderType": "Government",
+      "sectors": [
+        "Environment"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.doc.govt.nz/get-involved/funding/",
+      "summary": "Supports community-led conservation projects on public and private land.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "waste-minimisation-fund",
+      "name": "Waste Minimisation Fund",
+      "funder": "Ministry for the Environment",
+      "funderType": "Government",
+      "sectors": [
+        "Environment"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Businesses"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://environment.govt.nz/",
+      "summary": "Funds projects that reduce waste and increase resource recovery.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "te-puni-kokiri-funding",
+      "name": "Te Puni Kōkiri funding",
+      "funder": "Te Puni Kōkiri",
+      "funderType": "Government",
+      "sectors": [
+        "Māori & iwi",
+        "Community"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Marae, iwi & hapū",
+        "Community groups"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.tpk.govt.nz/",
+      "summary": "Investment for whānau, hapū, iwi and Māori communities, including marae support.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "te-matawai-investment",
+      "name": "Te Mātāwai investment",
+      "funder": "Te Mātāwai",
+      "funderType": "Government",
+      "sectors": [
+        "Māori & iwi",
+        "Education & youth"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Marae, iwi & hapū",
+        "Community groups"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.tematawai.maori.nz/",
+      "summary": "Funding to revitalise te reo Māori in homes and communities.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "eeca-co-funding",
+      "name": "EECA co-funding",
+      "funder": "Energy Efficiency & Conservation Authority",
+      "funderType": "Government",
+      "sectors": [
+        "Environment",
+        "Business & innovation"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Businesses",
+        "Community groups"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.eeca.govt.nz/",
+      "summary": "Co-funding for low-emissions energy and transport projects.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "mpi-funding-programmes",
+      "name": "MPI funding programmes",
+      "funder": "Ministry for Primary Industries",
+      "funderType": "Government",
+      "sectors": [
+        "Business & innovation",
+        "Environment"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Businesses",
+        "Community groups"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.mpi.govt.nz/funding-rural-support/",
+      "summary": "Funding for food, fibre, rural communities and land projects.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "government-business-funding-funding-explorer",
+      "name": "Government business funding (Funding Explorer)",
+      "funder": "business.govt.nz / MBIE",
+      "funderType": "Government",
+      "sectors": [
+        "Business & innovation"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Businesses"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.business.govt.nz/",
+      "summary": "Government grants and programmes for businesses, searchable through Funding Explorer.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "nzct-grants",
+      "name": "NZCT grants",
+      "funder": "NZ Community Trust",
+      "funderType": "Gaming trust",
+      "sectors": [
+        "Sport & recreation",
+        "Community",
+        "Arts & culture",
+        "Education & youth"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Schools"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.nzct.org.nz/",
+      "summary": "One of NZ's largest gaming trusts. Funds amateur sport, community, arts and education groups near its venues.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "pub-charity-grants",
+      "name": "Pub Charity grants",
+      "funder": "Pub Charity Limited",
+      "funderType": "Gaming trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation",
+        "Health & wellbeing"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Schools"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.pubcharitylimited.org.nz/",
+      "summary": "Gaming trust grants for community, sport and emergency services groups.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "lion-foundation-grants",
+      "name": "Lion Foundation grants",
+      "funder": "The Lion Foundation",
+      "funderType": "Gaming trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation",
+        "Education & youth"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Schools"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.lionfoundation.org.nz/",
+      "summary": "Grants to community groups in areas where its gaming venues operate.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "four-winds-foundation-grants",
+      "name": "Four Winds Foundation grants",
+      "funder": "Four Winds Foundation",
+      "funderType": "Gaming trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.fourwinds.co.nz/",
+      "summary": "Gaming trust grants for authorised community purposes.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "aotearoa-gaming-trust-grants",
+      "name": "Aotearoa Gaming Trust grants",
+      "funder": "Aotearoa Gaming Trust",
+      "funderType": "Gaming trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.aotearoagamingtrust.org.nz/",
+      "summary": "Gaming trust grants returned to communities where funds are raised.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "trillian-trust-grants",
+      "name": "Trillian Trust grants",
+      "funder": "Trillian Trust",
+      "funderType": "Gaming trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.trilliantrust.org.nz/",
+      "summary": "Gaming trust grants for community and sporting groups.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "grassroots-trust-grants",
+      "name": "Grassroots Trust grants",
+      "funder": "Grassroots Trust",
+      "funderType": "Gaming trust",
+      "sectors": [
+        "Sport & recreation",
+        "Community"
+      ],
+      "regions": [
+        "Auckland",
+        "Waikato",
+        "Bay of Plenty",
+        "Wellington"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.grassrootstrust.co.nz/",
+      "summary": "Gaming trust grants with a strong focus on local sport and community.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "the-trusts-community-foundation-grants",
+      "name": "The Trusts Community Foundation grants",
+      "funder": "TTCF",
+      "funderType": "Gaming trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.ttcf.org.nz/",
+      "summary": "Gaming trust grants for community, sport and charitable purposes.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "foundation-north-grants",
+      "name": "Foundation North grants",
+      "funder": "Foundation North",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Environment",
+        "Arts & culture",
+        "Māori & iwi",
+        "Health & wellbeing"
+      ],
+      "regions": [
+        "Auckland",
+        "Northland"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Marae, iwi & hapū"
+      ],
+      "howToApply": "Open anytime",
+      "amount": "Varies",
+      "url": "https://www.foundationnorth.org.nz/",
+      "summary": "Community trust for Tāmaki Makaurau and Te Tai Tokerau, with grants and long-term investments.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "rata-foundation-grants",
+      "name": "Rātā Foundation grants",
+      "funder": "Rātā Foundation",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Education & youth",
+        "Health & wellbeing",
+        "Environment"
+      ],
+      "regions": [
+        "Canterbury",
+        "Nelson",
+        "Marlborough",
+        "Chatham Islands"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.ratafoundation.org.nz/",
+      "summary": "Community trust funding learn, support, participate and connect outcomes in its regions.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "trust-waikato-grants",
+      "name": "Trust Waikato grants",
+      "funder": "Trust Waikato",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Health & wellbeing",
+        "Environment",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Waikato"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Marae, iwi & hapū"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.trustwaikato.co.nz/",
+      "summary": "Community trust grants for groups across the Waikato.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "tect-community-grants",
+      "name": "TECT community grants",
+      "funder": "TECT",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Bay of Plenty"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.tect.org.nz/",
+      "summary": "Community grants for Tauranga and the Western Bay of Plenty.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "bay-trust-grants",
+      "name": "Bay Trust grants",
+      "funder": "Bay Trust",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Environment"
+      ],
+      "regions": [
+        "Bay of Plenty"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Marae, iwi & hapū"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.baytrust.org.nz/",
+      "summary": "Community trust for the eastern Bay of Plenty.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "rotorua-trust-grants",
+      "name": "Rotorua Trust grants",
+      "funder": "Rotorua Trust",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Bay of Plenty"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.rotoruatrust.org.nz/",
+      "summary": "Grants for community groups in the Rotorua district.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "wellington-community-fund",
+      "name": "Wellington Community Fund",
+      "funder": "Wellington Community Fund",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Wellington"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://wellingtoncommunityfund.org.nz/",
+      "summary": "Community trust for the Wellington region.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "eastern-central-community-trust-grants",
+      "name": "Eastern & Central Community Trust grants",
+      "funder": "Eastern & Central Community Trust",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Hawke's Bay",
+        "Manawatū-Whanganui",
+        "Wellington",
+        "Gisborne"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.ecct.org.nz/",
+      "summary": "Community trust grants across the lower North Island's eastern and central regions.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "toi-foundation-grants",
+      "name": "Toi Foundation grants",
+      "funder": "Toi Foundation",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Arts & culture",
+        "Sport & recreation"
+      ],
+      "regions": [
+        "Taranaki"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.toifoundation.org.nz/",
+      "summary": "Community foundation for Taranaki (formerly TSB Community Trust).",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "otago-community-trust-grants",
+      "name": "Otago Community Trust grants",
+      "funder": "Otago Community Trust",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Arts & culture",
+        "Environment"
+      ],
+      "regions": [
+        "Otago"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.oct.org.nz/",
+      "summary": "Community trust grants for Otago groups.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "community-trust-south-grants",
+      "name": "Community Trust South grants",
+      "funder": "Community Trust South",
+      "funderType": "Community trust",
+      "sectors": [
+        "Community",
+        "Sport & recreation"
+      ],
+      "regions": [
+        "Southland",
+        "Otago"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.communitytrustsouth.nz/",
+      "summary": "Community trust for Southland and parts of Otago.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "j-r-mckenzie-trust-grants",
+      "name": "J R McKenzie Trust grants",
+      "funder": "J R McKenzie Trust",
+      "funderType": "Philanthropic",
+      "sectors": [
+        "Community",
+        "Māori & iwi",
+        "Education & youth"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Marae, iwi & hapū"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.jrmckenzie.org.nz/",
+      "summary": "Family trust focused on a socially just and inclusive Aotearoa.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "the-tindall-foundation",
+      "name": "The Tindall Foundation",
+      "funder": "The Tindall Foundation",
+      "funderType": "Philanthropic",
+      "sectors": [
+        "Community",
+        "Environment",
+        "Health & wellbeing"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://tindall.org.nz/",
+      "summary": "Family foundation funding mostly through local funding managers and partners.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "todd-foundation",
+      "name": "Todd Foundation",
+      "funder": "Todd Foundation",
+      "funderType": "Philanthropic",
+      "sectors": [
+        "Community",
+        "Education & youth"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.toddfoundation.org.nz/",
+      "summary": "Family foundation partnering with communities for change.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "hugh-green-foundation",
+      "name": "Hugh Green Foundation",
+      "funder": "Hugh Green Foundation",
+      "funderType": "Philanthropic",
+      "sectors": [
+        "Health & wellbeing",
+        "Education & youth"
+      ],
+      "regions": [
+        "Auckland"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.hughgreenfoundation.org.nz/",
+      "summary": "Supports health, education and youth programmes, mainly in Auckland.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "perpetual-guardian-foundation",
+      "name": "Perpetual Guardian Foundation",
+      "funder": "Perpetual Guardian",
+      "funderType": "Philanthropic",
+      "sectors": [
+        "Community",
+        "Education & youth",
+        "Health & wellbeing"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Individuals"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.perpetualguardian.co.nz/",
+      "summary": "Distributes from many charitable trusts and scholarships it manages.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "public-trust-grants",
+      "name": "Public Trust grants",
+      "funder": "Public Trust",
+      "funderType": "Philanthropic",
+      "sectors": [
+        "Community",
+        "Education & youth"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Individuals"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.publictrust.co.nz/",
+      "summary": "Grants and scholarships from charitable trusts Public Trust administers.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "acorn-foundation-grants",
+      "name": "Acorn Foundation grants",
+      "funder": "Acorn Foundation",
+      "funderType": "Philanthropic",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Bay of Plenty"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Individuals"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.acornfoundation.org.nz/",
+      "summary": "Community foundation for the Western Bay of Plenty.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "philanthropy-nz-fundseeker",
+      "name": "Philanthropy NZ Fundseeker",
+      "funder": "Philanthropy New Zealand",
+      "funderType": "Philanthropic",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Directory",
+      "url": "https://philanthropy.org.nz/fundseeker",
+      "summary": "Philanthropy NZ's own guide to finding funders. Useful cross-check.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "auckland-council-grants",
+      "name": "Auckland Council grants",
+      "funder": "Auckland Council",
+      "funderType": "Council",
+      "sectors": [
+        "Community",
+        "Arts & culture",
+        "Environment",
+        "Sport & recreation"
+      ],
+      "regions": [
+        "Auckland"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Individuals"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.aucklandcouncil.govt.nz/",
+      "summary": "Local board and regional grants for Auckland communities.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "wellington-city-council-funding",
+      "name": "Wellington City Council funding",
+      "funder": "Wellington City Council",
+      "funderType": "Council",
+      "sectors": [
+        "Community",
+        "Arts & culture",
+        "Environment"
+      ],
+      "regions": [
+        "Wellington"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://wellington.govt.nz/",
+      "summary": "City council grants for community, arts and environment projects.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "christchurch-city-council-funding",
+      "name": "Christchurch City Council funding",
+      "funder": "Christchurch City Council",
+      "funderType": "Council",
+      "sectors": [
+        "Community",
+        "Sport & recreation",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Canterbury"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://ccc.govt.nz/",
+      "summary": "Community funding from Christchurch City Council and its community boards.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "dunedin-city-council-grants",
+      "name": "Dunedin City Council grants",
+      "funder": "Dunedin City Council",
+      "funderType": "Council",
+      "sectors": [
+        "Community",
+        "Arts & culture",
+        "Heritage"
+      ],
+      "regions": [
+        "Otago"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.dunedin.govt.nz/",
+      "summary": "Community, arts and heritage grants from Dunedin City Council.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "hamilton-city-council-grants",
+      "name": "Hamilton City Council grants",
+      "funder": "Hamilton City Council",
+      "funderType": "Council",
+      "sectors": [
+        "Community",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Waikato"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://hamilton.govt.nz/",
+      "summary": "Community and events funding for Kirikiriroa Hamilton.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "tasman-district-council-grants",
+      "name": "Tasman District Council grants",
+      "funder": "Tasman District Council",
+      "funderType": "Council",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Tasman"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.tasman.govt.nz/my-community/grants-and-funding/grantguru",
+      "summary": "Council grants for Tasman communities.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "selwyn-district-council-funding",
+      "name": "Selwyn District Council funding",
+      "funder": "Selwyn District Council",
+      "funderType": "Council",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Canterbury"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.selwyn.govt.nz/community/selwyn-funding-finder",
+      "summary": "Council funding and a district funding finder for Selwyn.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "manawatu-district-council-funding",
+      "name": "Manawatū District Council funding",
+      "funder": "Manawatū District Council",
+      "funderType": "Council",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Manawatū-Whanganui"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.mdc.govt.nz/services/community-funding/manawatu-grant-finder",
+      "summary": "Council community funding for the Manawatū district.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    },
+    {
+      "id": "z-good-in-the-hood",
+      "name": "Z Good in the Hood",
+      "funder": "Z Energy",
+      "funderType": "Corporate",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Nationwide"
+      ],
+      "eligible": [
+        "Community groups",
+        "Schools"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Small grants",
+      "url": "https://z.co.nz/",
+      "summary": "Z stations share a pool of funding among local groups each year, chosen with customer votes.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false
+    }
+  ]
+}
