@@ -10,6 +10,30 @@ import json, os, pathlib
 root = pathlib.Path(__file__).resolve().parent.parent / "site"
 body = (root / "app.html").read_text()
 cfg = {"buttondownUser": os.environ.get("BUTTONDOWN_USER", "")}
+
+# Paddle checkout (Apple Pay, PayPal and cards in one overlay). Set these as
+# GitHub repo variables once the Paddle account is approved:
+#   PADDLE_CLIENT_TOKEN  client-side token (starts live_ or test_)
+#   PADDLE_PRICES        JSON, e.g. {"alerts-m":"pri_...","alerts-y":"pri_...","writer-m":"pri_...","writer-y":"pri_..."}
+paddle_token = os.environ.get("PADDLE_CLIENT_TOKEN", "")
+paddle_prices = os.environ.get("PADDLE_PRICES", "{}")
+paddle = ""
+if paddle_token:
+    env = "sandbox" if paddle_token.startswith("test_") else "production"
+    paddle = f"""<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script>
+(function(){{
+  var prices = {paddle_prices};
+  if ("{env}" === "sandbox") Paddle.Environment.set("sandbox");
+  Paddle.Initialize({{ token: "{paddle_token}" }});
+  window.PUNA_CONFIG.checkout = function(plan, yearly){{
+    var id = prices[plan + (yearly ? "-y" : "-m")];
+    if (!id) return;
+    Paddle.Checkout.open({{ items: [{{ priceId: id, quantity: 1 }}], settings: {{ displayMode: "overlay", locale: "en", successUrl: location.origin + location.pathname + "#alerts" }} }});
+  }};
+}})();
+</script>
+"""
 head = f"""<!doctype html>
 <html lang="en-NZ">
 <head>
@@ -24,7 +48,7 @@ head = f"""<!doctype html>
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <script>window.PUNA_CONFIG={json.dumps(cfg)};
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {{}}));</script>
-</head>
+{paddle}</head>
 <body>
 """
 (root / "index.html").write_text(head + body + "\n</body>\n</html>\n")

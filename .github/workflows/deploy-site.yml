@@ -31,6 +31,8 @@ jobs:
       - name: Build page
         env:
           BUTTONDOWN_USER: ${{ vars.BUTTONDOWN_USER }}
+          PADDLE_CLIENT_TOKEN: ${{ vars.PADDLE_CLIENT_TOKEN }}
+          PADDLE_PRICES: ${{ vars.PADDLE_PRICES }}
         run: python3 scripts/build_site.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
