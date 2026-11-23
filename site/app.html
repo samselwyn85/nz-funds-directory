@@ -71,6 +71,33 @@ select#sort{font:inherit;font-size:.92rem;background:var(--surface);color:var(--
 .tagx{font:inherit;font-size:.85rem;border:0;background:var(--fg);color:var(--bg);border-radius:999px;padding:4px 10px;cursor:pointer}
 .linkbtn{font:inherit;font-size:.85rem;background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer}
 
+.seg{margin-top:22px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) auto;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:6px;gap:0;max-width:860px;box-shadow:0 8px 24px rgba(10,40,32,.06)}
+.seg label{display:grid;gap:0;padding:6px 14px;border-right:1px solid var(--line);min-width:0}
+.seg label:nth-child(3){border-right:0}
+.seg label span{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.seg input,.seg select{border:0;background:transparent;font:inherit;font-size:1rem;color:var(--fg);padding:2px 0;min-width:0;width:100%}
+.seg input:focus,.seg select:focus{outline:none}
+.seg label:focus-within{background:var(--accent-soft);border-radius:10px}
+.seg .btn{border-radius:12px;padding:12px 20px}
+.shortcuts{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.sc{font:inherit;font-size:.9rem;display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:7px 12px;cursor:pointer}
+.sc b{font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;font-size:.8rem}
+.sc[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.sc[aria-pressed="true"] b{color:var(--accent-ink)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:12px;overflow-x:auto;scrollbar-width:none}
+.tabs button{font:inherit;font-weight:500;background:none;border:0;border-bottom:2.5px solid transparent;color:var(--muted);padding:10px 12px;cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
+.tabs button b{font-weight:600;font-variant-numeric:tabular-nums;font-size:.8rem;margin-left:4px;color:var(--muted)}
+.card{position:relative}
+.card h3 a{color:inherit;text-decoration:none}
+.card h3 a::after{content:"";position:absolute;inset:0;border-radius:var(--r)}
+.save{position:absolute;top:12px;right:12px;z-index:1;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;font-size:1.05rem;line-height:1;display:grid;place-items:center}
+.save[aria-pressed="true"]{color:var(--bad);border-color:var(--bad)}
+.card .meta:first-child{padding-right:44px}
+.fbtn{display:none}
+.tabbar{display:none}
+.feed{display:grid;gap:8px;margin:0 0 18px;padding:14px 16px;background:var(--kowhai-soft);border-radius:var(--r);font-size:.92rem}
+.feed b{color:var(--kowhai-ink)}
 .resultbar{display:flex;justify-content:space-between;align-items:baseline;padding-block:6px 12px;color:var(--muted);font-size:.92rem}
 .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;padding-bottom:40px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--fg);min-width:0;transition:border-color .15s, transform .15s}
@@ -139,6 +166,22 @@ footer.site{border-top:1px solid var(--line);padding-block:24px;color:var(--mute
   aside.panel{position:static}
 }
 @media (max-width:760px){
+  .seg{grid-template-columns:1fr 1fr;border-radius:14px}
+  .seg label:first-child{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--line)}
+  .seg label:nth-child(2){border-right:1px solid var(--line)}
+  .seg .btn{grid-column:1/-1;justify-content:center;margin-top:6px}
+  .shortcuts{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)))}
+  .sc{white-space:nowrap}
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .chip>button{white-space:nowrap}
+  .facts{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:10px;font-size:.78rem}
+  .facts b{font-size:1.2rem}
+  nav.main{display:none}
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--surface);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+  .tabbar a{display:grid;justify-items:center;gap:2px;text-decoration:none;color:var(--muted);font-size:.72rem;font-weight:500;padding:4px 0;border-radius:10px}
+  .tabbar a svg{width:22px;height:22px}
+  .tabbar a[aria-current="page"]{color:var(--accent);background:var(--accent-soft)}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
   nav.main{margin-left:0;width:100%}
   select#sort{margin-left:0}
   .facts-table{grid-template-columns:1fr;gap:2px}
@@ -157,6 +200,7 @@ footer.site{border-top:1px solid var(--line);padding-block:24px;color:var(--mute
     <nav class="main" aria-label="Main">
       <a href="#browse" data-nav="browse">Browse funds</a>
       <a href="#match" data-nav="match">Find my match</a>
+      <a href="#saved" data-nav="saved">Saved</a>
       <a href="#about" data-nav="about">How it works</a>
       <a href="#pricing" data-nav="pricing">Plans</a>
       <a href="#alerts" data-nav="alerts" class="cta">Get free alerts</a>
@@ -165,6 +209,14 @@ footer.site{border-top:1px solid var(--line);padding-block:24px;color:var(--mute
 </header>
 
 <main id="app"></main>
+
+<nav class="tabbar" aria-label="App">
+  <a href="#browse" data-nav="browse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Explore</a>
+  <a href="#match" data-nav="match"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Match</a>
+  <a href="#saved" data-nav="saved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Saved</a>
+  <a href="#alerts" data-nav="alerts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>Alerts</a>
+  <a href="#pricing" data-nav="pricing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Plans</a>
+</nav>
 
 <footer class="site">
   <div class="wrap">Puna Pūtea is a free directory of New Zealand funding. We check every funder's page nightly, but always confirm details with the funder before you apply. <a href="#about">How we check</a>.</div>
@@ -180,7 +232,19 @@ const WHEN = ["Open anytime","Set rounds","Closing in 30 days","Check funder"];
 const WHO = ["Community groups","Charities","Marae, iwi & hapū","Schools","Businesses","Individuals"];
 
 let DATA = {updated:null, funds:[]};
-const state = { q:"", sector:new Set(), region:new Set(), type:new Set(), when:new Set(), who:new Set(), sort:"relevance", open:null };
+let saved = new Set();
+try { saved = new Set(JSON.parse(localStorage.getItem("puna-saved") || "[]")); } catch(_) {}
+function persistSaved(){ try { localStorage.setItem("puna-saved", JSON.stringify([...saved])); } catch(_) {} }
+const TABS = [["all","All funds"],["anytime","Apply anytime"],["soon","Closing soon"],["changed","Recently changed"],["saved","Saved"]];
+function recent(f){ const h=(f.history||[]).at(-1); return h && (Date.now()-new Date(h.date))/864e5 <= 14; }
+function inTab(f, tab){
+  if (tab==="anytime") return f.howToApply==="Open anytime";
+  if (tab==="soon"){ const d=daysUntil(f.nextDeadline); return d!==null && d>=0 && d<=45; }
+  if (tab==="changed") return recent(f);
+  if (tab==="saved") return saved.has(f.id);
+  return true;
+}
+const state = { tab:"all", q:"", sector:new Set(), region:new Set(), type:new Set(), when:new Set(), who:new Set(), sort:"relevance", open:null };
 const app = document.getElementById("app");
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
@@ -215,7 +279,7 @@ function matches(f, skip){
   return true;
 }
 function results(){
-  let r = DATA.funds.filter(f => matches(f));
+  let r = DATA.funds.filter(f => matches(f) && inTab(f, state.tab));
   if (state.sort === "deadline") r.sort((a,b) => (daysUntil(a.nextDeadline) ?? 9e9) - (daysUntil(b.nextDeadline) ?? 9e9));
   else if (state.sort === "az") r.sort((a,b) => a.name.localeCompare(b.name));
   else if (state.sort === "local") r.sort((a,b) => (a.regions.includes("Nationwide")) - (b.regions.includes("Nationwide")));
@@ -227,14 +291,16 @@ function card(f){
     ? `<span class="pill soon">Closes in ${d} day${d===1?"":"s"}</span>`
     : f.howToApply === "Open anytime" ? `<span class="pill anytime">Apply anytime</span>` : `<span class="pill">${esc(f.howToApply)}</span>`;
   const region = f.regions.includes("Nationwide") ? "Nationwide" : f.regions.slice(0,2).join(", ") + (f.regions.length>2 ? " +"+(f.regions.length-2) : "");
-  return `<a class="card" href="#fund-${esc(f.id)}">
+  const on = saved.has(f.id);
+  return `<article class="card">
+    <button type="button" class="save" data-save="${esc(f.id)}" aria-pressed="${on}" aria-label="${on?"Remove from saved":"Save"} ${esc(f.name)}">${on?"♥":"♡"}</button>
     <div class="meta"><span class="pill type">${esc(f.funderType)}</span>${when}</div>
-    <h3>${esc(f.name)}</h3>
+    <h3><a href="#fund-${esc(f.id)}">${esc(f.name)}</a></h3>
     <div class="by">${esc(f.funder)}</div>
     <p>${esc(f.summary)}</p>
     <div class="meta">${f.sectors.slice(0,3).map(s=>`<span class="pill">${esc(s)}</span>`).join("")}<span class="pill">📍 ${esc(region)}</span></div>
     <div class="foot">${linkLine(f)}<span>${esc(f.amount)}</span></div>
-  </a>`;
+  </article>`;
 }
 function chip(key, label, options){
   const set = state[key];
@@ -257,11 +323,13 @@ function browse(){
     <div class="eyebrow">Ngā pūtea katoa · every fund in Aotearoa</div>
     <h1>Find funding for your mahi, in one place.</h1>
     <p class="lede">Government, gaming trusts, community trusts, councils and philanthropy. Free to search, no login. We re-check every funder's page each night and tell you when something changes.</p>
-    <form class="search" role="search" id="sform">
-      <span aria-hidden="true">🔎</span>
-      <input id="q" type="search" placeholder="Try “marae”, “sports gear”, “Waikato arts”" value="${esc(state.q)}" aria-label="Search funds">
+    <form class="seg" role="search" id="sform">
+      <label for="q"><span>What's it for?</span><input id="q" type="search" placeholder="e.g. marae kitchen, netball uniforms" value="${esc(state.q)}"></label>
+      <label for="qr"><span>Where</span><select id="qr"><option value="">All of Aotearoa</option>${REGIONS.map(x=>`<option ${state.region.size===1&&state.region.has(x)?"selected":""}>${esc(x)}</option>`).join("")}</select></label>
+      <label for="qw"><span>Who's applying</span><select id="qw"><option value="">Anyone</option>${WHO.map(x=>`<option ${state.who.size===1&&state.who.has(x)?"selected":""}>${esc(x)}</option>`).join("")}</select></label>
       <button class="btn" type="submit">Search</button>
     </form>
+    <div class="shortcuts" aria-label="Browse by kaupapa">${SECTORS.map(x=>{const n=DATA.funds.filter(f=>f.sectors.includes(x)).length; return n?`<button type="button" class="sc" data-sc="${esc(x)}" aria-pressed="${state.sector.has(x)}">${esc(x)} <b>${n}</b></button>`:"";}).join("")}</div>
     <div class="facts">
       <div><b>${DATA.funds.length}</b>funds listed</div>
       <div><b>${funders}</b>funders</div>
@@ -284,8 +352,11 @@ function browse(){
       </select>
     </div>
     <div class="applied">${applied.join("")}${applied.length?`<button class="linkbtn" id="clear">Clear all</button>`:""}</div>
+    <div class="tabs" role="tablist">${TABS.map(([k,l])=>`<button role="tab" data-tab="${k}" aria-selected="${state.tab===k}">${l}<b>${DATA.funds.filter(f=>matches(f)&&inTab(f,k)).length}</b></button>`).join("")}</div>
+    ${state.tab==="changed" && !r.length ? `<div class="feed"><div><b>Nothing new in the last two weeks yet.</b> After each nightly check, funds with new rounds, new closing dates or moved pages show up here.</div></div>`:""}
+    ${state.tab==="saved" && !r.length ? `<div class="feed"><div><b>No saved funds yet.</b> Tap the heart on any fund to keep it here on this device.</div></div>`:""}
     <div class="resultbar"><span><b>${r.length}</b> of ${DATA.funds.length} funds</span><a href="#alerts">Email me when these change →</a></div>
-    <div class="list">${r.length ? r.map(card).join("") : `<div class="empty">No funds match all of those filters. Try removing one, or <button class="linkbtn" id="clear2">clear all filters</button>.</div>`}</div>
+    <div class="list">${r.length ? r.map(card).join("") : (state.tab==="changed"||state.tab==="saved") ? "" : `<div class="empty">No funds match all of those filters. Try removing one, or <button class="linkbtn" id="clear2">clear all filters</button>.</div>`}</div>
   </section>`;
 }
 function detail(id){
@@ -316,6 +387,7 @@ function detail(id){
     <aside class="panel">
       <a class="btn" href="${esc(f.url)}" target="_blank" rel="noopener">Go to the funder's page ↗</a>
       <a class="btn ghost" href="#alerts" data-follow="${esc(f.id)}">Alert me when this changes</a>
+      <button type="button" class="btn ghost" data-save="${esc(f.id)}" aria-pressed="${saved.has(f.id)}">${saved.has(f.id)?"♥ Saved":"♡ Save this fund"}</button>
       <div class="note">Always confirm dates and criteria on the funder's own page before applying.</div>
       <button class="linkbtn" style="text-align:left" id="report">Something wrong? Tell us</button>
       <p id="reported" hidden style="margin:0;font-size:.88rem;color:var(--muted)">Thanks. In the live site this goes to the editor's review queue.</p>
@@ -427,6 +499,7 @@ function checkout(){
 function route(){
   const h = location.hash.replace(/^#/,"") || "browse";
   const nav = h.startsWith("fund-") ? "browse" : h;
+  if (h === "browse") state.tab = state.tab==="saved" ? "all" : state.tab;
   document.querySelectorAll("[data-nav]").forEach(a => a.dataset.nav===nav ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
   state.open = null;
   if (h.startsWith("fund-")) detail(h.slice(5));
@@ -434,6 +507,7 @@ function route(){
   else if (h === "alerts") alerts();
   else if (h === "about") about();
   else if (h === "pricing") pricing();
+  else if (h === "saved"){ state.tab="saved"; browse(); document.querySelector(".tabs")?.scrollIntoView({block:"start"}); }
   else browse();
 }
 function rerender(keepFocus){ browse(); if (keepFocus){ const el = document.querySelector(`[data-chip="${state.open}"]`); el && el.focus(); } }
@@ -441,6 +515,9 @@ function rerender(keepFocus){ browse(); if (keepFocus){ const el = document.quer
 app.addEventListener("click", e => {
   const t = e.target.closest("button, a");
   if (!t) return;
+  if (t.dataset.save){ e.preventDefault(); saved.has(t.dataset.save)?saved.delete(t.dataset.save):saved.add(t.dataset.save); persistSaved(); if (location.hash.startsWith("#fund-")) detail(t.dataset.save); else rerender(); const b=document.querySelector(`[data-save="${CSS.escape(t.dataset.save)}"]`); b&&b.focus(); return; }
+  if (t.dataset.tab){ state.tab=t.dataset.tab; rerender(); const b=document.querySelector(`[data-tab="${t.dataset.tab}"]`); b&&b.focus(); return; }
+  if (t.dataset.sc){ state.sector.has(t.dataset.sc)?state.sector.delete(t.dataset.sc):state.sector.add(t.dataset.sc); rerender(); const b=document.querySelector(`[data-sc="${CSS.escape(t.dataset.sc)}"]`); b&&b.focus(); return; }
   if (t.dataset.chip){ state.open = state.open===t.dataset.chip ? null : t.dataset.chip; rerender(true); return; }
   if (t.dataset.rm){ state[t.dataset.rm].delete(t.dataset.v); rerender(); return; }
   if (t.id==="clear"||t.id==="clear2"){ ["sector","region","type","when","who"].forEach(k=>state[k].clear()); state.q=""; rerender(); return; }
@@ -463,7 +540,11 @@ app.addEventListener("change", e => {
 });
 app.addEventListener("submit", async e => {
   e.preventDefault();
-  if (e.target.id==="sform"){ state.q=document.getElementById("q").value.trim(); rerender(); return; }
+  if (e.target.id==="sform"){
+    state.q=document.getElementById("q").value.trim();
+    const rg=document.getElementById("qr").value, wh=document.getElementById("qw").value;
+    state.region=new Set(rg?[rg]:[]); state.who=new Set(wh?[wh]:[]);
+    rerender(); document.querySelector(".tabs")?.scrollIntoView({behavior:"smooth",block:"start"}); return; }
   if (e.target.id==="subform"){
     const fd = new FormData(e.target);
     const email = String(fd.get("email")||"").trim();
