@@ -24,11 +24,14 @@ itself up to date. "Puna Pūtea" is a working name.
 ```
 python3 scripts/seed_funds.py      # rebuild the starter list (wipes history)
 python3 scripts/add_funders.py     # add funders from official lists (safe to re-run)
+python3 scripts/audit_funds.py     # check every listing's data (add --links to check every link)
 python3 scripts/check_funds.py     # check all pages now
 python3 scripts/build_site.py && python3 -m http.server -d site
 ```
 
 ## Data rules
+
+- Every change runs the audit on GitHub (Actions → "Audit fund list"): data checks plus a visit to every link. It fails on any broken link.
 
 - The checker never overwrites names, summaries or criteria. Anything that
   needs judgement is logged with `needsReview: true` for a person to confirm.

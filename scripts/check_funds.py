@@ -92,7 +92,7 @@ def find_deadlines(text, today):
 def link_status(code, start_url, final_url, err):
     if code is None:
         return "broken"
-    if code in (401, 403, 429, 503):
+    if code in (401, 403, 406, 429, 503):  # refused automated visits
         return "blocked"
     if code >= 400:
         return "broken"

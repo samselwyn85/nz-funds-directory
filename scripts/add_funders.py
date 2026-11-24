@@ -12,8 +12,16 @@ Sources (read 24 Nov 2026):
   TIN   https://tindall.org.nz/other-funding/
   CFA   https://communityfoundations.org.nz/regions (18 community foundations)
 
-Funders whose areas or focus could not be confirmed from those lists are
-marked needsReview so a person can check them. Run: python3 scripts/add_funders.py
+  data/funder_sources/new_funders.json
+        councils, government and Lottery funds, iwi, licensing trusts, scholarships
+        and startup funding, gathered from each funder's own website (Nov 2026)
+  data/funder_sources/fund_fixes.json
+        corrections to existing listings found by the link audit and a manual review
+        (new addresses, regions, summaries; funders that have closed are removed)
+
+Funders whose areas or focus could not be confirmed, or whose page has not been
+read yet, are marked needsReview so a person can check them.
+Run: python3 scripts/add_funders.py
 """
 import json
 import pathlib
@@ -24,6 +32,8 @@ from seed_funds import slug
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FUNDS = ROOT / "site" / "data" / "funds.json"
+SOURCES = ROOT / "data" / "funder_sources"
+EDITABLE = {"name", "funder", "url", "regions", "sectors", "eligible", "summary", "howToApply", "needsReview"}
 
 NATION = ["Nationwide"]
 GROUPS = ["Community groups", "Charities"]
@@ -240,37 +250,75 @@ def domain(url):
     return re.sub(r"^www\.", "", host)
 
 
+def norm_url(url):
+    u = urllib.parse.urlsplit(url)
+    return domain(url) + u.path.rstrip("/").lower() + ("?" + u.query if u.query else "")
+
+
+def apply_fixes(funds):
+    path = SOURCES / "fund_fixes.json"
+    fixes = json.loads(path.read_text()) if path.exists() else {}
+    fixes = {**{k: {"url": v} for k, v in URL_FIXES.items()}, **fixes}
+    kept, changed, removed = [], 0, 0
+    for f in funds:
+        fix = fixes.get(f["id"], {})
+        if fix.get("remove"):
+            removed += 1
+            continue
+        diff = {k: v for k, v in fix.items() if k in EDITABLE and f.get(k) != v}
+        if diff:
+            if "url" in diff:
+                f["linkStatus"] = "unchecked"
+                f.pop("suggestedUrl", None)
+            f.update(diff)
+            changed += 1
+        kept.append(f)
+    return kept, changed, removed
+
+
+def new_record(fid, name, funder, ftype, sub, sectors, regions, elig, how, url, summary, source, review):
+    return {
+        "id": fid, "name": name, "funder": funder, "funderType": ftype, "funderSubtype": sub,
+        "sectors": sectors, "regions": regions, "eligible": elig, "howToApply": how, "amount": "Varies",
+        "url": url, "summary": summary, "nextDeadline": None, "roundStatus": "unknown", "lastChecked": None,
+        "linkStatus": "unchecked", "verified": False, "needsReview": review, "source": source,
+    }
+
+
 def main():
     data = json.loads(FUNDS.read_text())
-    funds = data["funds"]
-    fixed = 0
-    for f in funds:
-        new = URL_FIXES.get(f["id"])
-        if new and f["url"] != new:
-            f["url"] = new
-            f["linkStatus"] = "unchecked"
-            f.setdefault("history", []).append({"date": "2026-11-24", "text": "Website address corrected from an official funder list"})
-            fixed += 1
-    ids = {f["id"] for f in funds}
-    # Only funder-specific domains count as duplicates; shared portals can host several funds.
+    funds, changed, removed = apply_fixes(data["funds"])
+    fixes = json.loads((SOURCES / "fund_fixes.json").read_text()) if (SOURCES / "fund_fixes.json").exists() else {}
+    # funders marked removed (closed or wound up) are never added back
+    ids = {f["id"] for f in funds} | {k for k, v in fixes.items() if v.get("remove")}
+    names = {f["name"].lower() for f in funds}
+    urls = {norm_url(f["url"]) for f in funds}
+    # Seed rows: one fund per funder website, so match on domain (shared portals excepted).
     shared = {"communitymatters.govt.nz", "creativenz.govt.nz"}
     domains = {domain(f["url"]) for f in funds} - shared
     added = 0
-    for name, funder, ftype, sub, sectors, regions, elig, how, url, summary, source, review in ROWS:
-        fid = slug(name)
-        if fid in ids or domain(url) in domains:
-            continue
-        funds.append({
-            "id": fid, "name": name, "funder": funder, "funderType": ftype, "funderSubtype": sub,
-            "sectors": sectors, "regions": regions, "eligible": elig, "howToApply": how, "amount": "Varies",
-            "url": url, "summary": summary, "nextDeadline": None, "roundStatus": "unknown", "lastChecked": None,
-            "linkStatus": "unchecked", "verified": False, "needsReview": review, "source": source,
-        })
-        ids.add(fid)
-        domains.add(domain(url))
+
+    def take(rec, by_domain):
+        nonlocal added
+        if rec["id"] in ids or rec["name"].lower() in names or norm_url(rec["url"]) in urls:
+            return
+        if by_domain and domain(rec["url"]) in domains:
+            return
+        funds.append(rec)
+        ids.add(rec["id"]); names.add(rec["name"].lower()); urls.add(norm_url(rec["url"]))
+        domains.add(domain(rec["url"]))
         added += 1
+
+    for name, funder, ftype, sub, sectors, regions, elig, how, url, summary, source, review in ROWS:
+        take(new_record(slug(name), name, funder, ftype, sub, sectors, regions, elig, how, url, summary, source, review), True)
+    path = SOURCES / "new_funders.json"
+    for r in (json.loads(path.read_text()) if path.exists() else []):
+        take(new_record(slug(r["name"]), r["name"], r["funder"], r["funderType"], r.get("funderSubtype", ""),
+                        r["sectors"], r["regions"], r["eligible"], r["howToApply"], r["url"], r["summary"],
+                        r.get("source", ""), bool(r.get("needsReview"))), False)
+    data["funds"] = funds
     FUNDS.write_text(json.dumps(data, indent=2, ensure_ascii=False))
-    print(f"added {added} funds, corrected {fixed} addresses, {len(funds)} funds in total")
+    print(f"added {added}, updated {changed}, removed {removed}: {len(funds)} funds in total")
 
 
 if __name__ == "__main__":

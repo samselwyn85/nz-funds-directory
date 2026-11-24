@@ -10,7 +10,7 @@ Data checks (always run, no network):
 
 Link checks (python3 scripts/audit_funds.py --links, needs internet):
   - visits every website address; fails on any broken link (404, 410, DNS,
-    timeout). Sites that refuse automated visits (401/403/429/503) are reported
+    timeout). Sites that refuse automated visits (401/403/406/429/503) are reported
     as "blocked" and do not fail the audit, because a person can still open them.
 
 Exit code 0 means every check passed. Run: python3 scripts/audit_funds.py [--links]
