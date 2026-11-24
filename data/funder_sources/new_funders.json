@@ -254,7 +254,7 @@
   "needsReview": false
  },
  {
-  "name": "Waitomo District Council funding and grants",
+  "name": "Waitomo District Council Community and Partnerships Fund",
   "funder": "Waitomo District Council",
   "funderType": "Council",
   "funderSubtype": "District council",
@@ -270,7 +270,7 @@
    "Charities"
   ],
   "howToApply": "Check funder",
-  "url": "https://waitomo.govt.nz/council/funding-and-grants",
+  "url": "https://www.waitomo.govt.nz/council/funding-and-grants/community-and-partnerships-fund/",
   "summary": "Waitomo provides grants to community groups and organisations for local social services and wellbeing, under its Community and Partnerships Fund Policy.",
   "fetched": true,
   "note": "Page gave little detail on dates; see Community and Partnerships Fund sub-page.",
@@ -343,7 +343,7 @@
    "Charities"
   ],
   "howToApply": "Check funder",
-  "url": "https://southwaikato.govt.nz/our-council/grants-and-funding",
+  "url": "https://www.southwaikato.govt.nz/our-council/grants-and-funding",
   "summary": "South Waikato District Council's grants and funding page.",
   "fetched": false,
   "note": "Not fetched: web-fetch budget ran out; URL taken from a web search result titled as the council's funding page. Details not confirmed.",
@@ -542,12 +542,11 @@
   "needsReview": true
  },
  {
-  "name": "Wairoa District Council grants and funding",
+  "name": "Wairoa District Council Creative Communities Scheme",
   "funder": "Wairoa District Council",
   "funderType": "Council",
   "funderSubtype": "District council",
   "sectors": [
-   "Community",
    "Arts & culture"
   ],
   "regions": [
@@ -558,8 +557,8 @@
    "Charities"
   ],
   "howToApply": "Check funder",
-  "url": "https://www.wairoadc.govt.nz/our-district/grants-funding/",
-  "summary": "Wairoa District Council's grants and funding section, including mayoral grants and Creative Communities.",
+  "url": "https://www.wairoadc.govt.nz/our-district/grants-funding/creative-communities-nz/",
+  "summary": "Wairoa District Council's local arts grants through the Creative Communities Scheme.",
   "fetched": false,
   "note": "Not fetched: web-fetch budget ran out; URL taken from a web search result titled as the council's funding page. Details not confirmed.",
   "source": "Council websites",
@@ -605,7 +604,7 @@
    "Charities"
   ],
   "howToApply": "Set rounds",
-  "url": "https://chbdc.govt.nz/our-district/grants",
+  "url": "https://www.chbdc.govt.nz/our-district/community-development/grants/",
   "summary": "Central Hawke's Bay District Council's grants page, including the Community Voluntary Organisation Support scheme and arts funding, applied for through SmartyGrants.",
   "fetched": false,
   "note": "Not fetched: web-fetch budget ran out; URL taken from a web search result titled as the council's funding page. Details not confirmed.",
@@ -676,7 +675,7 @@
    "Charities"
   ],
   "howToApply": "Check funder",
-  "url": "https://southtaranaki.com/our-community/funding",
+  "url": "https://www.southtaranaki.com/our-community/funding",
   "summary": "South Taranaki District Council's community funding page, including community board local discretionary funds and the Natural Environments Fund.",
   "fetched": false,
   "note": "Not fetched: web-fetch budget ran out; URL taken from a web search result titled as the council's funding page. Details not confirmed.",
@@ -770,7 +769,7 @@
    "Charities"
   ],
   "howToApply": "Check funder",
-  "url": "https://www.rangitikei.govt.nz/district/community/grants-funding",
+  "url": "https://www.rangitikei.govt.nz/council/grants-funding",
   "summary": "Rangitīkei District Council's grants and funding, including the Community Initiatives Fund, Small Projects Fund and a grant finder.",
   "fetched": false,
   "note": "Not fetched: web-fetch budget ran out; URL taken from a web search result titled as the council's funding page. Details not confirmed.",
@@ -867,7 +866,7 @@
    "Businesses"
   ],
   "howToApply": "Set rounds",
-  "url": "https://nelson.govt.nz/services/community/funding/community-investment-fund/community-investment-fund-guidelines",
+  "url": "https://www.nelson.govt.nz/services/community/funding",
   "summary": "Nelson City Council's funding hub lists its Community Investment Fund, Creative Communities local arts scheme, heritage, neighbourhood project, youth development, environmental and waste minimisation grants.",
   "fetched": true,
   "note": "Climate Change Business Grant on the page is for businesses; youth grant is for 15-19 year olds.",
