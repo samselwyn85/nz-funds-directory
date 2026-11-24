@@ -1,5 +1,5 @@
 {
-  "updated": null,
+  "updated": "2026-11-24T16:01:57+13:00",
   "funds": [
     {
       "id": "lottery-community",
@@ -23,9 +23,15 @@
       "summary": "Funding for community groups that build stronger, more resilient communities. Applied for through DIA Community Matters.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "blocked",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Site refused our checker (403); needs a manual look"
+        }
+      ]
     },
     {
       "id": "community-organisation-grants-scheme-cogs",
@@ -48,9 +54,15 @@
       "summary": "Locally decided grants for grassroots groups, run through 37 local distribution committees across Aotearoa.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "blocked",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Site refused our checker (403); needs a manual look"
+        }
+      ]
     },
     {
       "id": "creative-new-zealand-funding",
@@ -74,8 +86,8 @@
       "summary": "Grants and programmes for artists, arts organisations and Pacific and Māori arts.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -99,8 +111,8 @@
       "summary": "Small grants for local arts projects, administered by each district or city council.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -125,9 +137,16 @@
       "summary": "Funds for play, active recreation and sport, including Tū Manawa Active Aotearoa via regional sports trusts.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "moved",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Page has moved to https://sportnz.org.nz/funding/how-we-invest/"
+        }
+      ],
+      "suggestedUrl": "https://sportnz.org.nz/funding/how-we-invest/"
     },
     {
       "id": "nz-on-air-funding",
@@ -149,11 +168,21 @@
       "amount": "Varies",
       "url": "https://www.nzonair.govt.nz/",
       "summary": "Funding for New Zealand screen, music, podcasts and journalism content.",
-      "nextDeadline": null,
-      "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "nextDeadline": "2026-11-26",
+      "roundStatus": "open",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "New closing date found: 26 November 2026"
+        },
+        {
+          "date": "2026-11-24",
+          "text": "Applications look to be open now"
+        }
+      ]
     },
     {
       "id": "ministry-for-culture-and-heritage-funds",
@@ -177,9 +206,15 @@
       "summary": "Heritage, commemoration and cultural sector funds from Manatū Taonga.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "blocked",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Site refused our checker (403); needs a manual look"
+        }
+      ]
     },
     {
       "id": "doc-community-fund",
@@ -202,8 +237,8 @@
       "summary": "Supports community-led conservation projects on public and private land.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -228,8 +263,8 @@
       "summary": "Funds projects that reduce waste and increase resource recovery.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -254,9 +289,16 @@
       "summary": "Investment for whānau, hapū, iwi and Māori communities, including marae support.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "moved",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Page has moved to https://www.tpk.govt.nz/en"
+        }
+      ],
+      "suggestedUrl": "https://www.tpk.govt.nz/en"
     },
     {
       "id": "te-matawai-investment",
@@ -280,9 +322,16 @@
       "summary": "Funding to revitalise te reo Māori in homes and communities.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "moved",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Page has moved to https://tematawai.maori.nz/mi"
+        }
+      ],
+      "suggestedUrl": "https://tematawai.maori.nz/mi"
     },
     {
       "id": "eeca-co-funding",
@@ -306,8 +355,8 @@
       "summary": "Co-funding for low-emissions energy and transport projects.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -332,8 +381,8 @@
       "summary": "Funding for food, fibre, rural communities and land projects.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -356,8 +405,8 @@
       "summary": "Government grants and programmes for businesses, searchable through Funding Explorer.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -385,8 +434,8 @@
       "summary": "One of NZ's largest gaming trusts. Funds amateur sport, community, arts and education groups near its venues.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -413,8 +462,8 @@
       "summary": "Gaming trust grants for community, sport and emergency services groups.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -441,9 +490,16 @@
       "summary": "Grants to community groups in areas where its gaming venues operate.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "moved",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Page has moved to https://lionfoundation.nz/"
+        }
+      ],
+      "suggestedUrl": "https://lionfoundation.nz/"
     },
     {
       "id": "four-winds-foundation-grants",
@@ -467,9 +523,15 @@
       "summary": "Gaming trust grants for authorised community purposes.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "broken",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Link is broken ([Errno 111] Connection refused)"
+        }
+      ]
     },
     {
       "id": "aotearoa-gaming-trust-grants",
@@ -493,9 +555,15 @@
       "summary": "Gaming trust grants returned to communities where funds are raised.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "broken",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Link is broken ([Errno 111] Connection refused)"
+        }
+      ]
     },
     {
       "id": "trillian-trust-grants",
@@ -519,9 +587,15 @@
       "summary": "Gaming trust grants for community and sporting groups.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "broken",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Link is broken ([Errno -2] Name or service not known)"
+        }
+      ]
     },
     {
       "id": "grassroots-trust-grants",
@@ -548,8 +622,8 @@
       "summary": "Gaming trust grants with a strong focus on local sport and community.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -574,9 +648,15 @@
       "summary": "Gaming trust grants for community, sport and charitable purposes.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "broken",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Link is broken ([Errno -2] Name or service not known)"
+        }
+      ]
     },
     {
       "id": "foundation-north-grants",
@@ -605,8 +685,8 @@
       "summary": "Community trust for Tāmaki Makaurau and Te Tai Tokerau, with grants and long-term investments.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -636,8 +716,8 @@
       "summary": "Community trust funding learn, support, participate and connect outcomes in its regions.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -665,8 +745,8 @@
       "summary": "Community trust grants for groups across the Waikato.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -692,9 +772,16 @@
       "summary": "Community grants for Tauranga and the Western Bay of Plenty.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "moved",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Page has moved to https://www.manawatrust.nz/"
+        }
+      ],
+      "suggestedUrl": "https://www.manawatrust.nz/"
     },
     {
       "id": "bay-trust-grants",
@@ -719,8 +806,8 @@
       "summary": "Community trust for the eastern Bay of Plenty.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -746,8 +833,8 @@
       "summary": "Grants for community groups in the Rotorua district.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -771,8 +858,8 @@
       "summary": "Community trust for the Wellington region.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -799,8 +886,8 @@
       "summary": "Community trust grants across the lower North Island's eastern and central regions.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -826,8 +913,8 @@
       "summary": "Community foundation for Taranaki (formerly TSB Community Trust).",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -853,8 +940,8 @@
       "summary": "Community trust grants for Otago groups.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -880,8 +967,8 @@
       "summary": "Community trust for Southland and parts of Otago.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -908,8 +995,8 @@
       "summary": "Family trust focused on a socially just and inclusive Aotearoa.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -935,8 +1022,8 @@
       "summary": "Family foundation funding mostly through local funding managers and partners.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -961,8 +1048,8 @@
       "summary": "Family foundation partnering with communities for change.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -987,9 +1074,15 @@
       "summary": "Supports health, education and youth programmes, mainly in Auckland.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "broken",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Link is broken ([Errno -2] Name or service not known)"
+        }
+      ]
     },
     {
       "id": "perpetual-guardian-foundation",
@@ -1015,8 +1108,8 @@
       "summary": "Distributes from many charitable trusts and scholarships it manages.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -1042,8 +1135,8 @@
       "summary": "Grants and scholarships from charitable trusts Public Trust administers.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -1068,8 +1161,8 @@
       "summary": "Community foundation for the Western Bay of Plenty.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -1093,8 +1186,8 @@
       "summary": "Philanthropy NZ's own guide to finding funders. Useful cross-check.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -1122,9 +1215,15 @@
       "summary": "Local board and regional grants for Auckland communities.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "broken",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Link is broken (HTTP 406)"
+        }
+      ]
     },
     {
       "id": "wellington-city-council-funding",
@@ -1149,9 +1248,15 @@
       "summary": "City council grants for community, arts and environment projects.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "blocked",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Site refused our checker (403); needs a manual look"
+        }
+      ]
     },
     {
       "id": "christchurch-city-council-funding",
@@ -1176,8 +1281,8 @@
       "summary": "Community funding from Christchurch City Council and its community boards.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -1203,9 +1308,15 @@
       "summary": "Community, arts and heritage grants from Dunedin City Council.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "blocked",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Site refused our checker (403); needs a manual look"
+        }
+      ]
     },
     {
       "id": "hamilton-city-council-grants",
@@ -1229,8 +1340,8 @@
       "summary": "Community and events funding for Kirikiriroa Hamilton.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -1254,8 +1365,8 @@
       "summary": "Council grants for Tasman communities.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "ok",
       "verified": false
     },
     {
@@ -1279,9 +1390,15 @@
       "summary": "Council funding and a district funding finder for Selwyn.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "blocked",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Site refused our checker (403); needs a manual look"
+        }
+      ]
     },
     {
       "id": "manawatu-district-council-funding",
@@ -1304,9 +1421,15 @@
       "summary": "Council community funding for the Manawatū district.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "blocked",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Site refused our checker (403); needs a manual look"
+        }
+      ]
     },
     {
       "id": "z-good-in-the-hood",
@@ -1329,9 +1452,16 @@
       "summary": "Z stations share a pool of funding among local groups each year, chosen with customer votes.",
       "nextDeadline": null,
       "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false
+      "lastChecked": "2026-11-24T16:01:57+13:00",
+      "linkStatus": "moved",
+      "verified": false,
+      "history": [
+        {
+          "date": "2026-11-24",
+          "text": "Page has moved to https://www.z.co.nz:443/"
+        }
+      ],
+      "suggestedUrl": "https://www.z.co.nz:443/"
     }
   ]
 }

@@ -1,0 +1,191 @@
+[
+ {
+  "date": "2026-11-24",
+  "fund": "lottery-community",
+  "name": "Lottery Community",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.communitymatters.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "community-organisation-grants-scheme-cogs",
+  "name": "Community Organisation Grants Scheme (COGS)",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.communitymatters.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "sport-nz-funding",
+  "name": "Sport NZ funding",
+  "kind": "link_moved",
+  "text": "Page has moved to https://sportnz.org.nz/funding/how-we-invest/",
+  "url": "https://sportnz.org.nz/funding/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "nz-on-air-funding",
+  "name": "NZ On Air funding",
+  "kind": "new_date",
+  "text": "New closing date found: 26 November 2026",
+  "url": "https://www.nzonair.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "nz-on-air-funding",
+  "name": "NZ On Air funding",
+  "kind": "round_open",
+  "text": "Applications look to be open now",
+  "url": "https://www.nzonair.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "ministry-for-culture-and-heritage-funds",
+  "name": "Ministry for Culture and Heritage funds",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.mch.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "te-puni-kokiri-funding",
+  "name": "Te Puni Kōkiri funding",
+  "kind": "link_moved",
+  "text": "Page has moved to https://www.tpk.govt.nz/en",
+  "url": "https://www.tpk.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "te-matawai-investment",
+  "name": "Te Mātāwai investment",
+  "kind": "link_moved",
+  "text": "Page has moved to https://tematawai.maori.nz/mi",
+  "url": "https://www.tematawai.maori.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "lion-foundation-grants",
+  "name": "Lion Foundation grants",
+  "kind": "link_moved",
+  "text": "Page has moved to https://lionfoundation.nz/",
+  "url": "https://www.lionfoundation.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "four-winds-foundation-grants",
+  "name": "Four Winds Foundation grants",
+  "kind": "link_broken",
+  "text": "Link is broken ([Errno 111] Connection refused)",
+  "url": "https://www.fourwinds.co.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "aotearoa-gaming-trust-grants",
+  "name": "Aotearoa Gaming Trust grants",
+  "kind": "link_broken",
+  "text": "Link is broken ([Errno 111] Connection refused)",
+  "url": "https://www.aotearoagamingtrust.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "trillian-trust-grants",
+  "name": "Trillian Trust grants",
+  "kind": "link_broken",
+  "text": "Link is broken ([Errno -2] Name or service not known)",
+  "url": "https://www.trilliantrust.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "the-trusts-community-foundation-grants",
+  "name": "The Trusts Community Foundation grants",
+  "kind": "link_broken",
+  "text": "Link is broken ([Errno -2] Name or service not known)",
+  "url": "https://www.ttcf.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "tect-community-grants",
+  "name": "TECT community grants",
+  "kind": "link_moved",
+  "text": "Page has moved to https://www.manawatrust.nz/",
+  "url": "https://www.tect.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "hugh-green-foundation",
+  "name": "Hugh Green Foundation",
+  "kind": "link_broken",
+  "text": "Link is broken ([Errno -2] Name or service not known)",
+  "url": "https://www.hughgreenfoundation.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "auckland-council-grants",
+  "name": "Auckland Council grants",
+  "kind": "link_broken",
+  "text": "Link is broken (HTTP 406)",
+  "url": "https://www.aucklandcouncil.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "wellington-city-council-funding",
+  "name": "Wellington City Council funding",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://wellington.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "dunedin-city-council-grants",
+  "name": "Dunedin City Council grants",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.dunedin.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "selwyn-district-council-funding",
+  "name": "Selwyn District Council funding",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.selwyn.govt.nz/community/selwyn-funding-finder",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "manawatu-district-council-funding",
+  "name": "Manawatū District Council funding",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.mdc.govt.nz/services/community-funding/manawatu-grant-finder",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-24",
+  "fund": "z-good-in-the-hood",
+  "name": "Z Good in the Hood",
+  "kind": "link_moved",
+  "text": "Page has moved to https://www.z.co.nz:443/",
+  "url": "https://z.co.nz/",
+  "needsReview": true
+ }
+]
