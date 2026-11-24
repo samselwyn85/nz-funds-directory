@@ -137,7 +137,7 @@ def main(only=None):
         if status == "moved":
             f["suggestedUrl"] = final
 
-        if body:
+        if body and status != "blocked":  # a bot-check page is not the funder's page
             text = visible_text(body)
             digest = hashlib.sha256(text.encode()).hexdigest()
             if prev.get("hash") and prev["hash"] != digest:

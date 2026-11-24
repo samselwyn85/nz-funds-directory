@@ -126,18 +126,22 @@ def check_links(funds):
     sys.path.insert(0, str(ROOT / "scripts"))
     from check_funds import fetch, link_status
 
+    timed_out = lambda code, e: code is None and "timed out" in str(e)
+
     def one(f):
         code, final, _, e = fetch(f["url"])
-        if link_status(code, f["url"], final, e) == "broken":
-            code2, final2, _, e2 = fetch(f["url"], timeout=60)  # one longer retry for a slow site
-            code, final, e = code2, final2, e2
-        return f, code, final, e, link_status(code, f["url"], final, e)
+        status = link_status(code, f["url"], final, e)
+        if status == "broken":
+            first_timeout = timed_out(code, e)
+            code, final, _, e = fetch(f["url"], timeout=60)  # one longer retry for a slow site
+            status = link_status(code, f["url"], final, e)
+            if status == "broken" and first_timeout and timed_out(code, e):
+                status = "slow"  # timed out twice; a dead site fails DNS/connect instead
+        return f, code, final, e, status
 
     results = {"ok": [], "moved": [], "blocked": [], "slow": [], "broken": []}
     with cf.ThreadPoolExecutor(max_workers=8) as pool:
         for f, code, final, e, status in pool.map(one, funds):
-            if status == "broken" and code is None and "timed out" in str(e):
-                status = "slow"  # still answering slowly after a retry; a dead site fails DNS/connect instead
             results[status].append((f, code, final, e))
     for f, code, final, e in results["moved"]:
         print(f"moved    {f['id']}: {f['url']} -> {final}")
