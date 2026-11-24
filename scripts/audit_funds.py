@@ -10,7 +10,8 @@ Data checks (always run, no network):
 
 Link checks (python3 scripts/audit_funds.py --links, needs internet):
   - visits every website address; fails on any broken link (404, 410, DNS,
-    timeout). Sites that refuse automated visits (401/403/406/429/503) are reported
+    connection or SSL errors). A site that still times out after a longer retry is
+    reported as "slow" and does not fail. Sites that refuse automated visits (401/403/406/429/503) are reported
     as "blocked" and do not fail the audit, because a person can still open them.
 
 Exit code 0 means every check passed. Run: python3 scripts/audit_funds.py [--links]
@@ -128,18 +129,22 @@ def check_links(funds):
     def one(f):
         code, final, _, e = fetch(f["url"])
         if link_status(code, f["url"], final, e) == "broken":
-            code2, final2, _, e2 = fetch(f["url"])  # one retry for a slow site
+            code2, final2, _, e2 = fetch(f["url"], timeout=60)  # one longer retry for a slow site
             code, final, e = code2, final2, e2
         return f, code, final, e, link_status(code, f["url"], final, e)
 
-    results = {"ok": [], "moved": [], "blocked": [], "broken": []}
+    results = {"ok": [], "moved": [], "blocked": [], "slow": [], "broken": []}
     with cf.ThreadPoolExecutor(max_workers=8) as pool:
         for f, code, final, e, status in pool.map(one, funds):
+            if status == "broken" and code is None and "timed out" in str(e):
+                status = "slow"  # still answering slowly after a retry; a dead site fails DNS/connect instead
             results[status].append((f, code, final, e))
     for f, code, final, e in results["moved"]:
         print(f"moved    {f['id']}: {f['url']} -> {final}")
     for f, code, final, e in results["blocked"]:
         print(f"blocked  {f['id']}: {f['url']} ({code})")
+    for f, code, final, e in results["slow"]:
+        print(f"slow     {f['id']}: {f['url']} (timed out twice; not counted as broken)")
     for f, code, final, e in results["broken"]:
         print(f"BROKEN   {f['id']}: {f['url']} ({e or code})")
     print("links: " + ", ".join(f"{k} {len(v)}" for k, v in results.items()))

@@ -97,6 +97,8 @@ def link_status(code, start_url, final_url, err):
     if code >= 400:
         return "broken"
     a, b = urllib.parse.urlsplit(start_url), urllib.parse.urlsplit(final_url)
+    if re.search(r"/[a-z]*host-verify$|/cdn-cgi/challenge", b.path):  # hosting bot check page
+        return "blocked"
     same = a.netloc.removeprefix("www.") == b.netloc.removeprefix("www.") and a.path.rstrip("/") == b.path.rstrip("/")
     return "ok" if same else "moved"
 

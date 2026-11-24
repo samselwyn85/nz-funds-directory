@@ -36,4 +36,4 @@ python3 scripts/build_site.py && python3 -m http.server -d site
 - The checker never overwrites names, summaries or criteria. Anything that
   needs judgement is logged with `needsReview: true` for a person to confirm.
 - Dates are read as NZ day/month/year.
-- A site that refuses automated visits is marked `blocked`, not broken.
+- A site that refuses automated visits, or sends visitors to its host's bot check page, is marked `blocked`, not broken. A site that still times out after a longer retry is reported as `slow` and does not fail the audit.
