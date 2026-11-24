@@ -16,6 +16,7 @@ Link checks (python3 scripts/audit_funds.py --links, needs internet):
 Exit code 0 means every check passed. Run: python3 scripts/audit_funds.py [--links]
 """
 import concurrent.futures as cf
+import datetime
 import json
 import pathlib
 import re
@@ -54,7 +55,12 @@ def check_data(funds):
     err = lambda f, msg: errors.append(f"{f.get('id', '?')}: {msg}")
     ids, names, pages = set(), set(), set()
     for f in funds:
+        if not isinstance(f, dict):
+            errors.append(f"entry is not an object: {f!r:.60}")
+            continue
         bad = [k for k, typ in REQUIRED.items() if not isinstance(f.get(k), typ)]
+        bad += [k for k, typ in REQUIRED.items() if typ is list and k not in bad
+                and not all(isinstance(v, str) for v in f[k])]
         for key in bad:
             err(f, f"missing or wrong type for '{key}'")
         if bad:
@@ -84,7 +90,11 @@ def check_data(funds):
             err(f, "regions mix Nationwide with specific regions")
         if f["howToApply"] not in allowed["HOW"]:
             err(f, f"unknown how-to-apply '{f['howToApply']}'")
-        u = urllib.parse.urlsplit(f["url"])
+        try:
+            u = urllib.parse.urlsplit(f["url"])
+        except ValueError:
+            err(f, f"bad website address '{f['url']}'")
+            continue
         if u.scheme not in ("http", "https") or not u.netloc or "." not in u.netloc or re.search(r"\s", f["url"]):
             err(f, f"bad website address '{f['url']}'")
         page = (f["funder"].lower(), u.netloc.lower().removeprefix("www.") + u.path.rstrip("/"), u.query)
@@ -101,8 +111,13 @@ def check_data(funds):
         if f["roundStatus"] not in ROUND_STATES:
             err(f, f"unknown round status '{f['roundStatus']}'")
         nd = f.get("nextDeadline")
-        if nd is not None and not re.fullmatch(r"20\d\d-\d\d-\d\d", str(nd)):
-            err(f, f"nextDeadline '{nd}' is not YYYY-MM-DD")
+        if nd is not None:
+            try:
+                ok = bool(re.fullmatch(r"20\d\d-\d\d-\d\d", str(nd))) and bool(datetime.date.fromisoformat(nd))
+            except ValueError:
+                ok = False
+            if not ok:
+                err(f, f"nextDeadline '{nd}' is not a real YYYY-MM-DD date")
     return errors
 
 
@@ -132,7 +147,10 @@ def check_links(funds):
 
 
 def main():
-    funds = json.loads(FUNDS.read_text())["funds"]
+    data = json.loads(FUNDS.read_text())
+    funds = data.get("funds") if isinstance(data, dict) else None
+    if not isinstance(funds, list) or not funds:
+        sys.exit("FAIL funds.json has no 'funds' list, or it is empty")
     errors = check_data(funds)
     print(f"data: {len(funds)} funds, {len(errors)} problems")
     if "--links" in sys.argv:

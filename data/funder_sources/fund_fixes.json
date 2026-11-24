@@ -182,8 +182,10 @@
    "Nationwide"
   ],
   "sectors": [
+   "Community",
    "Arts & culture",
    "Education & youth",
+   "Health & wellbeing",
    "Sport & recreation"
   ],
   "summary": "Licensed gaming trust that funds arts, community and culture, education, health and welfare, and sport. Applications go through its online portal by set closing dates.",
@@ -467,5 +469,9 @@
   ],
   "howToApply": "Set rounds",
   "needsReview": false
+ },
+ "nzgif-investment-for-investees": {
+  "remove": true,
+  "note": "NZGIF stopped funding new green investments in April 2025 (managed wind-down), per nzgif.co.nz"
  }
 }

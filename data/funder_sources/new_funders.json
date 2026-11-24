@@ -3103,10 +3103,10 @@
   "howToApply": "Set rounds",
   "url": "https://www.terarawa.iwi.nz/scholarships/current/te-rarawa-tertiary-education-scholarships-for-2027",
   "summary": "Tertiary scholarships for people of Te Rarawa descent who are affiliated to a Te Rarawa marae and studying full-time in Aotearoa. They include memorial, subject-specific and Kotare Trust awards of $2,000 to $3,000.",
-  "fetched": false,
+  "fetched": true,
   "needsReview": false,
-  "source": "Search result",
-  "note": "Found in search; not fetched yet"
+  "source": "Funder websites",
+  "note": "Page read during verification; 2027 round closed 4pm 30 October 2026."
  },
  {
   "name": "Ngāti Kahungunu iwi scholarships",

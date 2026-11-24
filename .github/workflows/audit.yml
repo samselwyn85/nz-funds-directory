@@ -5,7 +5,7 @@ on:
     paths: ["site/data/funds.json", "site/app.html", "scripts/**"]
   push:
     branches: [main]
-    paths: ["site/data/funds.json", "scripts/**"]
+    paths: ["site/data/funds.json", "site/app.html", "scripts/**"]
   workflow_dispatch: {}
 
 permissions:

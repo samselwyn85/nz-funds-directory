@@ -269,6 +269,7 @@ def apply_fixes(funds):
         if diff:
             if "url" in diff:
                 f["linkStatus"] = "unchecked"
+                f["lastChecked"] = None
                 f.pop("suggestedUrl", None)
             f.update(diff)
             changed += 1
