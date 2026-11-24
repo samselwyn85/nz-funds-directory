@@ -7485,7 +7485,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.upperhutt.govt.nz/Community/Grants-and-funding/Community-Grants",
+      "url": "https://www.upperhutt.govt.nz/community/Grants-and-funding/Community-Grants",
       "summary": "Upper Hutt City Council community grants for organisations whose services build community wellbeing and togetherness across Upper Hutt. Capital items, wages and individual travel are not funded.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -7576,7 +7576,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://cdc.govt.nz/community-funding/",
+      "url": "https://cartertondc.smartygrants.com.au/",
       "summary": "Carterton District Council offers Community Grants, Creative Communities, Sport NZ Rural Travel, an RSA tertiary grant and a Waste Minimisation Grant. Who can apply depends on the fund: local groups, schools, rural sports clubs or young descendants of veterans.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -7639,7 +7639,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://www.gw.govt.nz/funding-and-awards/",
+      "url": "https://www.gw.govt.nz/your-region/funding-and-awards/",
       "summary": "Greater Wellington Regional Council's environmental funding, including Community Environment Funds for Kāpiti, Wairarapa Moana, Porirua and the Hutt Valley, waterway and wetland restoration funding, and student action and transport grants for schools.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -7684,7 +7684,8 @@
       "funderType": "Council",
       "funderSubtype": "Regional council",
       "sectors": [
-        "Environment"
+        "Environment",
+        "Community"
       ],
       "regions": [
         "Manawatū-Whanganui"
@@ -7697,14 +7698,14 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.horizons.govt.nz/about-our-region-and-council/grants-and-sponsorship/biodiversity-grants",
-      "summary": "Horizons Regional Council has two yearly environmental funds: the Indigenous Biodiversity Community Grant and the Community Climate Response Fund. Community groups, iwi, hapū, schools, catchment groups and landowners can apply to start or grow environmental work.",
+      "url": "https://www.horizons.govt.nz/",
+      "summary": "Horizons Regional Council runs community grants for climate and biodiversity projects, including the Kanorau Koiora Taketake Indigenous Biodiversity Community Fund. Search 'grants' on its site for the current round.",
       "nextDeadline": null,
       "roundStatus": "unknown",
       "lastChecked": null,
       "linkStatus": "unchecked",
       "verified": false,
-      "needsReview": false,
+      "needsReview": true,
       "source": "Council websites"
     }
   ]
