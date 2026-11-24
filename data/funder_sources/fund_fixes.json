@@ -369,8 +369,13 @@
    "Environment",
    "Community"
   ],
-  "summary": "Private trust set up in 2020 by Ian and Wendy Kuperus that funds environmental work (climate, biodiversity, waste) and community wellbeing. It funds by invitation and does not take open applications.",
-  "howToApply": "Check funder"
+  "summary": "Private philanthropic trust set up in 2020 that funds non-profits and impact investments working on climate, biodiversity, waste and community wellbeing in Aotearoa. Funding is by invitation only.",
+  "howToApply": "Check funder",
+  "eligible": [
+   "Community groups",
+   "Charities"
+  ],
+  "needsReview": false
  },
  "catalytic-foundation": {
   "url": "https://catalytic.org.nz/",
@@ -394,8 +399,40 @@
   "summary": "Milford Asset Management's foundation that backs young people facing barriers to education, employment and wellbeing, through selected charity partners, crisis funding and scholarships.",
   "needsReview": false
  },
- "bnz-foundation": {},
- "fisher-paykel-healthcare-foundation": {},
+ "bnz-foundation": {
+  "summary": "BNZ Foundation grants for NZ registered charities and social enterprises (operating at least a year), through Manaaki Taiao for biodiversity regeneration and Manaaki Tangata for economic empowerment and housing pathways.",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Environment",
+   "Community"
+  ],
+  "eligible": [
+   "Community groups",
+   "Charities",
+   "Businesses"
+  ],
+  "howToApply": "Check funder",
+  "needsReview": false
+ },
+ "fisher-paykel-healthcare-foundation": {
+  "summary": "Fisher & Paykel Healthcare Foundation supports rangatahi, especially Māori and Pacific young people, into STEM and trades careers in South Auckland through technology access, industry exposure, scholarships and preventative health initiatives.",
+  "regions": [
+   "Auckland"
+  ],
+  "sectors": [
+   "Education & youth",
+   "Health & wellbeing"
+  ],
+  "eligible": [
+   "Community groups",
+   "Charities",
+   "Schools"
+  ],
+  "howToApply": "Check funder",
+  "needsReview": false
+ },
  "lottery-community": {
   "name": "Lottery Fund",
   "url": "https://www.communitymatters.govt.nz/lottery-fund",
@@ -413,5 +450,22 @@
  },
  "waste-minimisation-fund": {
   "url": "https://environment.govt.nz/what-you-can-do/funding/waste-minimisation-fund/"
+ },
+ "te-atiawa-taranaki-education-grants": {
+  "summary": "Te Ātiawa o Te Waka-a-Māui Trust education grants partly repay fees and costs such as books and equipment. Registered members in full-time fee-paying tertiary study or at secondary school can apply.",
+  "regions": [
+   "Nelson",
+   "Marlborough",
+   "Tasman"
+  ],
+  "sectors": [
+   "Māori & iwi",
+   "Education & youth"
+  ],
+  "eligible": [
+   "Individuals"
+  ],
+  "howToApply": "Set rounds",
+  "needsReview": false
  }
 }
