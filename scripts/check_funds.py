@@ -25,11 +25,17 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+from email.utils import format_datetime
+from xml.sax.saxutils import escape as xesc
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FUNDS = ROOT / "site" / "data" / "funds.json"
 CHANGES = ROOT / "site" / "data" / "changes.json"
 STATE = ROOT / "data" / "check_state.json"
+FEED = ROOT / "site" / "feed.xml"
+SITE_URL = "https://samselwyn85.github.io/nz-funds-directory/"
+KIND = {"new_date": "New closing date", "round_open": "Round open", "page_changed": "Page updated",
+        "link_moved": "Page moved", "link_broken": "Link broken", "link_ok": "Link fixed"}
 UA = "PunaPuteaLinkChecker/1.0 (+public funding directory; checks once a night)"
 NZ = dt.timezone(dt.timedelta(hours=13))
 
@@ -157,10 +163,26 @@ def main(only=None):
     STATE.parent.mkdir(exist_ok=True)
     STATE.write_text(json.dumps(state, indent=1))
     CHANGES.write_text(json.dumps((changes + new_events)[-1000:], indent=1, ensure_ascii=False))
+    write_feed((changes + new_events)[-1000:], now)
     counts = {}
     for f in data["funds"]:
         counts[f["linkStatus"]] = counts.get(f["linkStatus"], 0) + 1
     print(json.dumps({"checked": stamp, "links": counts, "newEvents": len(new_events)}))
+
+
+def write_feed(events, now):
+    """RSS feed of the latest changes, so anyone can follow updates in a news reader for free."""
+    items = []
+    for e in [x for x in events if x["kind"] in KIND][-50:][::-1]:
+        when = dt.datetime.fromisoformat(e["date"]).replace(tzinfo=NZ)
+        title = f"{e['name']}: {KIND[e['kind']]}"
+        link = f"{SITE_URL}#fund-{e['fund']}"
+        items.append(f"<item><title>{xesc(title)}</title><link>{xesc(link)}</link><guid isPermaLink=\"false\">{xesc(e['fund'] + '-' + e['kind'] + '-' + e['date'])}</guid>"
+                     f"<pubDate>{format_datetime(when)}</pubDate><description>{xesc(e['text'])}</description></item>")
+    FEED.write_text('<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>'
+                    f"<title>Puna Pūtea: what's changed</title><link>{SITE_URL}#updates</link>"
+                    "<description>New rounds, closing dates and page changes across New Zealand funders, checked nightly.</description>"
+                    f"<lastBuildDate>{format_datetime(now)}</lastBuildDate>" + "".join(items) + "</channel></rss>\n")
 
 
 if __name__ == "__main__":

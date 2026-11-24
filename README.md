@@ -8,28 +8,22 @@ itself up to date. "Puna Pūtea" is a working name.
 
 | Part | File | What it does |
 |---|---|---|
-| Website | `site/app.html` | Search, filters (sector, region, funder type, when to apply, who can apply), fund pages, a three-question matcher and the alerts sign-up form. |
+| Website | `site/app.html` | Search, sidebar filters (sector, region, funder type, when to apply, who can apply), fund pages, saved funds, a three-question eligibility match and a public "What's changed" log. Free for everyone, no login. |
 | Fund list | `site/data/funds.json` | One record per fund. Starter list of 50 real NZ funders, built by `scripts/seed_funds.py`. |
-| Nightly checker | `scripts/check_funds.py` | Visits every funder page, records broken or moved links, page changes, closing dates and "applications open" wording. Writes `site/data/changes.json`. |
-| Weekly email | `scripts/send_digest.py` | Turns the week's changes into an email. Saves it as a **draft** in Buttondown unless `DIGEST_MODE=send`. |
-| Schedules | `.github/workflows/` | Nightly check (3am NZ), Monday 7am digest, and publishing the site to GitHub Pages. |
+| Nightly checker | `scripts/check_funds.py` | Visits every funder page, records broken or moved links, page changes, closing dates and "applications open" wording. Writes `site/data/changes.json` and the RSS feed `site/feed.xml`. |
+| Schedules | `.github/workflows/` | Nightly check (3am NZ) and publishing the site to GitHub Pages. |
 
 ## Turning it on
 
 1. **Hosting:** Settings → Pages → Source: GitHub Actions. The site appears at
    `https://<user>.github.io/<repo>/`. (Free for public repos.)
-2. **Email (optional until you have subscribers):** create a Buttondown
-   account, then in the repo add the secret `BUTTONDOWN_API_KEY` and the
-   variable `BUTTONDOWN_USER` (your Buttondown username). Leave `DIGEST_MODE`
-   unset so weekly emails wait as drafts for you to press Send.
-3. Run "Nightly fund check" once from the Actions tab to fill in link health.
+2. Run "Nightly fund check" once from the Actions tab to fill in link health.
 
 ## Run locally
 
 ```
 python3 scripts/seed_funds.py      # rebuild the starter list
 python3 scripts/check_funds.py     # check all pages now
-python3 scripts/send_digest.py     # preview this week's email in out/digest.html
 python3 scripts/build_site.py && python3 -m http.server -d site
 ```
 

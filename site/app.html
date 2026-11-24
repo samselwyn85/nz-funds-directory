@@ -2,241 +2,288 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Every New Zealand fund and grant in one free, searchable place, checked every night.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: sticky search header, chip filter row, card list; detail and matcher as hash views */
+/* Layout: white top bar; home = search band + two-column directory (filter sidebar + result rows); phones get a bottom tab bar and a filter sheet */
 :root{
-  --bg:#f6f8f6; --surface:#ffffff; --fg:#14211d; --muted:#5b6b65; --line:#dbe3df;
-  --accent:#0d6b57; --accent-ink:#ffffff; --accent-soft:#e2f1ec;
-  --kowhai:#f2c230; --kowhai-soft:#fdf3cf; --kowhai-ink:#5a4300;
-  --ok:#1f7a45; --warn:#a35b00; --bad:#b42318;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --r:10px;
+  --bg:#ffffff; --subtle:#f5f7fa; --surface:#ffffff; --ink:#0f1b2d; --muted:#5b6577; --faint:#8a93a3; --line:#e3e7ee; --line-strong:#cfd5df;
+  --brand:#0b5d4b; --brand-hover:#094d3e; --brand-ink:#ffffff; --brand-soft:#e8f3ef;
+  --amber:#a15c07; --amber-soft:#fff4e2; --ok:#16794a; --bad:#b42318; --shadow:0 1px 2px rgba(15,27,45,.06),0 8px 24px rgba(15,27,45,.06);
+  --sans:"IBM Plex Sans", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:8px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f1714; --surface:#16211d; --fg:#e6eeea; --muted:#9db0a8; --line:#28362f;
-  --accent:#4cc3a3; --accent-ink:#06231b; --accent-soft:#173b31;
-  --kowhai:#f2c230; --kowhai-soft:#3a3115; --kowhai-ink:#f7dc84;
-  --ok:#5fd08f; --warn:#f0a94a; --bad:#ff8a80; color-scheme:dark}}
+  --bg:#0d131c; --subtle:#121a25; --surface:#151e2a; --ink:#e8edf4; --muted:#a3aebd; --faint:#7d8898; --line:#253142; --line-strong:#33425a;
+  --brand:#4fc2a4; --brand-hover:#6fd3b8; --brand-ink:#062019; --brand-soft:#15302a;
+  --amber:#f2b04c; --amber-soft:#33270f; --ok:#5fd093; --bad:#ff8a80; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f1714; --surface:#16211d; --fg:#e6eeea; --muted:#9db0a8; --line:#28362f;
-  --accent:#4cc3a3; --accent-ink:#06231b; --accent-soft:#173b31;
-  --kowhai:#f2c230; --kowhai-soft:#3a3115; --kowhai-ink:#f7dc84;
-  --ok:#5fd08f; --warn:#f0a94a; --bad:#ff8a80; color-scheme:dark}
+  --bg:#0d131c; --subtle:#121a25; --surface:#151e2a; --ink:#e8edf4; --muted:#a3aebd; --faint:#7d8898; --line:#253142; --line-strong:#33425a;
+  --brand:#4fc2a4; --brand-hover:#6fd3b8; --brand-ink:#062019; --brand-soft:#15302a;
+  --amber:#f2b04c; --amber-soft:#33270f; --ok:#5fd093; --bad:#ff8a80; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25); color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font:16px/1.55 var(--body)}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
-a{color:var(--accent)}
-:focus-visible{outline:3px solid var(--kowhai);outline-offset:2px;border-radius:4px}
-.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
-.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+a{color:var(--brand)}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.015em;text-wrap:balance;line-height:1.2}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+svg.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.label{font:500 .72rem/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
 
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg);font-family:var(--display);font-weight:700;font-size:1.2rem}
-.brand svg{flex:none}
-nav.main{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
-nav.main a{text-decoration:none;color:var(--fg);padding:8px 12px;border-radius:999px;font-weight:500;font-size:.95rem}
-nav.main a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
-nav.main a.cta{background:var(--accent);color:var(--accent-ink)}
+/* top bar */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:32px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+nav.main{display:flex;gap:2px;flex:1}
+nav.main a{text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:6px;font-weight:500;font-size:.93rem}
+nav.main a:hover{color:var(--ink);background:var(--subtle)}
+nav.main a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--brand);border-radius:0}
+.top-actions{display:flex;gap:8px;align-items:center}
+.btn{font:inherit;font-weight:600;font-size:.93rem;border:1px solid transparent;border-radius:var(--r);padding:9px 16px;cursor:pointer;background:var(--brand);color:var(--brand-ink);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
+.btn:hover{background:var(--brand-hover)}
+.btn.ghost{background:var(--surface);color:var(--ink);border-color:var(--line-strong)}
+.btn.ghost:hover{background:var(--subtle)}
+.btn.block{width:100%}
 
-.hero{padding-block:36px 20px}
-.hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;max-width:20ch}
-.hero p.lede{color:var(--muted);max-width:60ch;margin:10px 0 0;font-size:1.05rem}
-.search{margin-top:22px;display:flex;gap:8px;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:6px 6px 6px 14px;align-items:center;max-width:720px}
-.search:focus-within{border-color:var(--accent)}
-.search input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:1.05rem;color:var(--fg);padding:10px 0}
-.search input:focus{outline:none}
-.btn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:10px 16px;cursor:pointer;background:var(--accent);color:var(--accent-ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
-.btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line)}
-.btn.ghost:hover{border-color:var(--accent)}
-.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px;color:var(--muted);font-size:.92rem}
-.facts b{display:block;font-family:var(--display);font-size:1.5rem;color:var(--fg);font-variant-numeric:tabular-nums}
-
-.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-block:14px;border-top:1px solid var(--line)}
-.chip{position:relative}
-.chip>button{font:inherit;font-size:.92rem;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
-.chip>button[aria-expanded="true"],.chip.on>button{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
-.chip .count{font-variant-numeric:tabular-nums;background:var(--accent);color:var(--accent-ink);border-radius:999px;font-size:.72rem;padding:0 7px;font-weight:600}
-.menu{position:absolute;top:calc(100% + 6px);left:0;z-index:6;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(10,30,25,.16);padding:8px;min-width:240px;max-height:340px;overflow:auto}
-.menu label{display:flex;gap:10px;align-items:center;padding:7px 8px;border-radius:8px;cursor:pointer;font-size:.95rem}
-.menu label:hover{background:var(--accent-soft)}
-.menu label span.n{margin-left:auto;color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums}
-.menu input{accent-color:var(--accent);width:16px;height:16px}
-select#sort{font:inherit;font-size:.92rem;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:7px 12px;margin-left:auto}
-.applied{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding-bottom:10px}
-.applied:empty{display:none}
-.tagx{font:inherit;font-size:.85rem;border:0;background:var(--fg);color:var(--bg);border-radius:999px;padding:4px 10px;cursor:pointer}
-.linkbtn{font:inherit;font-size:.85rem;background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer}
-
-.seg{margin-top:22px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) auto;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:6px;gap:0;max-width:860px;box-shadow:0 8px 24px rgba(10,40,32,.06)}
-.seg label{display:grid;gap:0;padding:6px 14px;border-right:1px solid var(--line);min-width:0}
+/* search band */
+.band{background:var(--subtle);border-bottom:1px solid var(--line)}
+.band .wrap{padding-block:44px 32px}
+.band h1{font-size:clamp(1.8rem,3.6vw,2.6rem);max-width:22ch}
+.band p.lede{color:var(--muted);max-width:60ch;margin:10px 0 0;font-size:1.05rem}
+.seg{margin-top:24px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) auto;background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;padding:6px;max-width:900px;box-shadow:var(--shadow)}
+.seg label{display:grid;padding:6px 14px;border-right:1px solid var(--line);min-width:0;cursor:text}
 .seg label:nth-child(3){border-right:0}
-.seg label span{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.seg input,.seg select{border:0;background:transparent;font:inherit;font-size:1rem;color:var(--fg);padding:2px 0;min-width:0;width:100%}
+.seg label span{font:500 .68rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.seg input,.seg select{border:0;background:transparent;font:inherit;font-size:.98rem;color:var(--ink);padding:2px 0;min-width:0;width:100%}
 .seg input:focus,.seg select:focus{outline:none}
-.seg label:focus-within{background:var(--accent-soft);border-radius:10px}
-.seg .btn{border-radius:12px;padding:12px 20px}
-.shortcuts{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-.sc{font:inherit;font-size:.9rem;display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:7px 12px;cursor:pointer}
-.sc b{font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;font-size:.8rem}
-.sc[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.sc[aria-pressed="true"] b{color:var(--accent-ink)}
-.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:12px;overflow-x:auto;scrollbar-width:none}
-.tabs button{font:inherit;font-weight:500;background:none;border:0;border-bottom:2.5px solid transparent;color:var(--muted);padding:10px 12px;cursor:pointer;white-space:nowrap}
-.tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
-.tabs button b{font-weight:600;font-variant-numeric:tabular-nums;font-size:.8rem;margin-left:4px;color:var(--muted)}
-.card{position:relative}
-.card h3 a{color:inherit;text-decoration:none}
-.card h3 a::after{content:"";position:absolute;inset:0;border-radius:var(--r)}
-.save{position:absolute;top:12px;right:12px;z-index:1;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;font-size:1.05rem;line-height:1;display:grid;place-items:center}
-.save[aria-pressed="true"]{color:var(--bad);border-color:var(--bad)}
-.card .meta:first-child{padding-right:44px}
+.seg label:focus-within{background:var(--subtle);border-radius:8px}
+.seg .btn{padding:0 22px;border-radius:8px}
+.trust{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:22px;color:var(--muted);font-size:.88rem;align-items:center}
+.trust b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.trust .sep{width:4px;height:4px;border-radius:50%;background:var(--line-strong)}
+
+/* directory layout */
+.dir{display:grid;grid-template-columns:256px minmax(0,1fr);gap:40px;padding-block:28px 64px}
+aside.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);align-self:start;max-height:calc(100vh - 100px);overflow:auto;padding-right:4px}
+.fhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.fhead h2{font-size:1rem}
+.linkbtn{font:inherit;font-size:.86rem;background:none;border:0;color:var(--brand);cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px}
+.fgroup{border-top:1px solid var(--line);padding-block:14px}
+.fgroup h3{font-size:.86rem;font-weight:600;margin-bottom:8px;display:flex;justify-content:space-between}
+.opt{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:.92rem;cursor:pointer;color:var(--ink)}
+.opt input{width:16px;height:16px;accent-color:var(--brand);margin:0;flex:none}
+.opt .n{margin-left:auto;color:var(--faint);font-size:.8rem;font-variant-numeric:tabular-nums}
+.opt.zero{color:var(--faint)}
+
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs button{font:inherit;font-weight:500;font-size:.93rem;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);padding:10px 0;cursor:pointer;white-space:nowrap;margin-bottom:-1px}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--brand)}
+.tabs .n{font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--faint);margin-left:6px;background:var(--subtle);border-radius:999px;padding:1px 7px}
+.rhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-block:16px}
+.rhead .count{font-weight:600}
+.rhead .count span{color:var(--muted);font-weight:400}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chipx{font:inherit;font-size:.82rem;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);border-radius:999px;padding:3px 6px 3px 10px;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+.chipx svg{width:14px;height:14px}
+.sort{margin-left:auto;display:flex;gap:8px;align-items:center;color:var(--muted);font-size:.88rem}
+.sort select{font:inherit;font-size:.88rem;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:6px;padding:6px 8px}
 .fbtn{display:none}
-.tabbar{display:none}
-.feed{display:grid;gap:8px;margin:0 0 18px;padding:14px 16px;background:var(--kowhai-soft);border-radius:var(--r);font-size:.92rem}
-.feed b{color:var(--kowhai-ink)}
-.resultbar{display:flex;justify-content:space-between;align-items:baseline;padding-block:6px 12px;color:var(--muted);font-size:.92rem}
-.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;padding-bottom:40px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--fg);min-width:0;transition:border-color .15s, transform .15s}
-.card:hover{border-color:var(--accent);transform:translateY(-1px)}
-.card h3{font-size:1.12rem;font-weight:700}
-.card .by{color:var(--muted);font-size:.9rem;margin-top:-6px}
-.card p{margin:0;font-size:.94rem;color:var(--fg)}
-.meta{display:flex;flex-wrap:wrap;gap:6px}
-.pill{font-size:.78rem;border-radius:999px;padding:3px 9px;background:var(--bg);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
-.pill.type{background:var(--accent-soft);border-color:transparent;color:var(--accent);font-weight:600}
-.pill.soon{background:var(--kowhai-soft);border-color:transparent;color:var(--kowhai-ink);font-weight:600}
-.pill.anytime{background:transparent;border-color:var(--accent);color:var(--accent)}
-.foot{display:flex;justify-content:space-between;gap:8px;font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:auto}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle;background:var(--muted)}
-.dot.ok{background:var(--ok)} .dot.moved{background:var(--warn)} .dot.broken{background:var(--bad)}
-.empty{grid-column:1/-1;background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:28px;text-align:center;color:var(--muted)}
 
-.detail{padding-block:28px 56px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px}
-.detail h1{font-size:clamp(1.7rem,4vw,2.4rem)}
-.detail .back{font-size:.92rem;display:inline-block;margin-bottom:14px}
-.facts-table{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px 16px;margin:22px 0;font-size:.96rem}
-.facts-table dt{color:var(--muted)} .facts-table dd{margin:0}
-aside.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px;align-self:start;position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px)}
-.note{font-size:.88rem;color:var(--muted);background:var(--kowhai-soft);border-radius:8px;padding:10px 12px}
+.rows{display:grid;gap:12px}
+.row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:24px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;transition:border-color .15s, box-shadow .15s}
+.row:hover{border-color:var(--line-strong);box-shadow:var(--shadow)}
+.row .top-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-right:40px}
+.row h3{font-size:1.06rem;margin-top:6px}
+.row h3 a{color:var(--ink);text-decoration:none}
+.row h3 a::after{content:"";position:absolute;inset:0;border-radius:10px}
+.row h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.row .by{color:var(--muted);font-size:.9rem;margin-top:2px}
+.row p{margin:8px 0 0;font-size:.92rem;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-size:.78rem;border-radius:4px;padding:2px 8px;background:var(--subtle);color:var(--muted);white-space:nowrap}
+.status{font-size:.78rem;font-weight:600;border-radius:4px;padding:2px 8px;white-space:nowrap}
+.status.anytime{background:var(--brand-soft);color:var(--brand)}
+.status.soon{background:var(--amber-soft);color:var(--amber)}
+.status.rounds{background:var(--subtle);color:var(--muted)}
+.side{border-left:1px solid var(--line);padding-left:20px;display:grid;gap:10px;align-content:start;font-size:.86rem}
+.side dt{color:var(--faint);font-size:.74rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.side dd{margin:0;color:var(--ink);font-weight:500}
+.health{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.8rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--faint);flex:none}
+.dot.ok{background:var(--ok)} .dot.moved{background:var(--amber)} .dot.broken,.dot.blocked{background:var(--bad)}
+.save{position:absolute;top:14px;right:14px;z-index:1;width:34px;height:34px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--faint);cursor:pointer;display:grid;place-items:center}
+.save:hover{background:var(--subtle);color:var(--ink)}
+.save[aria-pressed="true"]{color:var(--brand)}
+.save[aria-pressed="true"] svg{fill:currentColor}
+.empty{background:var(--subtle);border:1px dashed var(--line-strong);border-radius:10px;padding:28px;text-align:center;color:var(--muted)}
+.empty b{color:var(--ink);display:block;margin-bottom:4px}
 
-.page{padding-block:32px 56px;max-width:760px}
-.page h1{font-size:clamp(1.7rem,4vw,2.4rem)}
-.page p{max-width:65ch}
-.steps{display:flex;flex-direction:column;gap:22px;margin-top:22px}
-.step h2{font-size:1.15rem;margin-bottom:10px}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opt{font:inherit;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
-.opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-form.sub{display:grid;gap:14px;margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
-form.sub label.f{display:grid;gap:6px;font-weight:600;font-size:.94rem}
-form.sub input[type=email],form.sub select{font:inherit;padding:10px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg)}
-.checks{display:flex;flex-wrap:wrap;gap:8px}
-.checks label{display:flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.9rem;cursor:pointer}
-.checks input{accent-color:var(--accent)}
-.ok-msg{background:var(--accent-soft);color:var(--fg);border-radius:8px;padding:12px 14px}
-.compare{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:14px}
-.compare th,.compare td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+/* pages */
+.page{padding-block:40px 72px;max-width:760px}
+.page h1{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:6px}
+.page p{max-width:65ch;color:var(--muted)}
+.crumbs{font-size:.86rem;color:var(--muted);display:flex;gap:6px;align-items:center;margin-bottom:16px}
+.crumbs a{color:var(--muted)}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;padding-block:32px 72px}
+.detail h1{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:10px}
+.detail .lead{font-size:1.06rem;max-width:62ch;margin-top:14px}
+.facts{display:grid;grid-template-columns:170px minmax(0,1fr);border-top:1px solid var(--line);margin-top:28px}
+.facts dt,.facts dd{padding:12px 0;border-bottom:1px solid var(--line);margin:0}
+.facts dt{color:var(--muted);font-size:.9rem}
+.panel{border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:10px;align-self:start;position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);background:var(--surface);box-shadow:var(--shadow)}
+.note{font-size:.84rem;color:var(--muted);background:var(--subtle);border-radius:8px;padding:10px 12px}
+.history{margin-top:28px}
+.history h2{font-size:1.05rem;margin-bottom:8px}
+.history ul{padding-left:18px;color:var(--muted)}
+
+.steps{display:grid;gap:28px;margin-top:28px}
+.step h2{font-size:1rem;margin-bottom:10px;display:flex;gap:10px;align-items:center}
+.step h2 .num{font:500 .75rem var(--mono);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--subtle);color:var(--muted)}
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choice{font:inherit;font-size:.92rem;background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:8px;padding:8px 14px;cursor:pointer}
+.choice:hover{border-color:var(--ink)}
+.choice[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+
+.small{font-size:.82rem;color:var(--muted);margin:0}
+.compare{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:16px}
+.compare th,.compare td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+.compare th{font-weight:600}
 .compare td.y{color:var(--ok);font-weight:600}
 .tablewrap{overflow-x:auto}
-footer.site{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.88rem}
 
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px}
-.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.plan.best{border:2px solid var(--accent)}
-.plan h2{font-size:1.2rem}
-.price{font-family:var(--display);font-size:2rem;font-weight:700;font-variant-numeric:tabular-nums}
-.price small{font-family:var(--body);font-size:.9rem;font-weight:500;color:var(--muted)}
-.plan ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.94rem}
-.plan .btn{justify-content:center;margin-top:auto}
-.toggle{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:3px;margin-top:16px;background:var(--surface)}
-.toggle button{font:inherit;border:0;background:none;color:var(--fg);padding:6px 14px;border-radius:999px;cursor:pointer}
-.toggle button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
-.paywith{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--muted);font-size:.88rem;margin-top:18px}
-.sheet{position:fixed;inset:0;z-index:20;background:rgba(8,20,16,.5);display:flex;align-items:flex-end;justify-content:center;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
-.sheet>div{background:var(--surface);color:var(--fg);border-radius:16px;padding:22px;max-width:440px;width:100%;display:grid;gap:12px}
-.paybtn{font:inherit;font-weight:600;border-radius:10px;padding:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
-.paybtn.dark{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-@media (min-width:700px){.sheet{align-items:center}}
-@media (max-width:900px){
-  .detail{grid-template-columns:1fr}
-  aside.panel{position:static}
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(10,18,30,.55);display:flex;align-items:center;justify-content:center;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sheet>.box{background:var(--surface);color:var(--ink);border-radius:14px;padding:24px;max-width:440px;width:100%;display:grid;gap:12px;box-shadow:0 24px 64px rgba(0,0,0,.3);max-height:100%;overflow:auto}
+
+footer.site{border-top:1px solid var(--line);background:var(--subtle)}
+footer.site .wrap{padding-block:28px;display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+.tabbar{display:none}
+.sheet-actions{display:flex;gap:8px;position:sticky;bottom:calc(-1 * (20px + env(safe-area-inset-bottom,0px)));background:var(--surface);padding-block:12px calc(20px + env(safe-area-inset-bottom,0px));margin-bottom:calc(-1 * (20px + env(safe-area-inset-bottom,0px)));border-top:1px solid var(--line)}
+.freebadge{font-size:.82rem;font-weight:600;color:var(--brand);background:var(--brand-soft);border-radius:999px;padding:5px 12px;white-space:nowrap}
+.feed{display:grid;gap:0;margin-top:24px;border-top:1px solid var(--line)}
+.feed .ev{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.feed .ev time{color:var(--faint);font:500 .78rem var(--mono);padding-top:3px}
+.feed .ev a{font-weight:600;color:var(--ink)}
+.feed .ev p{margin:2px 0 0;color:var(--muted);font-size:.92rem}
+
+@media (max-width:980px){
+  .dir{grid-template-columns:1fr;gap:0}
+  aside.filters{display:none}
+  .fbtn{display:inline-flex}
+  .detail{grid-template-columns:1fr;gap:28px}
+  .panel{position:static}
 }
 @media (max-width:760px){
-  .seg{grid-template-columns:1fr 1fr;border-radius:14px}
+  .top .wrap{height:56px}
+  nav.main{display:none}
+  .feed .ev{grid-template-columns:1fr;gap:2px}
+  .top-actions{margin-left:auto}
+  .band .wrap{padding-block:28px 24px}
+  .seg{grid-template-columns:1fr 1fr}
   .seg label:first-child{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--line)}
   .seg label:nth-child(2){border-right:1px solid var(--line)}
-  .seg .btn{grid-column:1/-1;justify-content:center;margin-top:6px}
-  .shortcuts{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)))}
-  .sc{white-space:nowrap}
-  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
-  .chip>button{white-space:nowrap}
-  .facts{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:10px;font-size:.78rem}
-  .facts b{font-size:1.2rem}
-  nav.main{display:none}
+  .seg .btn{grid-column:1/-1;margin-top:6px;padding:12px}
+  .row{grid-template-columns:1fr;gap:12px;padding:16px}
+  .side{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:12px;grid-template-columns:1fr 1fr}
+  .facts{grid-template-columns:1fr}
+  .facts dt{border-bottom:0;padding-bottom:0}
+  .sort span{display:none}
   .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--surface);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
-  .tabbar a{display:grid;justify-items:center;gap:2px;text-decoration:none;color:var(--muted);font-size:.72rem;font-weight:500;padding:4px 0;border-radius:10px}
+  .tabbar a{display:grid;justify-items:center;gap:3px;text-decoration:none;color:var(--faint);font-size:.7rem;font-weight:500;padding:4px 0}
   .tabbar a svg{width:22px;height:22px}
-  .tabbar a[aria-current="page"]{color:var(--accent);background:var(--accent-soft)}
-  body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
-  nav.main{margin-left:0;width:100%}
-  select#sort{margin-left:0}
-  .facts-table{grid-template-columns:1fr;gap:2px}
-  .facts-table dd{margin-bottom:10px}
-  .menu{position:fixed;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-height:60vh}
+  .tabbar a[aria-current="page"]{color:var(--brand)}
+  body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
+  .sheet{align-items:flex-end;padding-bottom:0}
+  .sheet>.box{border-radius:16px 16px 0 0;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
 }
-@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.row{transition:none}}
 </style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="i-rss" viewBox="0 0 24 24"><path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1.2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+</svg>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#browse" aria-label="Puna Pūtea home">
-      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--accent)"/><path d="M8 19c3-6 13-6 16 0" stroke="var(--accent-ink)" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M11 23c2-3 8-3 10 0" stroke="var(--kowhai)" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="11" r="2.6" fill="var(--kowhai)"/></svg>
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--brand)"/><path d="M8 19c3-6 13-6 16 0" stroke="var(--brand-ink)" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M11.5 23.5c2-2.6 7-2.6 9 0" stroke="var(--brand-ink)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".6"/><circle cx="16" cy="11" r="2.4" fill="var(--brand-ink)"/></svg>
       Puna Pūtea
     </a>
     <nav class="main" aria-label="Main">
-      <a href="#browse" data-nav="browse">Browse funds</a>
-      <a href="#match" data-nav="match">Find my match</a>
+      <a href="#browse" data-nav="browse">Find funding</a>
+      <a href="#match" data-nav="match">Eligibility match</a>
       <a href="#saved" data-nav="saved">Saved</a>
+      <a href="#updates" data-nav="updates">What's changed</a>
       <a href="#about" data-nav="about">How it works</a>
-      <a href="#pricing" data-nav="pricing">Plans</a>
-      <a href="#alerts" data-nav="alerts" class="cta">Get free alerts</a>
     </nav>
+    <div class="top-actions">
+      <span class="freebadge">Free for everyone</span>
+    </div>
   </div>
 </header>
 
 <main id="app"></main>
 
-<nav class="tabbar" aria-label="App">
-  <a href="#browse" data-nav="browse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Explore</a>
-  <a href="#match" data-nav="match"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Match</a>
-  <a href="#saved" data-nav="saved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Saved</a>
-  <a href="#alerts" data-nav="alerts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>Alerts</a>
-  <a href="#pricing" data-nav="pricing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Plans</a>
-</nav>
-
 <footer class="site">
-  <div class="wrap">Puna Pūtea is a free directory of New Zealand funding. We check every funder's page nightly, but always confirm details with the funder before you apply. <a href="#about">How we check</a>.</div>
+  <div class="wrap">
+    <span>Puna Pūtea · a free directory of New Zealand funding, checked nightly.</span>
+    <span>Always confirm dates and criteria with the funder before applying. <a href="#about">How we check</a></span>
+  </div>
 </footer>
+
+<nav class="tabbar" aria-label="App">
+  <a href="#browse" data-nav="browse"><svg class="i"><use href="#i-search"/></svg>Explore</a>
+  <a href="#match" data-nav="match"><svg class="i"><use href="#i-filter"/></svg>Match</a>
+  <a href="#saved" data-nav="saved"><svg class="i"><use href="#i-bookmark"/></svg>Saved</a>
+  <a href="#updates" data-nav="updates"><svg class="i"><use href="#i-bell"/></svg>Changes</a>
+  <a href="#about" data-nav="about"><svg class="i"><use href="#i-info"/></svg>About</a>
+</nav>
 
 <script>
 (function(){
-const CONFIG = Object.assign({ buttondownUser: "" }, window.PUNA_CONFIG || {});
 const SECTORS = ["Community","Arts & culture","Sport & recreation","Environment","Māori & iwi","Education & youth","Health & wellbeing","Business & innovation","Heritage","Media"];
 const REGIONS = ["Northland","Auckland","Waikato","Bay of Plenty","Gisborne","Hawke's Bay","Taranaki","Manawatū-Whanganui","Wellington","Tasman","Nelson","Marlborough","West Coast","Canterbury","Otago","Southland","Chatham Islands"];
 const TYPES = ["Government","Gaming trust","Community trust","Philanthropic","Council","Corporate"];
 const WHEN = ["Open anytime","Set rounds","Closing in 30 days","Check funder"];
 const WHO = ["Community groups","Charities","Marae, iwi & hapū","Schools","Businesses","Individuals"];
+const GROUPS = [["sector","Kaupapa / sector",SECTORS],["region","Region",REGIONS],["type","Funder type",TYPES],["when","When to apply",WHEN],["who","Who can apply",WHO]];
+const KEYS = GROUPS.map(g=>g[0]);
+const TABS = [["all","All funds"],["anytime","Apply anytime"],["soon","Closing soon"],["changed","Recently changed"],["saved","Saved"]];
+const icon = (n, cls="i") => `<svg class="${cls}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 
 let DATA = {updated:null, funds:[]};
+const state = { tab:"all", q:"", sector:new Set(), region:new Set(), type:new Set(), when:new Set(), who:new Set(), sort:"relevance", more:new Set(), sheet:false };
 let saved = new Set();
 try { saved = new Set(JSON.parse(localStorage.getItem("puna-saved") || "[]")); } catch(_) {}
-function persistSaved(){ try { localStorage.setItem("puna-saved", JSON.stringify([...saved])); } catch(_) {} }
-const TABS = [["all","All funds"],["anytime","Apply anytime"],["soon","Closing soon"],["changed","Recently changed"],["saved","Saved"]];
-function recent(f){ const h=(f.history||[]).at(-1); return h && (Date.now()-new Date(h.date))/864e5 <= 14; }
+const persistSaved = () => { try { localStorage.setItem("puna-saved", JSON.stringify([...saved])); } catch(_) {} };
+const app = document.getElementById("app");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function daysUntil(d){ if(!d) return null; return Math.ceil((new Date(d+"T23:59:59+13:00") - Date.now())/864e5); }
+function whenOf(f){ const d = daysUntil(f.nextDeadline); return (d !== null && d >= 0 && d <= 30) ? "Closing in 30 days" : f.howToApply; }
+function ago(iso){
+  if(!iso) return null;
+  const h = Math.round((Date.now() - new Date(iso))/36e5);
+  if (h < 1) return "just now"; if (h < 24) return h+"h ago";
+  const d = Math.round(h/24); return d === 1 ? "yesterday" : d+" days ago";
+}
+function health(f){
+  const a = ago(f.lastChecked);
+  if (!a) return `<span class="health"><span class="dot"></span>First check pending</span>`;
+  const label = {ok:"Link verified", moved:"Page moved", broken:"Link broken", blocked:"Needs manual check"}[f.linkStatus] || "Checked";
+  return `<span class="health"><span class="dot ${esc(f.linkStatus)}"></span>${label} · ${a}</span>`;
+}
+function recent(f){ const h=(f.history||[]).at(-1); return !!h && (Date.now()-new Date(h.date))/864e5 <= 14; }
 function inTab(f, tab){
   if (tab==="anytime") return f.howToApply==="Open anytime";
   if (tab==="soon"){ const d=daysUntil(f.nextDeadline); return d!==null && d>=0 && d<=45; }
@@ -244,328 +291,253 @@ function inTab(f, tab){
   if (tab==="saved") return saved.has(f.id);
   return true;
 }
-const state = { tab:"all", q:"", sector:new Set(), region:new Set(), type:new Set(), when:new Set(), who:new Set(), sort:"relevance", open:null };
-const app = document.getElementById("app");
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-
-function daysUntil(d){ if(!d) return null; const t = new Date(d+"T23:59:59+13:00"); return Math.ceil((t - Date.now())/864e5); }
-function whenOf(f){
-  const d = daysUntil(f.nextDeadline);
-  if (d !== null && d >= 0 && d <= 30) return "Closing in 30 days";
-  return f.howToApply;
-}
-function ago(iso){
-  if(!iso) return null;
-  const h = Math.round((Date.now() - new Date(iso))/36e5);
-  if (h < 1) return "just now"; if (h < 24) return h+"h ago";
-  const d = Math.round(h/24); return d === 1 ? "yesterday" : d+" days ago";
-}
-function linkLine(f){
-  const a = ago(f.lastChecked);
-  if (!a) return `<span><span class="dot"></span>First check tonight</span>`;
-  const label = {ok:"Link working", moved:"Page moved", broken:"Link broken"}[f.linkStatus] || "Checked";
-  return `<span><span class="dot ${esc(f.linkStatus)}"></span>${label} · checked ${a}</span>`;
+function hasOpt(f, key, o){
+  return key==="sector" ? f.sectors.includes(o) : key==="region" ? (f.regions.includes(o) || f.regions.includes("Nationwide")) :
+    key==="type" ? f.funderType===o : key==="who" ? f.eligible.includes(o) : whenOf(f)===o;
 }
 function matches(f, skip){
   if (state.q){
-    const hay = (f.name+" "+f.funder+" "+f.summary+" "+f.sectors.join(" ")+" "+f.regions.join(" ")+" "+f.funderType).toLowerCase();
+    const hay = (f.name+" "+f.funder+" "+f.summary+" "+f.sectors.join(" ")+" "+f.regions.join(" ")+" "+f.funderType+" "+f.eligible.join(" ")).toLowerCase();
     if (!state.q.toLowerCase().split(/\s+/).every(w => hay.includes(w))) return false;
   }
-  if (skip!=="sector" && state.sector.size && !f.sectors.some(s => state.sector.has(s))) return false;
-  if (skip!=="region" && state.region.size && !(f.regions.includes("Nationwide") || f.regions.some(r => state.region.has(r)))) return false;
-  if (skip!=="type" && state.type.size && !state.type.has(f.funderType)) return false;
-  if (skip!=="when" && state.when.size && !state.when.has(whenOf(f))) return false;
-  if (skip!=="who" && state.who.size && !f.eligible.some(e => state.who.has(e))) return false;
+  for (const k of KEYS){ if (k!==skip && state[k].size && ![...state[k]].some(o => hasOpt(f,k,o))) return false; }
   return true;
 }
 function results(){
-  let r = DATA.funds.filter(f => matches(f) && inTab(f, state.tab));
+  const r = DATA.funds.filter(f => matches(f) && inTab(f, state.tab));
   if (state.sort === "deadline") r.sort((a,b) => (daysUntil(a.nextDeadline) ?? 9e9) - (daysUntil(b.nextDeadline) ?? 9e9));
   else if (state.sort === "az") r.sort((a,b) => a.name.localeCompare(b.name));
   else if (state.sort === "local") r.sort((a,b) => (a.regions.includes("Nationwide")) - (b.regions.includes("Nationwide")));
   return r;
 }
-function card(f){
+function statusOf(f){
   const d = daysUntil(f.nextDeadline);
-  const when = d !== null && d >= 0
-    ? `<span class="pill soon">Closes in ${d} day${d===1?"":"s"}</span>`
-    : f.howToApply === "Open anytime" ? `<span class="pill anytime">Apply anytime</span>` : `<span class="pill">${esc(f.howToApply)}</span>`;
-  const region = f.regions.includes("Nationwide") ? "Nationwide" : f.regions.slice(0,2).join(", ") + (f.regions.length>2 ? " +"+(f.regions.length-2) : "");
+  if (d !== null && d >= 0) return `<span class="status soon">Closes in ${d} day${d===1?"":"s"}</span>`;
+  if (f.howToApply === "Open anytime") return `<span class="status anytime">Apply anytime</span>`;
+  return `<span class="status rounds">${esc(f.howToApply)}</span>`;
+}
+function regionText(f){ return f.regions.includes("Nationwide") ? "Nationwide" : f.regions.slice(0,2).join(", ") + (f.regions.length>2 ? " +"+(f.regions.length-2) : ""); }
+function row(f){
   const on = saved.has(f.id);
-  return `<article class="card">
-    <button type="button" class="save" data-save="${esc(f.id)}" aria-pressed="${on}" aria-label="${on?"Remove from saved":"Save"} ${esc(f.name)}">${on?"♥":"♡"}</button>
-    <div class="meta"><span class="pill type">${esc(f.funderType)}</span>${when}</div>
-    <h3><a href="#fund-${esc(f.id)}">${esc(f.name)}</a></h3>
-    <div class="by">${esc(f.funder)}</div>
-    <p>${esc(f.summary)}</p>
-    <div class="meta">${f.sectors.slice(0,3).map(s=>`<span class="pill">${esc(s)}</span>`).join("")}<span class="pill">📍 ${esc(region)}</span></div>
-    <div class="foot">${linkLine(f)}<span>${esc(f.amount)}</span></div>
+  return `<article class="row">
+    <div style="min-width:0">
+      <div class="top-line"><span class="label">${esc(f.funderType)}</span>${statusOf(f)}</div>
+      <h3><a href="#fund-${esc(f.id)}">${esc(f.name)}</a></h3>
+      <div class="by">${esc(f.funder)}</div>
+      <p>${esc(f.summary)}</p>
+      <div class="tags">${f.sectors.slice(0,3).map(s=>`<span class="tag">${esc(s)}</span>`).join("")}</div>
+    </div>
+    <dl class="side">
+      <div><dt>Region</dt><dd>${esc(regionText(f))}</dd></div>
+      <div><dt>Amount</dt><dd>${esc(f.amount)}</dd></div>
+      <div style="grid-column:1/-1">${health(f)}</div>
+    </dl>
+    <button type="button" class="save" data-save="${esc(f.id)}" aria-pressed="${on}" aria-label="${on?"Remove":"Save"} ${esc(f.name)}" title="${on?"Saved":"Save"}">${icon("bookmark")}</button>
   </article>`;
 }
-function chip(key, label, options){
-  const set = state[key];
-  const on = set.size>0;
-  const menu = state.open === key ? `<div class="menu" role="group" aria-label="${esc(label)}">${options.map(o => {
-      const n = DATA.funds.filter(f => matches(f, key) && (
-        key==="sector" ? f.sectors.includes(o) : key==="region" ? (f.regions.includes(o) || f.regions.includes("Nationwide")) :
-        key==="type" ? f.funderType===o : key==="who" ? f.eligible.includes(o) : whenOf(f)===o)).length;
-      return `<label><input type="checkbox" data-k="${key}" value="${esc(o)}" ${set.has(o)?"checked":""}> ${esc(o)} <span class="n">${n}</span></label>`;
-    }).join("")}</div>` : "";
-  return `<div class="chip ${on?"on":""}"><button type="button" data-chip="${key}" aria-expanded="${state.open===key}">${esc(label)}${on?` <span class="count">${set.size}</span>`:""} <span aria-hidden="true">▾</span></button>${menu}</div>`;
+function filterGroups(){
+  return GROUPS.map(([key,label,opts]) => {
+    const counted = opts.map(o => [o, DATA.funds.filter(f => matches(f,key) && inTab(f,state.tab) && hasOpt(f,key,o)).length]);
+    const limit = state.more.has(key) ? opts.length : 6;
+    const shown = counted.slice(0, limit);
+    return `<div class="fgroup"><h3>${esc(label)}${state[key].size?`<button class="linkbtn" data-clr="${key}">Clear</button>`:""}</h3>
+      ${shown.map(([o,n]) => `<label class="opt ${n?"":"zero"}"><input type="checkbox" data-k="${key}" value="${esc(o)}" ${state[key].has(o)?"checked":""}> ${esc(o)}<span class="n">${n}</span></label>`).join("")}
+      ${opts.length>6?`<button class="linkbtn" data-more="${key}">${state.more.has(key)?"Show fewer":`Show all ${opts.length}`}</button>`:""}
+    </div>`;
+  }).join("");
 }
+const activeCount = () => KEYS.reduce((n,k)=>n+state[k].size,0);
 function browse(){
   const r = results();
   const funders = new Set(DATA.funds.map(f=>f.funder)).size;
   const applied = [];
-  ["sector","region","type","when","who"].forEach(k => state[k].forEach(v => applied.push(`<button class="tagx" data-rm="${k}" data-v="${esc(v)}">${esc(v)} ✕</button>`)));
+  KEYS.forEach(k => state[k].forEach(v => applied.push(`<button class="chipx" data-rm="${k}" data-v="${esc(v)}" aria-label="Remove ${esc(v)}">${esc(v)}${icon("x")}</button>`)));
+  if (state.q) applied.unshift(`<button class="chipx" data-rmq="1" aria-label="Remove search">“${esc(state.q)}”${icon("x")}</button>`);
   app.innerHTML = `
-  <section class="wrap hero">
-    <div class="eyebrow">Ngā pūtea katoa · every fund in Aotearoa</div>
-    <h1>Find funding for your mahi, in one place.</h1>
-    <p class="lede">Government, gaming trusts, community trusts, councils and philanthropy. Free to search, no login. We re-check every funder's page each night and tell you when something changes.</p>
+  <section class="band"><div class="wrap">
+    <div class="label">Ngā pūtea katoa · All funding in Aotearoa</div>
+    <h1 style="margin-top:8px">Every New Zealand fund, in one place.</h1>
+    <p class="lede">Search grants from government, gaming trusts, community trusts, councils and philanthropy. Free, no login, and every listing is re-checked each night.</p>
     <form class="seg" role="search" id="sform">
       <label for="q"><span>What's it for?</span><input id="q" type="search" placeholder="e.g. marae kitchen, netball uniforms" value="${esc(state.q)}"></label>
       <label for="qr"><span>Where</span><select id="qr"><option value="">All of Aotearoa</option>${REGIONS.map(x=>`<option ${state.region.size===1&&state.region.has(x)?"selected":""}>${esc(x)}</option>`).join("")}</select></label>
       <label for="qw"><span>Who's applying</span><select id="qw"><option value="">Anyone</option>${WHO.map(x=>`<option ${state.who.size===1&&state.who.has(x)?"selected":""}>${esc(x)}</option>`).join("")}</select></label>
-      <button class="btn" type="submit">Search</button>
+      <button class="btn" type="submit">${icon("search")} Search</button>
     </form>
-    <div class="shortcuts" aria-label="Browse by kaupapa">${SECTORS.map(x=>{const n=DATA.funds.filter(f=>f.sectors.includes(x)).length; return n?`<button type="button" class="sc" data-sc="${esc(x)}" aria-pressed="${state.sector.has(x)}">${esc(x)} <b>${n}</b></button>`:"";}).join("")}</div>
-    <div class="facts">
-      <div><b>${DATA.funds.length}</b>funds listed</div>
-      <div><b>${funders}</b>funders</div>
-      <div><b>6</b>funder types</div>
-      <div><b>${DATA.updated ? esc(ago(DATA.updated)) : "Nightly"}</b>last full check</div>
+    <div class="trust"><span><b>${DATA.funds.length}</b> funds</span><span class="sep"></span><span><b>${funders}</b> funders</span><span class="sep"></span><span>${DATA.updated ? `Last checked <b>${esc(ago(DATA.updated))}</b>` : "Checked <b>every night</b>"}</span><span class="sep"></span><span>Government · Gaming trusts · Community trusts · Councils · Philanthropy · Corporate</span></div>
+  </div></section>
+  <section class="wrap dir">
+    <aside class="filters" aria-label="Filters">
+      <div class="fhead"><h2>Filters</h2>${activeCount()?`<button class="linkbtn" id="clear">Clear all</button>`:""}</div>
+      ${filterGroups()}
+    </aside>
+    <div style="min-width:0">
+      <div class="tabs" role="tablist">${TABS.map(([k,l])=>`<button role="tab" data-tab="${k}" aria-selected="${state.tab===k}">${l}<span class="n">${DATA.funds.filter(f=>matches(f)&&inTab(f,k)).length}</span></button>`).join("")}</div>
+      <div class="rhead">
+        <button class="btn ghost fbtn" id="openfilters">${icon("filter")} Filters${activeCount()?` (${activeCount()})`:""}</button>
+        <div class="count">${r.length} <span>of ${DATA.funds.length} funds</span></div>
+        <div class="chips">${applied.join("")}</div>
+        <label class="sort" for="sort"><span>Sort by</span><select id="sort">
+          <option value="relevance" ${state.sort==="relevance"?"selected":""}>Best match</option>
+          <option value="deadline" ${state.sort==="deadline"?"selected":""}>Closing soonest</option>
+          <option value="local" ${state.sort==="local"?"selected":""}>Local funders first</option>
+          <option value="az" ${state.sort==="az"?"selected":""}>A to Z</option>
+        </select></label>
+      </div>
+      <div class="rows">${r.length ? r.map(row).join("") : emptyFor()}</div>
     </div>
   </section>
-  <section class="wrap">
-    <div class="filters">
-      ${chip("sector","Kaupapa · Sector",SECTORS)}
-      ${chip("region","Rohe · Region",REGIONS)}
-      ${chip("type","Funder type",TYPES)}
-      ${chip("when","When to apply",WHEN)}
-      ${chip("who","Who can apply",WHO)}
-      <select id="sort" aria-label="Sort">
-        <option value="relevance" ${state.sort==="relevance"?"selected":""}>Sort: Best match</option>
-        <option value="deadline" ${state.sort==="deadline"?"selected":""}>Sort: Closing soonest</option>
-        <option value="local" ${state.sort==="local"?"selected":""}>Sort: Local funders first</option>
-        <option value="az" ${state.sort==="az"?"selected":""}>Sort: A to Z</option>
-      </select>
-    </div>
-    <div class="applied">${applied.join("")}${applied.length?`<button class="linkbtn" id="clear">Clear all</button>`:""}</div>
-    <div class="tabs" role="tablist">${TABS.map(([k,l])=>`<button role="tab" data-tab="${k}" aria-selected="${state.tab===k}">${l}<b>${DATA.funds.filter(f=>matches(f)&&inTab(f,k)).length}</b></button>`).join("")}</div>
-    ${state.tab==="changed" && !r.length ? `<div class="feed"><div><b>Nothing new in the last two weeks yet.</b> After each nightly check, funds with new rounds, new closing dates or moved pages show up here.</div></div>`:""}
-    ${state.tab==="saved" && !r.length ? `<div class="feed"><div><b>No saved funds yet.</b> Tap the heart on any fund to keep it here on this device.</div></div>`:""}
-    <div class="resultbar"><span><b>${r.length}</b> of ${DATA.funds.length} funds</span><a href="#alerts">Email me when these change →</a></div>
-    <div class="list">${r.length ? r.map(card).join("") : (state.tab==="changed"||state.tab==="saved") ? "" : `<div class="empty">No funds match all of those filters. Try removing one, or <button class="linkbtn" id="clear2">clear all filters</button>.</div>`}</div>
-  </section>`;
+  ${state.sheet ? `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="fsh"><div class="box">
+      <div class="fhead"><h2 id="fsh">Filters</h2><button class="linkbtn" id="closesheet">Close</button></div>
+      ${filterGroups()}
+      <div class="sheet-actions"><button class="btn ghost" id="clear" style="flex:1">Clear all</button><button class="btn" id="applysheet" style="flex:2">Show ${r.length} fund${r.length===1?"":"s"}</button></div>
+    </div></div>` : ""}`;
+}
+function emptyFor(){
+  if (state.tab==="changed") return `<div class="empty"><b>No changes in the last two weeks yet</b>After each nightly check, funds with new rounds, closing dates or moved pages appear here.</div>`;
+  if (state.tab==="saved") return `<div class="empty"><b>No saved funds yet</b>Use the bookmark on any fund to keep it here on this device.</div>`;
+  return `<div class="empty"><b>No funds match all of these filters</b>Try removing one, or <button class="linkbtn" id="clear">clear all filters</button>.</div>`;
 }
 function detail(id){
   const f = DATA.funds.find(x => x.id === id);
   if (!f){ app.innerHTML = `<section class="wrap page"><h1>We couldn't find that fund</h1><p><a href="#browse">Back to all funds</a></p></section>`; return; }
   const d = daysUntil(f.nextDeadline);
-  const changes = (f.history||[]).slice(-5).reverse();
+  const changes = (f.history||[]).slice(-6).reverse();
+  const on = saved.has(f.id);
   app.innerHTML = `<section class="wrap detail">
     <div style="min-width:0">
-      <a class="back" href="#browse">← All funds</a>
-      <div class="meta" style="margin-bottom:10px"><span class="pill type">${esc(f.funderType)}</span>${f.verified?`<span class="pill anytime">Checked by a person</span>`:""}</div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="#browse">Find funding</a>${icon("chev")}<span>${esc(f.funderType)}</span></nav>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="label">${esc(f.funder)}</span>${statusOf(f)}</div>
       <h1>${esc(f.name)}</h1>
-      <p style="color:var(--muted);margin:6px 0 0">${esc(f.funder)}</p>
-      <p style="font-size:1.08rem;max-width:62ch">${esc(f.summary)}</p>
-      <dl class="facts-table">
-        <dt>Kaupapa · Sector</dt><dd>${f.sectors.map(esc).join(", ")}</dd>
-        <dt>Rohe · Region</dt><dd>${f.regions.map(esc).join(", ")}</dd>
+      <p class="lead">${esc(f.summary)}</p>
+      <dl class="facts">
+        <dt>Kaupapa / sector</dt><dd>${f.sectors.map(esc).join(", ")}</dd>
+        <dt>Region</dt><dd>${f.regions.map(esc).join(", ")}</dd>
         <dt>Who can apply</dt><dd>${f.eligible.map(esc).join(", ")}</dd>
         <dt>How to apply</dt><dd>${esc(f.howToApply)}</dd>
-        <dt>Next closing date</dt><dd>${f.nextDeadline ? esc(new Date(f.nextDeadline).toLocaleDateString("en-NZ",{day:"numeric",month:"long",year:"numeric"})) + (d>=0?` (in ${d} days)`:" (passed)") : "Not published yet. We'll email you when one appears."}</dd>
+        <dt>Next closing date</dt><dd>${f.nextDeadline ? esc(new Date(f.nextDeadline).toLocaleDateString("en-NZ",{day:"numeric",month:"long",year:"numeric"})) + (d>=0?` (in ${d} days)`:" (passed)") : "Not published yet. It will show here as soon as our nightly check finds one."}</dd>
         <dt>Typical amount</dt><dd>${esc(f.amount)}</dd>
-        <dt>Funder's page</dt><dd><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.url.replace(/^https?:\/\//,""))}</a></dd>
-        <dt>Link health</dt><dd>${linkLine(f)}</dd>
+        <dt>Link status</dt><dd>${health(f)}</dd>
       </dl>
-      <h2 style="font-size:1.15rem">Recent changes</h2>
-      ${changes.length ? `<ul>${changes.map(c=>`<li>${esc(c.date)}: ${esc(c.text)}</li>`).join("")}</ul>` : `<p style="color:var(--muted)">No changes recorded yet. Our nightly check logs every change to this page here.</p>`}
+      <div class="history"><h2>Change history</h2>
+        ${changes.length ? `<ul>${changes.map(c=>`<li>${esc(c.date)}: ${esc(c.text)}</li>`).join("")}</ul>` : `<p class="small">No changes recorded yet. Every change our nightly check finds on the funder's page is logged here.</p>`}</div>
     </div>
     <aside class="panel">
-      <a class="btn" href="${esc(f.url)}" target="_blank" rel="noopener">Go to the funder's page ↗</a>
-      <a class="btn ghost" href="#alerts" data-follow="${esc(f.id)}">Alert me when this changes</a>
-      <button type="button" class="btn ghost" data-save="${esc(f.id)}" aria-pressed="${saved.has(f.id)}">${saved.has(f.id)?"♥ Saved":"♡ Save this fund"}</button>
-      <div class="note">Always confirm dates and criteria on the funder's own page before applying.</div>
-      <button class="linkbtn" style="text-align:left" id="report">Something wrong? Tell us</button>
-      <p id="reported" hidden style="margin:0;font-size:.88rem;color:var(--muted)">Thanks. In the live site this goes to the editor's review queue.</p>
+      <a class="btn block" href="${esc(f.url)}" target="_blank" rel="noopener">Open funder's page ${icon("ext")}</a>
+      <button type="button" class="btn ghost block" data-save="${esc(f.id)}" aria-pressed="${on}">${icon("bookmark")} ${on?"Saved":"Save this fund"}</button>
+      <div class="note">Always confirm dates and criteria on the funder's own page before you apply.</div>
+      <button class="linkbtn" style="justify-self:start" id="report">Report a problem with this listing</button>
+      <p id="reported" hidden class="small">Thanks. On the live site this goes to the editor's review queue.</p>
     </aside>
   </section>`;
 }
 const M = { who:null, region:null, sector:null };
 function match(){
-  const opt = (k, list) => `<div class="opts">${list.map(o=>`<button type="button" class="opt" data-m="${k}" data-v="${esc(o)}" aria-pressed="${M[k]===o}">${esc(o)}</button>`).join("")}</div>`;
+  const opt = (k, list) => `<div class="choices">${list.map(o=>`<button type="button" class="choice" data-m="${k}" data-v="${esc(o)}" aria-pressed="${M[k]===o}">${esc(o)}</button>`).join("")}</div>`;
   const ready = M.who && M.region && M.sector;
-  let n = 0;
-  if (ready) n = DATA.funds.filter(f => f.eligible.includes(M.who) && (f.regions.includes("Nationwide")||f.regions.includes(M.region)) && f.sectors.includes(M.sector)).length;
+  const n = ready ? DATA.funds.filter(f => f.eligible.includes(M.who) && (f.regions.includes("Nationwide")||f.regions.includes(M.region)) && f.sectors.includes(M.sector)).length : 0;
   app.innerHTML = `<section class="wrap page">
-    <div class="eyebrow">Three questions</div>
-    <h1>Which funds suit you?</h1>
-    <p>Answer three quick questions and we'll shortlist the funds you're most likely eligible for.</p>
+    <div class="label">Eligibility match</div>
+    <h1>Find the funds you're most likely eligible for.</h1>
+    <p>Answer three questions. We'll shortlist funds that accept applicants like you, in your region, for your kaupapa.</p>
     <div class="steps">
-      <div class="step"><h2>1. Who is applying?</h2>${opt("who",WHO)}</div>
-      <div class="step"><h2>2. Where are you based?</h2>${opt("region",REGIONS)}</div>
-      <div class="step"><h2>3. What is the money for?</h2>${opt("sector",SECTORS)}</div>
+      <div class="step"><h2><span class="num">1</span>Who is applying?</h2>${opt("who",WHO)}</div>
+      <div class="step"><h2><span class="num">2</span>Where are you based?</h2>${opt("region",REGIONS)}</div>
+      <div class="step"><h2><span class="num">3</span>What is the funding for?</h2>${opt("sector",SECTORS)}</div>
     </div>
-    <p style="margin-top:24px">${ready ? `<button class="btn" id="showmatch">Show my ${n} fund${n===1?"":"s"} →</button>` : `<span style="color:var(--muted)">Pick one answer for each question.</span>`}</p>
+    <p style="margin-top:28px">${ready ? `<button class="btn" id="showmatch">See your ${n} matching fund${n===1?"":"s"}</button>` : `<span class="small">Choose one answer for each question.</span>`}</p>
   </section>`;
 }
-let follow = null;
-function alerts(){
-  const f = follow && DATA.funds.find(x=>x.id===follow);
+let CHANGES = null;
+const KIND = {new_date:"New closing date", round_open:"Round open", page_changed:"Page updated", link_moved:"Page moved", link_broken:"Link broken", link_ok:"Link fixed", link_blocked:"Needs a manual check"};
+function updates(){
+  if (CHANGES === null){
+    app.innerHTML = `<section class="wrap page"><p class="small">Loading changes…</p></section>`;
+    fetch("data/changes.json").then(r => r.ok ? r.json() : []).catch(() => []).then(c => { CHANGES = Array.isArray(c) ? c : []; if ((location.hash||"")==="#updates") updates(); });
+    return;
+  }
+  const ev = CHANGES.filter(c => c.kind !== "link_blocked").slice(-60).reverse();
   app.innerHTML = `<section class="wrap page">
-    <div class="eyebrow">Free alerts</div>
-    <h1>Hear about new rounds before they close.</h1>
-    <p>Each week we email you what changed for the funds you care about: new rounds, closing dates, moved pages and new funders. Unsubscribe in one click.</p>
-    <form class="sub" id="subform" novalidate>
-      ${f?`<div class="ok-msg">You'll also get alerts for <b>${esc(f.name)}</b>.</div>`:""}
-      <label class="f" for="email">Email address<input id="email" name="email" type="email" autocomplete="email" required placeholder="you@yourgroup.org.nz"></label>
-      <div><div style="font-weight:600;font-size:.94rem;margin-bottom:6px">Kaupapa you care about</div>
-        <div class="checks">${SECTORS.map((s,i)=>`<label><input type="checkbox" name="tag" id="t${i}" value="${esc(s)}"> ${esc(s)}</label>`).join("")}</div></div>
-      <label class="f" for="rohe">Your region<select id="rohe" name="region"><option value="">All of New Zealand</option>${REGIONS.map(r=>`<option>${esc(r)}</option>`).join("")}</select></label>
-      <button class="btn" type="submit" style="justify-self:start">Send me alerts</button>
-      <p id="suberr" hidden style="color:var(--bad);margin:0"></p>
-      <p style="font-size:.85rem;color:var(--muted);margin:0">We only use your email to send these alerts. Every email has an unsubscribe link, as required by the Unsolicited Electronic Messages Act.</p>
-    </form>
-    <div id="subok" class="ok-msg" hidden style="margin-top:16px"></div>
+    <div class="label">What's changed</div>
+    <h1>Every change our nightly check found.</h1>
+    <p>New rounds, new closing dates, updated pages and moved links, newest first. Nothing to sign up for.</p>
+    <p><a class="btn ghost" href="feed.xml">${icon("rss")} Follow in a news reader (RSS)</a></p>
+    ${ev.length ? `<div class="feed">${ev.map(c => `<div class="ev"><time datetime="${esc(c.date)}">${esc(new Date(c.date).toLocaleDateString("en-NZ",{day:"numeric",month:"short",year:"numeric"}))}</time><div><a href="#fund-${esc(c.fund)}">${esc(c.name)}</a><p>${esc(KIND[c.kind]||"Update")}: ${esc(c.text)}</p></div></div>`).join("")}</div>`
+      : `<div class="empty" style="margin-top:24px"><b>No changes recorded yet</b>The first nightly check is running. Changes it finds will appear here.</div>`}
   </section>`;
 }
 function about(){
   app.innerHTML = `<section class="wrap page">
-    <div class="eyebrow">How it works</div>
+    <div class="label">How it works</div>
     <h1>A funding directory that keeps itself up to date.</h1>
-    <p>Every night a set of small automated checkers visits each funder's page. They look for four things:</p>
-    <ul>
-      <li><b>Broken or moved links</b>, so you never click through to a dead page.</li>
-      <li><b>Page changes</b>, so we know when criteria or forms have been updated.</li>
-      <li><b>New rounds and closing dates</b>, picked out of the page text.</li>
-      <li><b>Open or closed wording</b>, such as “applications are now open”.</li>
-    </ul>
-    <p>Anything new is flagged for a person to confirm, then sent to subscribers in a weekly email.</p>
-    <h2 style="font-size:1.2rem;margin-top:28px">How this compares</h2>
+    <p>Every night an automated checker visits each funder's page and looks for four things:</p>
+    <dl class="facts" style="margin-top:16px">
+      <dt>Broken or moved links</dt><dd>So you never click through to a dead page.</dd>
+      <dt>Page changes</dt><dd>So we know when criteria or forms are updated.</dd>
+      <dt>Closing dates</dt><dd>Picked out of the page text and shown on each fund.</dd>
+      <dt>Open or closed wording</dt><dd>Such as “applications are now open”.</dd>
+    </dl>
+    <p style="margin-top:20px">Everything it finds is listed on <a href="#updates">What's changed</a> and in an RSS feed. The site is free for everyone, with no login and no adverts.</p>
+    <h2 style="font-size:1.15rem;margin-top:36px">How this compares</h2>
     <div class="tablewrap"><table class="compare">
-      <thead><tr><th></th><th>Puna Pūtea</th><th>Library / council databases</th><th>Single-funder sites</th></tr></thead>
+      <thead><tr><th></th><th>Puna Pūtea</th><th>Library and council databases</th><th>Single-funder sites</th></tr></thead>
       <tbody>
-        <tr><td>Free, no login</td><td class="y">Yes</td><td>Via library or council only</td><td>Yes</td></tr>
+        <tr><td>Free, no login</td><td class="y">Yes</td><td>Library or council login</td><td>Yes</td></tr>
         <tr><td>All sectors and funder types</td><td class="y">Yes</td><td>Mostly</td><td>One funder</td></tr>
         <tr><td>Shows when each listing was last checked</td><td class="y">Yes, nightly</td><td>No</td><td>No</td></tr>
-        <tr><td>Emails you when a fund changes</td><td class="y">Yes</td><td>Some</td><td>Rarely</td></tr>
+        <tr><td>Public log of every change</td><td class="y">Yes</td><td>No</td><td>Rarely</td></tr>
         <tr><td>Three-question eligibility match</td><td class="y">Yes</td><td>Filters only</td><td>No</td></tr>
       </tbody></table></div>
   </section>`;
 }
-let yearly = false, chosen = null;
-const PLANS = [
-  {id:"free", name:"Free", m:0, y:0, blurb:"For anyone looking for funding.", feats:["Search every fund","Three-question match","Weekly email of changes"], cta:"Start free"},
-  {id:"alerts", name:"Alerts", m:15, y:150, best:true, blurb:"For groups that apply often.", feats:["Everything in Free","Same-day alerts for funds you follow","Closing dates in your calendar","Saved shortlists for your team"], cta:"Choose Alerts"},
-  {id:"writer", name:"Writer", m:39, y:390, blurb:"Help writing the application.", feats:["Everything in Alerts","AI first drafts matched to each funder's criteria","Uses your impact and SROI evidence","Up to 3 team members"], cta:"Choose Writer"},
-];
-function pricing(){
-  app.innerHTML = `<section class="wrap page" style="max-width:1000px">
-    <div class="eyebrow">Plans · NZD, GST included</div>
-    <h1>Searching is free. Pay only for the extras.</h1>
-    <p>Every fund stays free to find. Paid plans save you time when you apply.</p>
-    <div class="toggle" role="group" aria-label="Billing period">
-      <button type="button" data-bill="m" aria-pressed="${!yearly}">Monthly</button>
-      <button type="button" data-bill="y" aria-pressed="${yearly}">Yearly · 2 months free</button>
-    </div>
-    <div class="plans">${PLANS.map(p=>`<div class="plan ${p.best?"best":""}">
-      ${p.best?`<span class="pill type" style="align-self:start">Most popular</span>`:""}
-      <h2>${p.name}</h2><div style="color:var(--muted);font-size:.94rem;margin-top:-6px">${p.blurb}</div>
-      <div class="price">$${yearly?p.y:p.m}<small> ${p.m? (yearly?"/ year":"/ month") : "forever"}</small></div>
-      <ul>${p.feats.map(f=>`<li>${f}</li>`).join("")}</ul>
-      ${p.m ? `<button class="btn" type="button" data-plan="${p.id}">${p.cta}</button>` : `<a class="btn ghost" href="#alerts">${p.cta}</a>`}
-    </div>`).join("")}</div>
-    <div class="paywith">Pay with <span class="pill">Apple Pay</span><span class="pill">PayPal</span><span class="pill">Visa</span><span class="pill">Mastercard</span><span class="pill">Amex</span> · Cancel anytime</div>
-    <p style="margin-top:22px">Councils, umbrella groups and libraries: ask about a licence that covers every group you support.</p>
-  </section>
-  ${chosen?checkout():""}`;
-}
-function checkout(){
-  const p = PLANS.find(x=>x.id===chosen);
-  return `<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="ckt"><div>
-    <h2 id="ckt" style="font-size:1.25rem">${p.name} plan · $${yearly?p.y+" a year":p.m+" a month"}</h2>
-    <p style="margin:0;color:var(--muted)">Choose how to pay. You can cancel anytime from your account.</p>
-    <button class="paybtn dark" data-pay="Apple Pay">Pay with Apple Pay</button>
-    <button class="paybtn" data-pay="PayPal">Pay with PayPal</button>
-    <button class="paybtn" data-pay="card">Pay by credit or debit card</button>
-    <p id="payok" hidden class="ok-msg" style="margin:0"></p>
-    <button class="linkbtn" id="closesheet" style="justify-self:start">Cancel</button>
-  </div></div>`;
-}
-
 function route(){
   const h = location.hash.replace(/^#/,"") || "browse";
   const nav = h.startsWith("fund-") ? "browse" : h;
-  if (h === "browse") state.tab = state.tab==="saved" ? "all" : state.tab;
   document.querySelectorAll("[data-nav]").forEach(a => a.dataset.nav===nav ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
-  state.open = null;
+  state.sheet = false;
   if (h.startsWith("fund-")) detail(h.slice(5));
   else if (h === "match") match();
-  else if (h === "alerts") alerts();
+  else if (h === "updates") updates();
   else if (h === "about") about();
-  else if (h === "pricing") pricing();
-  else if (h === "saved"){ state.tab="saved"; browse(); document.querySelector(".tabs")?.scrollIntoView({block:"start"}); }
-  else browse();
+  else if (h === "saved"){ state.tab="saved"; browse(); }
+  else { if (state.tab==="saved") state.tab="all"; browse(); }
 }
-function rerender(keepFocus){ browse(); if (keepFocus){ const el = document.querySelector(`[data-chip="${state.open}"]`); el && el.focus(); } }
+function refocus(sel){ const el = document.querySelector(sel); el && el.focus({preventScroll:true}); }
 
 app.addEventListener("click", e => {
   const t = e.target.closest("button, a");
   if (!t) return;
-  if (t.dataset.save){ e.preventDefault(); saved.has(t.dataset.save)?saved.delete(t.dataset.save):saved.add(t.dataset.save); persistSaved(); if (location.hash.startsWith("#fund-")) detail(t.dataset.save); else rerender(); const b=document.querySelector(`[data-save="${CSS.escape(t.dataset.save)}"]`); b&&b.focus(); return; }
-  if (t.dataset.tab){ state.tab=t.dataset.tab; rerender(); const b=document.querySelector(`[data-tab="${t.dataset.tab}"]`); b&&b.focus(); return; }
-  if (t.dataset.sc){ state.sector.has(t.dataset.sc)?state.sector.delete(t.dataset.sc):state.sector.add(t.dataset.sc); rerender(); const b=document.querySelector(`[data-sc="${CSS.escape(t.dataset.sc)}"]`); b&&b.focus(); return; }
-  if (t.dataset.chip){ state.open = state.open===t.dataset.chip ? null : t.dataset.chip; rerender(true); return; }
-  if (t.dataset.rm){ state[t.dataset.rm].delete(t.dataset.v); rerender(); return; }
-  if (t.id==="clear"||t.id==="clear2"){ ["sector","region","type","when","who"].forEach(k=>state[k].clear()); state.q=""; rerender(); return; }
-  if (t.dataset.m){ M[t.dataset.m] = t.dataset.v; match(); return; }
-  if (t.id==="showmatch"){ state.who=new Set([M.who]); state.region=new Set([M.region]); state.sector=new Set([M.sector]); location.hash="browse"; return; }
-  if (t.dataset.follow){ follow = t.dataset.follow; }
-  if (t.dataset.bill){ yearly = t.dataset.bill==="y"; pricing(); return; }
-  if (t.dataset.plan){ chosen = t.dataset.plan; pricing(); const b=document.querySelector("[data-pay]"); b&&b.focus(); return; }
-  if (t.id==="closesheet"){ chosen=null; pricing(); return; }
-  if (t.dataset.pay){
-    if (CONFIG.checkout){ CONFIG.checkout(chosen, yearly, t.dataset.pay); return; }
-    const ok=document.getElementById("payok"); ok.textContent=`Preview only: no payment taken. On the live site this opens a secure ${t.dataset.pay==="card"?"card":t.dataset.pay} checkout.`; ok.hidden=false; return;
-  }
+  if (t.dataset.save){ e.preventDefault(); const id=t.dataset.save; saved.has(id)?saved.delete(id):saved.add(id); persistSaved(); location.hash.startsWith("#fund-") ? detail(id) : browse(); refocus(`[data-save="${CSS.escape(id)}"]`); return; }
+  if (t.dataset.tab){ state.tab=t.dataset.tab; browse(); refocus(`[data-tab="${t.dataset.tab}"]`); return; }
+  if (t.dataset.rm){ state[t.dataset.rm].delete(t.dataset.v); browse(); return; }
+  if (t.dataset.rmq){ state.q=""; browse(); return; }
+  if (t.dataset.clr){ state[t.dataset.clr].clear(); browse(); return; }
+  if (t.dataset.more){ const k=t.dataset.more; state.more.has(k)?state.more.delete(k):state.more.add(k); browse(); refocus(`${state.sheet?".sheet ":"aside "}[data-more="${k}"]`); return; }
+  if (t.id==="clear"){ KEYS.forEach(k=>state[k].clear()); state.q=""; browse(); return; }
+  if (t.id==="openfilters"){ state.sheet=true; browse(); refocus("#closesheet"); return; }
+  if (t.id==="closesheet"||t.id==="applysheet"){ state.sheet=false; browse(); refocus("#openfilters"); return; }
+  if (t.dataset.m){ M[t.dataset.m] = t.dataset.v; match(); refocus(`[data-m="${t.dataset.m}"][data-v="${CSS.escape(t.dataset.v)}"]`); return; }
+  if (t.id==="showmatch"){ state.who=new Set([M.who]); state.region=new Set([M.region]); state.sector=new Set([M.sector]); state.tab="all"; location.hash="browse"; return; }
   if (t.id==="report"){ document.getElementById("reported").hidden=false; t.hidden=true; }
 });
 app.addEventListener("change", e => {
   const t = e.target;
-  if (t.dataset.k){ t.checked ? state[t.dataset.k].add(t.value) : state[t.dataset.k].delete(t.value); state.open=t.dataset.k; rerender(); const m=document.querySelector(`.menu input[value="${CSS.escape(t.value)}"]`); m&&m.focus(); }
-  if (t.id==="sort"){ state.sort=t.value; rerender(); }
+  if (t.dataset.k){ t.checked ? state[t.dataset.k].add(t.value) : state[t.dataset.k].delete(t.value); browse(); refocus(`${state.sheet?".sheet ":"aside "}input[data-k="${t.dataset.k}"][value="${CSS.escape(t.value)}"]`); }
+  if (t.id==="sort"){ state.sort=t.value; browse(); refocus("#sort"); }
 });
-app.addEventListener("submit", async e => {
+app.addEventListener("submit", e => {
   e.preventDefault();
   if (e.target.id==="sform"){
     state.q=document.getElementById("q").value.trim();
     const rg=document.getElementById("qr").value, wh=document.getElementById("qw").value;
     state.region=new Set(rg?[rg]:[]); state.who=new Set(wh?[wh]:[]);
-    rerender(); document.querySelector(".tabs")?.scrollIntoView({behavior:"smooth",block:"start"}); return; }
-  if (e.target.id==="subform"){
-    const fd = new FormData(e.target);
-    const email = String(fd.get("email")||"").trim();
-    const err = document.getElementById("suberr");
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent="Please enter a full email address, like name@example.org.nz."; err.hidden=false; return; }
-    err.hidden=true;
-    const tags = fd.getAll("tag"); const region = fd.get("region"); if (region) tags.push("Region: "+region); if (follow) tags.push("Fund: "+follow);
-    const ok = document.getElementById("subok");
-    if (CONFIG.buttondownUser){
-      const body = new FormData(); body.append("email", email); tags.forEach(t=>body.append("tag", t));
-      try { await fetch(`https://buttondown.com/api/emails/embed-subscribe/${encodeURIComponent(CONFIG.buttondownUser)}`, {method:"POST", body, mode:"no-cors"});
-        ok.textContent = `Check ${email} for a confirmation email. Tap the link in it to start your alerts.`; }
-      catch(_){ err.textContent="We couldn't reach the alerts service. Please try again in a minute."; err.hidden=false; return; }
-    } else {
-      ok.textContent = `Preview only: no email was sent. On the live site, ${email} would get a confirmation email and then weekly alerts${tags.length?` for ${tags.join(", ")}`:""}.`;
-    }
-    e.target.hidden = true; ok.hidden = false;
+    browse(); document.querySelector(".tabs")?.scrollIntoView({behavior:"smooth",block:"start"}); return;
   }
 });
-document.addEventListener("click", e => { if (state.open && !e.target.closest(".chip")){ state.open=null; if (!location.hash || location.hash==="#browse") rerender(); } });
-document.addEventListener("keydown", e => { if (e.key==="Escape" && chosen){ chosen=null; pricing(); return; } if (e.key==="Escape" && state.open){ const k=state.open; state.open=null; rerender(); const b=document.querySelector(`[data-chip="${k}"]`); b&&b.focus(); } });
+document.addEventListener("keydown", e => {
+  if (e.key!=="Escape") return;
+  if (state.sheet){ state.sheet=false; browse(); refocus("#openfilters"); }
+});
 window.addEventListener("hashchange", () => { route(); window.scrollTo(0,0); });
 
 fetch("data/funds.json").then(r => r.json()).then(d => { DATA = d; route(); })

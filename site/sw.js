@@ -1,6 +1,6 @@
 // Offline support: the app shell is cached; the fund list is fetched fresh
 // when online and falls back to the last saved copy when offline.
-const CACHE = "puna-v1";
+const CACHE = "puna-v2";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png"];
 
 self.addEventListener("install", e => {
