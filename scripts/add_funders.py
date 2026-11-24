@@ -287,6 +287,8 @@ def new_record(fid, name, funder, ftype, sub, sectors, regions, elig, how, url, 
 
 def main():
     data = json.loads(FUNDS.read_text())
+    # fixes run before adding (so renamed funds are matched as duplicates) and after
+    # (so funds added from the seed rows get their corrections too)
     funds, changed, removed = apply_fixes(data["funds"])
     fixes = json.loads((SOURCES / "fund_fixes.json").read_text()) if (SOURCES / "fund_fixes.json").exists() else {}
     # funders marked removed (closed or wound up) are never added back
@@ -316,6 +318,8 @@ def main():
         take(new_record(slug(r["name"]), r["name"], r["funder"], r["funderType"], r.get("funderSubtype", ""),
                         r["sectors"], r["regions"], r["eligible"], r["howToApply"], r["url"], r["summary"],
                         r.get("source", ""), bool(r.get("needsReview"))), False)
+    funds, changed2, removed2 = apply_fixes(funds)
+    changed, removed = changed + changed2, removed + removed2
     data["funds"] = funds
     FUNDS.write_text(json.dumps(data, indent=2, ensure_ascii=False))
     print(f"added {added}, updated {changed}, removed {removed}: {len(funds)} funds in total")

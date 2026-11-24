@@ -31,6 +31,7 @@ REQUIRED = {"id": str, "name": str, "funder": str, "funderType": str, "sectors":
             "roundStatus": str, "linkStatus": str, "verified": bool}
 LINK_STATES = {"ok", "moved", "broken", "blocked", "unchecked"}
 ROUND_STATES = {"open", "closed", "unknown"}
+GENERIC_NAME = re.compile(r"^(community |council )?(funding|grants?)((,| and| &)? (funding|grants?|sponsorship|scholarships|awards))*( streams| opportunities| fund| scheme)?$", re.I)
 
 
 def allowed_values():
@@ -63,6 +64,8 @@ def check_data(funds):
         ids.add(f["id"])
         if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", f["id"]):
             err(f, "id is not lowercase-and-dashes")
+        if GENERIC_NAME.match(f["name"]):
+            err(f, f"name '{f['name']}' is too vague; include the funder")
         if f["name"].lower() in names:
             err(f, f"duplicate name '{f['name']}'")
         names.add(f["name"].lower())

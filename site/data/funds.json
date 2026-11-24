@@ -214,10 +214,6 @@
         {
           "date": "2026-11-24",
           "text": "Site refused our checker (403); needs a manual look"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
       ]
     },
@@ -301,13 +297,8 @@
         {
           "date": "2026-11-24",
           "text": "Page has moved to https://www.tpk.govt.nz/en"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
-      ],
-      "suggestedUrl": "https://www.tpk.govt.nz/en"
+      ]
     },
     {
       "id": "te-matawai-investment",
@@ -505,13 +496,8 @@
         {
           "date": "2026-11-24",
           "text": "Page has moved to https://lionfoundation.nz/"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
-      ],
-      "suggestedUrl": "https://lionfoundation.nz/"
+      ]
     },
     {
       "id": "four-winds-foundation-grants",
@@ -542,10 +528,6 @@
         {
           "date": "2026-11-24",
           "text": "Link is broken ([Errno 111] Connection refused)"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
       ]
     },
@@ -578,10 +560,6 @@
         {
           "date": "2026-11-24",
           "text": "Link is broken ([Errno 111] Connection refused)"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
       ]
     },
@@ -614,10 +592,6 @@
         {
           "date": "2026-11-24",
           "text": "Link is broken ([Errno -2] Name or service not known)"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
       ]
     },
@@ -679,10 +653,6 @@
         {
           "date": "2026-11-24",
           "text": "Link is broken ([Errno -2] Name or service not known)"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
       ]
     },
@@ -807,10 +777,6 @@
         {
           "date": "2026-11-24",
           "text": "Page has moved to https://www.manawatrust.nz/"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
       ]
     },
@@ -1112,10 +1078,6 @@
         {
           "date": "2026-11-24",
           "text": "Link is broken ([Errno -2] Name or service not known)"
-        },
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
         }
       ]
     },
@@ -1145,13 +1107,7 @@
       "roundStatus": "unknown",
       "lastChecked": "2026-11-24T16:01:57+13:00",
       "linkStatus": "unchecked",
-      "verified": false,
-      "history": [
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
-        }
-      ]
+      "verified": false
     },
     {
       "id": "public-trust-grants",
@@ -1178,13 +1134,7 @@
       "roundStatus": "unknown",
       "lastChecked": "2026-11-24T16:01:57+13:00",
       "linkStatus": "unchecked",
-      "verified": false,
-      "history": [
-        {
-          "date": "2026-11-24",
-          "text": "Website address corrected from an official funder list"
-        }
-      ]
+      "verified": false
     },
     {
       "id": "acorn-foundation-grants",
@@ -1536,36 +1486,6 @@
       "amount": "Varies",
       "url": "https://www.airrescueservices.co.nz/grants/",
       "summary": "Gaming machine company set up in 2002 that funds rescue and medical services and other community groups in the areas where its venues are. Applications are online, with a cut-off on the 1st of each month.",
-      "nextDeadline": null,
-      "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false,
-      "needsReview": false,
-      "source": "DIA"
-    },
-    {
-      "id": "blue-waters-community-trust-grants",
-      "name": "Blue Waters Community Trust grants",
-      "funder": "Blue Waters Community Trust",
-      "funderType": "Gaming trust",
-      "funderSubtype": "Class 4 society",
-      "sectors": [
-        "Sport & recreation",
-        "Community"
-      ],
-      "regions": [
-        "Auckland"
-      ],
-      "eligible": [
-        "Community groups",
-        "Charities",
-        "Schools"
-      ],
-      "howToApply": "Check funder",
-      "amount": "Varies",
-      "url": "https://bluewaterscommunitytrust.baanalyser.com/start",
-      "summary": "Auckland gaming trust set up mainly to support amateur lawn bowls. It now also funds other Auckland community groups, with 11 funding rounds a year.",
       "nextDeadline": null,
       "roundStatus": "unknown",
       "lastChecked": null,
@@ -3706,8 +3626,8 @@
       "source": "TIN"
     },
     {
-      "id": "community-board-fund",
-      "name": "Community Board Fund",
+      "id": "far-north-district-council-community-board-fund",
+      "name": "Far North District Council Community Board Fund",
       "funder": "Far North District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -3734,8 +3654,8 @@
       "source": "Council websites"
     },
     {
-      "id": "community-funding",
-      "name": "Community funding",
+      "id": "whangarei-district-council-community-funding",
+      "name": "Whangārei District Council community funding",
       "funder": "Whangārei District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -3795,8 +3715,8 @@
       "source": "Council websites"
     },
     {
-      "id": "funding",
-      "name": "Funding",
+      "id": "northland-regional-council-funding",
+      "name": "Northland Regional Council funding",
       "funder": "Northland Regional Council",
       "funderType": "Council",
       "funderSubtype": "Regional council",
@@ -3826,8 +3746,8 @@
       "source": "Council websites"
     },
     {
-      "id": "funding-sponsorship-and-grants",
-      "name": "Funding, sponsorship and grants",
+      "id": "thames-coromandel-district-council-funding-sponsorship-and-grants",
+      "name": "Thames-Coromandel District Council funding, sponsorship and grants",
       "funder": "Thames-Coromandel District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -3855,8 +3775,8 @@
       "source": "Council websites"
     },
     {
-      "id": "grants-and-funding",
-      "name": "Grants and funding",
+      "id": "hauraki-district-council-grants-and-funding",
+      "name": "Hauraki District Council grants and funding",
       "funder": "Hauraki District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -3886,8 +3806,101 @@
       "source": "Council websites"
     },
     {
-      "id": "funding-and-grants",
-      "name": "Funding and grants",
+      "id": "waikato-district-council-community-funding",
+      "name": "Waikato District Council community funding",
+      "funder": "Waikato District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community",
+        "Arts & culture",
+        "Environment"
+      ],
+      "regions": [
+        "Waikato"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://waikatodistrict.govt.nz/services-facilities/community-development/funding",
+      "summary": "Lists the council's funds: community board and community committee discretionary grants, Rural Ward Funding, Creative Communities, a Waste Minimisation Fund, a fund for sites of significance to Māori and a Community Litter Fund.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": false,
+      "source": "Council websites"
+    },
+    {
+      "id": "matamata-piako-district-council-grants-and-funding",
+      "name": "Matamata-Piako District Council grants and funding",
+      "funder": "Matamata-Piako District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community",
+        "Arts & culture",
+        "Heritage"
+      ],
+      "regions": [
+        "Waikato"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Individuals"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.mpdc.govt.nz/grants-and-funding",
+      "summary": "Council funding includes community grants split by ward over two rounds, District Events Funding (apply anytime), resource consent funding for non-profit groups, heritage and protected trees funding, a Significant Natural Features Fund for landowners and the Mackie Memorial Trusts.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": false,
+      "source": "Council websites"
+    },
+    {
+      "id": "waipa-district-council-grants-and-funding",
+      "name": "Waipā District Council grants and funding",
+      "funder": "Waipā District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community",
+        "Arts & culture",
+        "Heritage"
+      ],
+      "regions": [
+        "Waikato"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities",
+        "Individuals",
+        "Businesses"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.waipadc.govt.nz/our-services/grants-and-funding",
+      "summary": "Index of Waipā's funds: a community discretionary fund for groups delivering services, Creative Communities, a district promotion fund for events, a heritage fund and a waste minimisation community fund.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": false,
+      "source": "Council websites"
+    },
+    {
+      "id": "otorohanga-district-council-funding-and-grants",
+      "name": "Ōtorohanga District Council funding and grants",
       "funder": "Ōtorohanga District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -3917,8 +3930,37 @@
       "source": "Council websites"
     },
     {
-      "id": "community-funding-and-grants",
-      "name": "Community funding and grants",
+      "id": "waitomo-district-council-funding-and-grants",
+      "name": "Waitomo District Council funding and grants",
+      "funder": "Waitomo District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community",
+        "Health & wellbeing"
+      ],
+      "regions": [
+        "Waikato"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://waitomo.govt.nz/council/funding-and-grants",
+      "summary": "Waitomo provides grants to community groups and organisations for local social services and wellbeing, under its Community and Partnerships Fund Policy.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": false,
+      "source": "Council websites"
+    },
+    {
+      "id": "taupo-district-council-community-funding-and-grants",
+      "name": "Taupō District Council community funding and grants",
       "funder": "Taupō District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -3937,7 +3979,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://taupodc.govt.nz/community/community-grants-and-awards",
+      "url": "https://www.taupodc.govt.nz/community/community-grants-and-awards",
       "summary": "Taupō offers a range of grants for individuals, groups and organisations covering arts, environmental sustainability, youth sport and community wellbeing. Applications go through an online funding portal and a funding calendar shows when rounds open.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -3948,8 +3990,8 @@
       "source": "Council websites"
     },
     {
-      "id": "funding-and-scholarships",
-      "name": "Funding and scholarships",
+      "id": "waikato-regional-council-funding-and-scholarships",
+      "name": "Waikato Regional Council funding and scholarships",
       "funder": "Waikato Regional Council",
       "funderType": "Council",
       "funderSubtype": "Regional council",
@@ -3977,8 +4019,64 @@
       "source": "Council websites"
     },
     {
-      "id": "community-grant-fund",
-      "name": "Community Grant Fund",
+      "id": "south-waikato-district-council-grants-and-funding",
+      "name": "South Waikato District Council grants and funding",
+      "funder": "South Waikato District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Waikato"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://southwaikato.govt.nz/our-council/grants-and-funding",
+      "summary": "South Waikato District Council's grants and funding page.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "rotorua-lakes-council-grants-and-funding",
+      "name": "Rotorua Lakes Council grants and funding",
+      "funder": "Rotorua Lakes Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Bay of Plenty"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.rotorualakescouncil.nz/community/grants-and-funding",
+      "summary": "Rotorua Lakes Council's grants and funding page, covering its community grants.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "tauranga-city-council-community-grant-fund",
+      "name": "Tauranga City Council community grant fund",
       "funder": "Tauranga City Council",
       "funderType": "Council",
       "funderSubtype": "City council",
@@ -3994,7 +4092,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.tauranga.govt.nz/community/grants-and-funding/community-grant-fund",
+      "url": "https://www.tauranga.govt.nz/culture-and-community/grants-and-funding/community-grant-fund",
       "summary": "Tauranga City Council's contestable Community Grant Fund for community organisations.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4005,8 +4103,8 @@
       "source": "Council websites"
     },
     {
-      "id": "community-matching-fund",
-      "name": "Community Matching Fund",
+      "id": "western-bay-of-plenty-district-council-community-matching-fund",
+      "name": "Western Bay of Plenty District Council Community Matching Fund",
       "funder": "Western Bay of Plenty District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4022,7 +4120,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://westernbay.govt.nz/community/grants-and-funding/community-matching-fund-faqs",
+      "url": "https://www.westernbay.govt.nz/community/grants-and-funding/community-matching-fund-faqs",
       "summary": "Western Bay of Plenty's Community Matching Fund supports community projects, with the council matching what groups contribute; it runs as an annual round.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4033,8 +4131,8 @@
       "source": "Council websites"
     },
     {
-      "id": "community-grants",
-      "name": "Community grants",
+      "id": "whakatane-district-council-community-grants",
+      "name": "Whakatāne District Council community grants",
       "funder": "Whakatāne District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4052,7 +4150,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://whakatane.govt.nz/node/246",
+      "url": "https://www.whakatane.govt.nz/community-grants",
       "summary": "Whakatāne District Council's community grants page. Funds include a Community Matching Fund, Creative Communities Scheme, Te Pūaha funds and a Reorua contestable fund.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4063,8 +4161,8 @@
       "source": "Council websites"
     },
     {
-      "id": "community-grant-scheme",
-      "name": "Community Grant Scheme",
+      "id": "kawerau-district-council-community-grant-scheme",
+      "name": "Kawerau District Council community grant scheme",
       "funder": "Kawerau District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4080,7 +4178,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://kaweraudc.govt.nz/node/300",
+      "url": "https://www.kaweraudc.govt.nz/about-council/community-grants/community-grant-scheme",
       "summary": "Kawerau District Council's Community Grant Scheme for local community organisations.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4091,8 +4189,8 @@
       "source": "Council websites"
     },
     {
-      "id": "coast-initiatives-fund",
-      "name": "Coast Initiatives Fund",
+      "id": "opotiki-district-council-coast-initiatives-fund",
+      "name": "Ōpōtiki District Council Coast Initiatives Fund",
       "funder": "Ōpōtiki District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4119,8 +4217,38 @@
       "source": "Council websites"
     },
     {
-      "id": "funding-streams",
-      "name": "Funding streams",
+      "id": "bay-of-plenty-regional-council-community-funding",
+      "name": "Bay of Plenty Regional Council community funding",
+      "funder": "Bay of Plenty Regional Council",
+      "funderType": "Council",
+      "funderSubtype": "Regional council",
+      "sectors": [
+        "Environment",
+        "Community"
+      ],
+      "regions": [
+        "Bay of Plenty"
+      ],
+      "eligible": [
+        "Community groups",
+        "Marae, iwi & hapū",
+        "Schools"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://boprc.govt.nz/living-in-the-bay/community-funding",
+      "summary": "Bay of Plenty Regional Council's community funding page, including the Environmental Enhancement Fund for community environmental projects.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "gisborne-district-council-funding-streams",
+      "name": "Gisborne District Council funding streams",
       "funder": "Gisborne District Council",
       "funderType": "Council",
       "funderSubtype": "Unitary council",
@@ -4150,8 +4278,37 @@
       "source": "Council websites"
     },
     {
-      "id": "grants",
-      "name": "Grants",
+      "id": "wairoa-district-council-grants-and-funding",
+      "name": "Wairoa District Council grants and funding",
+      "funder": "Wairoa District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Hawke's Bay"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.wairoadc.govt.nz/our-district/grants-funding/",
+      "summary": "Wairoa District Council's grants and funding section, including mayoral grants and Creative Communities.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "hastings-district-council-grants",
+      "name": "Hastings District Council grants",
       "funder": "Hastings District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4178,8 +4335,37 @@
       "source": "Council websites"
     },
     {
-      "id": "community-services-and-programmes-grant",
-      "name": "Community services and programmes grant",
+      "id": "central-hawke-s-bay-district-council-grants",
+      "name": "Central Hawke's Bay District Council grants",
+      "funder": "Central Hawke's Bay District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Hawke's Bay"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://chbdc.govt.nz/our-district/grants",
+      "summary": "Central Hawke's Bay District Council's grants page, including the Community Voluntary Organisation Support scheme and arts funding, applied for through SmartyGrants.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "new-plymouth-district-council-community-services-and-programmes-grant",
+      "name": "New Plymouth District Council Community Services and Programmes Grant",
       "funder": "New Plymouth District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4195,7 +4381,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.npdc.govt.nz/community/community-partnerships/funding-and-grants/community-services-and-programmes-grant",
+      "url": "https://www.npdc.govt.nz/community/community-development/funding-and-grants/community-services-and-programmes-grant/",
       "summary": "New Plymouth District Council grant for community organisations delivering services and programmes, under its Community Funding Investment Policy. Other NPDC grants include community events and strategic partnership grants.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4206,8 +4392,66 @@
       "source": "Council websites"
     },
     {
-      "id": "landowner-funding-assistance",
-      "name": "Landowner funding assistance",
+      "id": "stratford-district-council-funding-and-grants",
+      "name": "Stratford District Council funding and grants",
+      "funder": "Stratford District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community",
+        "Arts & culture"
+      ],
+      "regions": [
+        "Taranaki"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.stratford.govt.nz/our-district/funding-and-grants",
+      "summary": "Stratford District Council's funding and grants page, including Creative Communities.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "south-taranaki-district-council-community-funding",
+      "name": "South Taranaki District Council community funding",
+      "funder": "South Taranaki District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community",
+        "Environment"
+      ],
+      "regions": [
+        "Taranaki"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://southtaranaki.com/our-community/funding",
+      "summary": "South Taranaki District Council's community funding page, including community board local discretionary funds and the Natural Environments Fund.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "taranaki-regional-council-landowner-funding-assistance",
+      "name": "Taranaki Regional Council landowner funding assistance",
       "funder": "Taranaki Regional Council",
       "funderType": "Council",
       "funderSubtype": "Regional council",
@@ -4234,8 +4478,8 @@
       "source": "Council websites"
     },
     {
-      "id": "council-administered-funding",
-      "name": "Council administered funding",
+      "id": "ruapehu-district-council-community-funding",
+      "name": "Ruapehu District Council community funding",
       "funder": "Ruapehu District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4262,8 +4506,8 @@
       "source": "Council websites"
     },
     {
-      "id": "funding-opportunities",
-      "name": "Funding opportunities",
+      "id": "whanganui-district-council-funding-opportunities",
+      "name": "Whanganui District Council funding opportunities",
       "funder": "Whanganui District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4292,8 +4536,92 @@
       "source": "Council websites"
     },
     {
-      "id": "grants-and-community-funding",
-      "name": "Grants and community funding",
+      "id": "rangitikei-district-council-grants-and-funding",
+      "name": "Rangitīkei District Council grants and funding",
+      "funder": "Rangitīkei District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Manawatū-Whanganui"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.rangitikei.govt.nz/district/community/grants-funding",
+      "summary": "Rangitīkei District Council's grants and funding, including the Community Initiatives Fund, Small Projects Fund and a grant finder.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "palmerston-north-city-council-community-funding",
+      "name": "Palmerston North City Council community funding",
+      "funder": "Palmerston North City Council",
+      "funderType": "Council",
+      "funderSubtype": "City council",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Manawatū-Whanganui"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Set rounds",
+      "amount": "Varies",
+      "url": "https://www.pncc.govt.nz/Community/Community-funding",
+      "summary": "Palmerston North City Council's community funding, including Strategic Priority Grants and Community Development Small Grants, applied for through SmartyGrants.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "tararua-district-council-community-funding",
+      "name": "Tararua District Council community funding",
+      "funder": "Tararua District Council",
+      "funderType": "Council",
+      "funderSubtype": "District council",
+      "sectors": [
+        "Community"
+      ],
+      "regions": [
+        "Manawatū-Whanganui"
+      ],
+      "eligible": [
+        "Community groups",
+        "Charities"
+      ],
+      "howToApply": "Check funder",
+      "amount": "Varies",
+      "url": "https://www.tararuadc.govt.nz/grants",
+      "summary": "Tararua District Council's community funding, including a District-wide Contestable Fund and general assistance grants and local discretionary funding.",
+      "nextDeadline": null,
+      "roundStatus": "unknown",
+      "lastChecked": null,
+      "linkStatus": "unchecked",
+      "verified": false,
+      "needsReview": true,
+      "source": "Council websites"
+    },
+    {
+      "id": "horowhenua-district-council-grants-and-community-funding",
+      "name": "Horowhenua District Council grants and community funding",
       "funder": "Horowhenua District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4321,8 +4649,8 @@
       "source": "Council websites"
     },
     {
-      "id": "nelson-city-council-community-funding",
-      "name": "Nelson City Council community funding",
+      "id": "nelson-city-council-community-investment-fund",
+      "name": "Nelson City Council Community Investment Fund",
       "funder": "Nelson City Council",
       "funderType": "Council",
       "funderSubtype": "Unitary council",
@@ -4342,7 +4670,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://nelson.govt.nz/services/community/funding",
+      "url": "https://nelson.govt.nz/services/community/funding/community-investment-fund/community-investment-fund-guidelines",
       "summary": "Nelson City Council's funding hub lists its Community Investment Fund, Creative Communities local arts scheme, heritage, neighbourhood project, youth development, environmental and waste minimisation grants.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4372,7 +4700,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://marlborough.govt.nz/our-community/grants-and-awards",
+      "url": "https://www.marlborough.govt.nz/our-community/grants-and-awards",
       "summary": "One-off funding for not-for-profit organisations providing essential services in Marlborough, alongside arts and heritage partnership grants, Creative Communities, community event, sport and recreation, and Working for Nature grants.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4441,8 +4769,8 @@
       "source": "Council websites"
     },
     {
-      "id": "environmental-enhancement-fund",
-      "name": "Environmental Enhancement Fund",
+      "id": "environment-southland-biodiversity-community-group-grants",
+      "name": "Environment Southland Biodiversity Community Group Grants",
       "funder": "Environment Southland",
       "funderType": "Council",
       "funderSubtype": "Regional council",
@@ -4458,8 +4786,8 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://es.govt.nz/about-us/funding-and-support/environmental-enhancement-fund",
-      "summary": "Contributes up to 50% of costs for projects that protect and improve existing native biodiversity in Southland, such as pest and weed control, fencing and native planting. Open to landowners, trusts, individuals and community groups.",
+      "url": "https://www.es.govt.nz/about-us/funding-and-support/biodiversity-community-group-grants",
+      "summary": "Environment Southland grants for community groups protecting and restoring native biodiversity in Southland.",
       "nextDeadline": null,
       "roundStatus": "unknown",
       "lastChecked": null,
@@ -4488,7 +4816,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://kaikoura.govt.nz/community/community-grants/apply-for-a-grant/kaikoura-community-initiatives-fund",
+      "url": "https://www.kaikoura.govt.nz/community/community-grants/apply-for-a-grant/kaikoura-community-initiatives-fund",
       "summary": "Funds community events, activities and education projects that benefit Kaikōura's wellbeing, with $15,000 a year of which $5,000 is reserved for rangatahi projects. Open to non-profit groups, registered trusts or societies, and schools.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4519,7 +4847,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://hurunui.govt.nz/community/awards-and-funding",
+      "url": "https://www.hurunui.govt.nz/community/awards-and-funding",
       "summary": "Hurunui's funding page lists the Reserves Contestable Fund, Hurunui Heritage Fund, MainPower Hurunui Natural Environment Fund, Creative Communities and Sport NZ Rural Travel Fund.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4815,7 +5143,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://codc.govt.nz/services/funding-grants",
+      "url": "https://www.codc.govt.nz/services/funding-grants",
       "summary": "Central Otago District Council's funding grants page, with a community guide to its grants process and rounds run by the council and community boards.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4826,8 +5154,8 @@
       "source": "Council websites"
     },
     {
-      "id": "qldc-community-fund",
-      "name": "QLDC Community Fund",
+      "id": "queenstown-lakes-district-council-community-fund",
+      "name": "Queenstown Lakes District Council Community Fund",
       "funder": "Queenstown Lakes District Council",
       "funderType": "Council",
       "funderSubtype": "District council",
@@ -4872,7 +5200,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://cluthadc.govt.nz/community/grants-and-funding",
+      "url": "https://www.cluthadc.govt.nz/community/grants-and-funding",
       "summary": "Clutha District Council's grants and funding page, which links to Creative Communities, the TLCC Community Fund and reimbursement of council costs and facility hire for community groups.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4900,7 +5228,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.southlanddc.govt.nz/cpf",
+      "url": "https://www.southlanddc.govt.nz/council/funding-and-grants/community-partnership-fund/",
       "summary": "Community Partnership Funds run by each Southland District community board area for local community projects; the council also runs a District Initiatives Fund.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -4929,7 +5257,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://goredc.govt.nz/council/grants-funding",
+      "url": "https://www.goredc.govt.nz/council/grants-funding",
       "summary": "Gore District Council's grants and funding page, including Creative Communities and the Coster Fund.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -5528,7 +5856,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://sportnz.org.nz/funding/sport-nz-funds/tu-manawa-active-aotearoa/",
+      "url": "https://sportnz.org.nz/funding/sport-nz-programmes-and-funding/tu-manawa-active-aotearoa/",
       "summary": "Sport NZ fund, run through regional sports trusts, for play, active recreation and sport projects for tamariki and rangatahi aged 5 to 18. Regional sports trusts set the application rounds.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -5539,8 +5867,8 @@
       "source": "Government websites"
     },
     {
-      "id": "sustainable-food-and-fibre-futures",
-      "name": "Sustainable Food and Fibre Futures",
+      "id": "primary-sector-growth-fund",
+      "name": "Primary Sector Growth Fund",
       "funder": "Ministry for Primary Industries",
       "funderType": "Government",
       "funderSubtype": "Co-investment fund",
@@ -5558,8 +5886,8 @@
       ],
       "howToApply": "Open anytime",
       "amount": "Varies",
-      "url": "https://www.mpi.govt.nz/funding-and-programmes/sustainable-food-and-fibre-futures/about-sustainable-food-and-fibre-futures/",
-      "summary": "MPI co-investment in food and fibre sector projects that create economic, environmental and social value, from small community projects to large multi-year programmes. Applicants must co-invest cash or in-kind.",
+      "url": "https://www.mpi.govt.nz/funding-rural-support/primary-sector-growth-fund/about-the-primary-sector-growth-fund",
+      "summary": "MPI co-investment fund (which replaced Sustainable Food and Fibre Futures) for projects that grow the value of New Zealand food and fibre.",
       "nextDeadline": null,
       "roundStatus": "unknown",
       "lastChecked": null,
@@ -5587,33 +5915,6 @@
       "amount": "Varies",
       "url": "https://gateway.hrc.govt.nz/funding/ideas-funding",
       "summary": "Health Research Council contestable funding for health research projects and programmes, applied for through research organisations in annual rounds.",
-      "nextDeadline": null,
-      "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false,
-      "needsReview": true,
-      "source": "Government websites"
-    },
-    {
-      "id": "teacher-led-innovation-fund-tlif",
-      "name": "Teacher-led Innovation Fund (TLIF)",
-      "funder": "Ministry of Education",
-      "funderType": "Government",
-      "funderSubtype": "Education fund",
-      "sectors": [
-        "Education & youth"
-      ],
-      "regions": [
-        "Nationwide"
-      ],
-      "eligible": [
-        "Schools"
-      ],
-      "howToApply": "Check funder",
-      "amount": "Varies",
-      "url": "https://education.govt.nz/school/people-and-employment/principals-and-teachers/scholarships-for-people-working-in-schools/teacher-led-innovation-fund",
-      "summary": "Funds teams of teachers to develop and test innovative teaching practices that improve learner outcomes.",
       "nextDeadline": null,
       "roundStatus": "unknown",
       "lastChecked": null,
@@ -5670,7 +5971,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://msd.govt.nz/what-we-can-do/community/food-secure-communities/food-secure-communities-current-funding-rounds.html",
+      "url": "https://msd.govt.nz/what-we-can-do/community/food-secure-communities/index.html",
       "summary": "MSD funding rounds for community food providers and food security initiatives.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -5785,7 +6086,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://waikatotainui.com/grants",
+      "url": "https://waikatotainui.com/grant/",
       "summary": "Grants and scholarships for registered Waikato-Tainui members and marae, covering tertiary study, kaumātua health costs, sport, driver licensing, business innovation, environmental (Taiao) projects and te reo and tikanga. Each grant has its own criteria and many are limited to once per financial year.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -5872,7 +6173,7 @@
       ],
       "howToApply": "Open anytime",
       "amount": "Varies",
-      "url": "https://www.ngatiporou.com/toitu-ngati-porou",
+      "url": "https://www.toitungatiporou.org.nz/",
       "summary": "Sponsorship and grants for Ngāti Porou individuals and groups taking part in cultural or sporting events at local to international level. Applications must arrive at least two weeks before the event; the page also lists tertiary grants and scholarships.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -5900,7 +6201,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.ngatiawa.iwi.nz/tertiary-grants-1",
+      "url": "https://ngatiawa.iwi.nz/tertiary-grants",
       "summary": "Tertiary grants and one-year scholarships for registered Ngāti Awa members in their second or later year of full-time study, run with the Māori Education Trust. The 2026 round opened in February and closed at the end of May.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -5986,7 +6287,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://www.tetumupaeroa.co.nz/services/grants-scholarship/",
+      "url": "https://www.tetumupaeroa.co.nz/who-we-are/grants-and-scholarships",
       "summary": "Grants set up by owners or trustees of Māori land administered by Te Tumu Paeroa, for kaumātua support and education costs, plus the Sir Āpirana Ngata Memorial Scholarship for Māori higher education.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -6407,34 +6708,6 @@
       "source": "Funder websites"
     },
     {
-      "id": "palmerston-north-city-council-community-funding",
-      "name": "Palmerston North City Council community funding",
-      "funder": "Palmerston North City Council",
-      "funderType": "Council",
-      "funderSubtype": "City council",
-      "sectors": [
-        "Community"
-      ],
-      "regions": [
-        "Manawatū-Whanganui"
-      ],
-      "eligible": [
-        "Community groups",
-        "Charities"
-      ],
-      "howToApply": "Set rounds",
-      "amount": "Varies",
-      "url": "https://www.pncc.govt.nz/Community/Community-funding",
-      "summary": "Council community funding for Palmerston North groups, including Strategic Priority Grants, Community Development Small Grants and emergency grants, applied for through SmartyGrants.",
-      "nextDeadline": null,
-      "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false,
-      "needsReview": true,
-      "source": "Funder websites"
-    },
-    {
       "id": "fletcher-trust-philanthropy-for-education",
       "name": "Fletcher Trust Philanthropy for Education",
       "funder": "The Fletcher Trust",
@@ -6454,36 +6727,6 @@
       "amount": "Varies",
       "url": "https://www.fletchertrust.co.nz/philanthropy-for-education/",
       "summary": "The Fletcher Trust's education philanthropy page. Details of what it funds and how to apply were not confirmed.",
-      "nextDeadline": null,
-      "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false,
-      "needsReview": true,
-      "source": "Funder websites"
-    },
-    {
-      "id": "selwyn-innovation-challenge-on-respectful-ageing",
-      "name": "Selwyn Innovation Challenge on Respectful Ageing",
-      "funder": "The Selwyn Foundation",
-      "funderType": "Philanthropic",
-      "funderSubtype": "Charitable foundation",
-      "sectors": [
-        "Health & wellbeing",
-        "Community"
-      ],
-      "regions": [
-        "Nationwide"
-      ],
-      "eligible": [
-        "Community groups",
-        "Charities",
-        "Businesses"
-      ],
-      "howToApply": "Check funder",
-      "amount": "Varies",
-      "url": "https://selwynfoundation.org.nz/social-impact/selwyn-innovation-challenge-on-respectful-ageing",
-      "summary": "Selwyn Foundation funding challenge for innovations supporting respectful ageing for older people. The Foundation also runs Ageing Well research and community grants.",
       "nextDeadline": null,
       "roundStatus": "unknown",
       "lastChecked": null,
@@ -6591,7 +6834,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.education.govt.nz/further-education/information-for-tertiary-students/scholarships/ngarimu-scholarships/",
+      "url": "https://www.education.govt.nz/parents-and-caregivers/tertiary/available-assistance/ngarimu-vc-and-28th-maori-battalion-memorial-scholarships",
       "summary": "Annual scholarships for Māori students in undergraduate, postgraduate and vocational study, run in memory of the 28th (Māori) Battalion.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -6618,7 +6861,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/apply/new-zealand",
+      "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/new-zealand/",
       "summary": "Fully funded postgraduate study at the University of Oxford for young New Zealanders, with an annual application round.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -6948,7 +7191,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://velocity.auckland.ac.nz",
+      "url": "https://www.auckland.ac.nz/en/cie/about-us/velocity.html",
       "summary": "Student-led University of Auckland entrepreneurship programme running the annual Velocity Ideas Challenge and other competitions with prize funding for early ventures.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -7072,36 +7315,6 @@
       "source": "Search result"
     },
     {
-      "id": "nrait-education-funding",
-      "name": "NRAIT education funding",
-      "funder": "Ngāti Rārua Ātiawa Iwi Trust",
-      "funderType": "Philanthropic",
-      "funderSubtype": "Māori trust",
-      "sectors": [
-        "Māori & iwi",
-        "Education & youth"
-      ],
-      "regions": [
-        "Tasman",
-        "Nelson",
-        "Marlborough"
-      ],
-      "eligible": [
-        "Individuals"
-      ],
-      "howToApply": "Set rounds",
-      "amount": "Varies",
-      "url": "https://www.nrait.co.nz/our-owners/member-benefits/education-funding/",
-      "summary": "Education funding for owners and whānau of Ngāti Rārua Ātiawa Iwi Trust.",
-      "nextDeadline": null,
-      "roundStatus": "unknown",
-      "lastChecked": null,
-      "linkStatus": "unchecked",
-      "verified": false,
-      "needsReview": true,
-      "source": "Search result"
-    },
-    {
       "id": "ngati-apa-ki-te-ra-to-grants-and-scholarships",
       "name": "Ngāti Apa ki te Rā Tō grants and scholarships",
       "funder": "Te Rūnanga o Ngāti Apa ki te Rā Tō",
@@ -7206,7 +7419,7 @@
       ],
       "howToApply": "Set rounds",
       "amount": "Varies",
-      "url": "https://www.mpp.govt.nz/funding/tauola-business-fund-2",
+      "url": "https://mpia.govt.nz/programmes-and-funding/economic-growth/tauola-business-fund/",
       "summary": "Funding to help Pacific businesses grow.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -7290,7 +7503,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://www.upperhuttcity.com/",
+      "url": "https://www.upperhutt.govt.nz/home",
       "summary": "Community grants and funding from Upper Hutt City Council. Its website lists current schemes and how to apply.",
       "nextDeadline": null,
       "roundStatus": "unknown",
@@ -7346,7 +7559,7 @@
       ],
       "howToApply": "Check funder",
       "amount": "Varies",
-      "url": "https://mstn.govt.nz/",
+      "url": "https://www.mstn.govt.nz/",
       "summary": "Community grants and funding from Masterton District Council. Its website lists current schemes and how to apply.",
       "nextDeadline": null,
       "roundStatus": "unknown",

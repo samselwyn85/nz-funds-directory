@@ -69,16 +69,8 @@
   "needsReview": false
  },
  "blue-waters-community-trust-grants": {
-  "url": "https://bluewaterscommunitytrust.baanalyser.com/start",
-  "regions": [
-   "Auckland"
-  ],
-  "sectors": [
-   "Sport & recreation",
-   "Community"
-  ],
-  "summary": "Auckland gaming trust set up mainly to support amateur lawn bowls. It now also funds other Auckland community groups, with 11 funding rounds a year.",
-  "needsReview": false
+  "remove": true,
+  "reason": "Website no longer exists (DNS fails)"
  },
  "bluesky-community-trust-grants": {
   "url": "https://bluesky.org.nz/grants/",
