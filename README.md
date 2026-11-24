@@ -9,7 +9,7 @@ itself up to date. "Puna Pūtea" is a working name.
 | Part | File | What it does |
 |---|---|---|
 | Website | `site/app.html` | Search, sidebar filters (sector, region, funder type, when to apply, who can apply), fund pages, saved funds, a three-question eligibility match and a public "What's changed" log. Free for everyone, no login. |
-| Fund list | `site/data/funds.json` | One record per fund. Starter list of 50 real NZ funders, built by `scripts/seed_funds.py`. |
+| Fund list | `site/data/funds.json` | One record per fund. 127 real NZ funders: the starter list from `scripts/seed_funds.py` plus `scripts/add_funders.py`, which adds every DIA-listed gaming trust, all 12 community trusts, 18 community foundations, energy trusts and more from official funder lists. |
 | Nightly checker | `scripts/check_funds.py` | Visits every funder page, records broken or moved links, page changes, closing dates and "applications open" wording. Writes `site/data/changes.json` and the RSS feed `site/feed.xml`. |
 | Schedules | `.github/workflows/` | Nightly check (3am NZ) and publishing the site to GitHub Pages. |
 
@@ -22,7 +22,8 @@ itself up to date. "Puna Pūtea" is a working name.
 ## Run locally
 
 ```
-python3 scripts/seed_funds.py      # rebuild the starter list
+python3 scripts/seed_funds.py      # rebuild the starter list (wipes history)
+python3 scripts/add_funders.py     # add funders from official lists (safe to re-run)
 python3 scripts/check_funds.py     # check all pages now
 python3 scripts/build_site.py && python3 -m http.server -d site
 ```
