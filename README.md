@@ -9,7 +9,7 @@ itself up to date. "Puna Pūtea" is a working name.
 | Part | File | What it does |
 |---|---|---|
 | Website | `site/app.html` | Search, sidebar filters (sector, region, funder type, when to apply, who can apply), fund pages, saved funds, a three-question eligibility match and a public "What's changed" log. Free for everyone, no login. |
-| Fund list | `site/data/funds.json` | One record per fund. 127 real NZ funders: the starter list from `scripts/seed_funds.py` plus `scripts/add_funders.py`, which adds every DIA-listed gaming trust, all 12 community trusts, 18 community foundations, energy trusts and more from official funder lists. |
+| Fund list | `site/data/funds.json` | One record per fund. 259 real NZ funds: every DIA-listed gaming trust, all 12 community trusts, 18 community foundations, councils, government and Lottery funds, iwi and Māori funders, licensing and energy trusts, scholarships and startup funding. Built by `scripts/seed_funds.py` and `scripts/add_funders.py`; sources in `data/funder_sources/`. |
 | Nightly checker | `scripts/check_funds.py` | Visits every funder page, records broken or moved links, page changes, closing dates and "applications open" wording. Writes `site/data/changes.json` and the RSS feed `site/feed.xml`. |
 | Schedules | `.github/workflows/` | Nightly check (3am NZ) and publishing the site to GitHub Pages. |
 
