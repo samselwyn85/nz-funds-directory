@@ -154,7 +154,10 @@ def main():
     errors = check_data(funds)
     print(f"data: {len(funds)} funds, {len(errors)} problems")
     if "--links" in sys.argv:
-        errors += check_links(funds)
+        if errors:
+            print("links: skipped until the data problems below are fixed")
+        else:
+            errors += check_links(funds)
     for e in errors:
         print("FAIL", e)
     if errors:
