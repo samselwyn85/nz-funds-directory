@@ -473,5 +473,11 @@
  "nzgif-investment-for-investees": {
   "remove": true,
   "note": "NZGIF stopped funding new green investments in April 2025 (managed wind-down), per nzgif.co.nz"
+ },
+ "nelson-city-council-community-investment-fund": {
+  "eligible": [
+   "Community groups",
+   "Charities"
+  ]
  }
 }

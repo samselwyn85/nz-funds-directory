@@ -322,7 +322,7 @@ def main():
     funds, changed2, removed2 = apply_fixes(funds)
     changed, removed = changed + changed2, removed + removed2
     data["funds"] = funds
-    FUNDS.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+    FUNDS.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"added {added}, updated {changed}, removed {removed}: {len(funds)} funds in total")
 
 

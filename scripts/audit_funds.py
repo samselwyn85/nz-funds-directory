@@ -37,7 +37,7 @@ GENERIC_NAME = re.compile(r"^(community |council )?(funding|grants?)((,| and| &)
 
 
 def allowed_values():
-    js = APP.read_text()
+    js = APP.read_text(encoding="utf-8")
     out = {}
     for name in ("SECTORS", "REGIONS", "TYPES", "WHEN", "WHO"):
         m = re.search(rf"const {name}\s*=\s*\[(.*?)\];", js, re.S)
@@ -93,12 +93,16 @@ def check_data(funds):
             err(f, f"unknown how-to-apply '{f['howToApply']}'")
         try:
             u = urllib.parse.urlsplit(f["url"])
+            port = u.port  # raises ValueError for a port that is not a number from 0 to 65535
         except ValueError:
             err(f, f"bad website address '{f['url']}'")
             continue
         if u.scheme not in ("http", "https") or not u.netloc or "." not in u.netloc or re.search(r"\s", f["url"]):
             err(f, f"bad website address '{f['url']}'")
-        page = (f["funder"].lower(), u.netloc.lower().removeprefix("www.") + u.path.rstrip("/"), u.query)
+        host = (u.hostname or "").removeprefix("www.")
+        if port and port != {"http": 80, "https": 443}.get(u.scheme):
+            host += f":{port}"
+        page = (f["funder"].lower(), host + u.path.rstrip("/"), u.query)
         if page in pages:
             err(f, "same funder and page listed twice")
         pages.add(page)
@@ -129,11 +133,11 @@ def check_links(funds):
     timed_out = lambda code, e: code is None and "timed out" in str(e)
 
     def one(f):
-        code, final, _, e = fetch(f["url"])
+        code, final, _, e = fetch(f["url"], body=False)
         status = link_status(code, f["url"], final, e)
         if status == "broken":
             first_timeout = timed_out(code, e)
-            code, final, _, e = fetch(f["url"], timeout=60)  # one longer retry for a slow site
+            code, final, _, e = fetch(f["url"], timeout=60, body=False)  # one longer retry for a slow site
             status = link_status(code, f["url"], final, e)
             if status == "broken" and first_timeout and timed_out(code, e):
                 status = "slow"  # timed out twice; a dead site fails DNS/connect instead
@@ -156,7 +160,7 @@ def check_links(funds):
 
 
 def main():
-    data = json.loads(FUNDS.read_text())
+    data = json.loads(FUNDS.read_text(encoding="utf-8"))
     funds = data.get("funds") if isinstance(data, dict) else None
     if not isinstance(funds, list) or not funds:
         sys.exit("FAIL funds.json has no 'funds' list, or it is empty")

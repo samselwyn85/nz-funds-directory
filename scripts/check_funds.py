@@ -14,9 +14,11 @@ are never overwritten: anything that needs judgement is flagged needsReview.
 
 Standard library only. Run: python3 scripts/check_funds.py
 """
+import codecs
 import datetime as dt
 import hashlib
 import html
+import http.client
 import json
 import pathlib
 import re
@@ -52,15 +54,23 @@ OPEN_RE = re.compile(r"applications?\s+(are\s+)?(now\s+)?open\b|round\s+is\s+(no
 CLOSED_RE = re.compile(r"applications?\s+(are\s+)?(now\s+)?closed\b|round\s+(is\s+)?(now\s+)?closed|not\s+currently\s+accepting", re.I)
 
 
-def fetch(url, timeout=25):
+def fetch(url, timeout=25, body=True):
+    """Returns (status, final url, page text, error). body=False skips reading the page."""
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8", "Accept-Language": "en-NZ,en;q=0.8"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
-            body = r.read(3_000_000).decode(r.headers.get_content_charset() or "utf-8", "replace")
-            return r.status, r.geturl(), body, None
+            text = ""
+            if body:
+                charset = r.headers.get_content_charset() or "utf-8"
+                try:
+                    codecs.lookup(charset)
+                except LookupError:  # a charset Python does not know
+                    charset = "utf-8"
+                text = r.read(3_000_000).decode(charset, "replace")
+            return r.status, r.geturl(), text, None
     except urllib.error.HTTPError as e:
         return e.code, url, "", f"HTTP {e.code}"
-    except (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError) as e:
+    except (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError, http.client.HTTPException, ValueError) as e:
         return None, url, "", str(getattr(e, "reason", e))
 
 
@@ -104,9 +114,9 @@ def link_status(code, start_url, final_url, err):
 
 
 def main(only=None):
-    data = json.loads(FUNDS.read_text())
-    state = json.loads(STATE.read_text()) if STATE.exists() else {}
-    changes = json.loads(CHANGES.read_text()) if CHANGES.exists() else []
+    data = json.loads(FUNDS.read_text(encoding="utf-8"))
+    state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
+    changes = json.loads(CHANGES.read_text(encoding="utf-8")) if CHANGES.exists() else []
     now = dt.datetime.now(NZ)
     today = now.date()
     stamp = now.isoformat(timespec="seconds")
@@ -140,7 +150,8 @@ def main(only=None):
         if body and status != "blocked":  # a bot-check page is not the funder's page
             text = visible_text(body)
             digest = hashlib.sha256(text.encode()).hexdigest()
-            if prev.get("hash") and prev["hash"] != digest:
+            # only compare with a hash taken from this same address; a new address starts a fresh baseline
+            if prev.get("hash") and prev.get("url") == f["url"] and prev["hash"] != digest:
                 event(f, "page_changed", "The funder updated this page", review=True)
 
             dates = find_deadlines(text, today)
@@ -155,16 +166,16 @@ def main(only=None):
             if round_status == "open" and f.get("roundStatus") != "open":
                 event(f, "round_open", "Applications look to be open now", review=True)
             f["roundStatus"] = round_status
-            state[f["id"]] = {"hash": digest, "status": status, "checked": stamp}
+            state[f["id"]] = {"hash": digest, "url": f["url"], "status": status, "checked": stamp}
         else:
             state[f["id"]] = {**prev, "status": status, "checked": stamp}
         print(f"{status:8} {f['id']}", file=sys.stderr)
 
     data["updated"] = stamp
-    FUNDS.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+    FUNDS.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
     STATE.parent.mkdir(exist_ok=True)
-    STATE.write_text(json.dumps(state, indent=1))
-    CHANGES.write_text(json.dumps((changes + new_events)[-1000:], indent=1, ensure_ascii=False))
+    STATE.write_text(json.dumps(state, indent=1), encoding="utf-8")
+    CHANGES.write_text(json.dumps((changes + new_events)[-1000:], indent=1, ensure_ascii=False), encoding="utf-8")
     write_feed((changes + new_events)[-1000:], now)
     counts = {}
     for f in data["funds"]:
@@ -184,7 +195,7 @@ def write_feed(events, now):
     FEED.write_text('<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>'
                     f"<title>Puna Pūtea: what's changed</title><link>{SITE_URL}#updates</link>"
                     "<description>New rounds, closing dates and page changes across New Zealand funders, checked nightly.</description>"
-                    f"<lastBuildDate>{format_datetime(now)}</lastBuildDate>" + "".join(items) + "</channel></rss>\n")
+                    f"<lastBuildDate>{format_datetime(now)}</lastBuildDate>" + "".join(items) + "</channel></rss>\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
