@@ -259,5 +259,104 @@
   "text": "The funder updated this page",
   "url": "https://www.toifoundation.org.nz/",
   "needsReview": true
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "eeca-co-funding",
+  "name": "EECA co-funding",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.eeca.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "mpi-funding-programmes",
+  "name": "MPI funding programmes",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.mpi.govt.nz/funding-rural-support/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "pub-charity-grants",
+  "name": "Pub Charity grants",
+  "kind": "link_ok",
+  "text": "Link is working again",
+  "url": "https://www.pubcharitylimited.org.nz/",
+  "needsReview": false
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "foundation-north-grants",
+  "name": "Foundation North grants",
+  "kind": "link_ok",
+  "text": "Link is working again",
+  "url": "https://www.foundationnorth.org.nz/",
+  "needsReview": false
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "foundation-north-grants",
+  "name": "Foundation North grants",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.foundationnorth.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "rotorua-trust-grants",
+  "name": "Rotorua Trust grants",
+  "kind": "link_ok",
+  "text": "Link is working again",
+  "url": "https://www.rotoruatrust.org.nz/",
+  "needsReview": false
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "eastern-central-community-trust-grants",
+  "name": "Eastern & Central Community Trust grants",
+  "kind": "link_ok",
+  "text": "Link is working again",
+  "url": "https://www.ecct.org.nz/",
+  "needsReview": false
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "eastern-central-community-trust-grants",
+  "name": "Eastern & Central Community Trust grants",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.ecct.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "toi-foundation-grants",
+  "name": "Toi Foundation grants",
+  "kind": "link_ok",
+  "text": "Link is working again",
+  "url": "https://www.toifoundation.org.nz/",
+  "needsReview": false
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "toi-foundation-grants",
+  "name": "Toi Foundation grants",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.toifoundation.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-26",
+  "fund": "hamilton-city-council-grants",
+  "name": "Hamilton City Council grants",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://hamilton.govt.nz/",
+  "needsReview": true
  }
 ]
