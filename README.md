@@ -9,7 +9,7 @@ itself up to date. "Puna Pūtea" is a working name.
 | Part | File | What it does |
 |---|---|---|
 | Website | `site/app.html` | Search, sidebar filters (sector, region, funder type, when to apply, who can apply), fund pages, saved funds, a three-question eligibility match and a public "What's changed" log. Free for everyone, no login. |
-| Fund list | `site/data/funds.json` | One record per fund. Starter list of 50 real NZ funders, built by `scripts/seed_funds.py`. |
+| Fund list | `site/data/funds.json` | One record per fund. 264 real NZ funds: every DIA-listed gaming trust, all 12 community trusts, 18 community foundations, councils, government and Lottery funds, iwi and Māori funders, licensing and energy trusts, scholarships and startup funding. Built by `scripts/seed_funds.py` and `scripts/add_funders.py`; sources in `data/funder_sources/`. |
 | Nightly checker | `scripts/check_funds.py` | Visits every funder page, records broken or moved links, page changes, closing dates and "applications open" wording. Writes `site/data/changes.json` and the RSS feed `site/feed.xml`. |
 | Schedules | `.github/workflows/` | Nightly check (3am NZ) and publishing the site to GitHub Pages. |
 
@@ -22,14 +22,18 @@ itself up to date. "Puna Pūtea" is a working name.
 ## Run locally
 
 ```
-python3 scripts/seed_funds.py      # rebuild the starter list
+python3 scripts/seed_funds.py      # rebuild the starter list (wipes history)
+python3 scripts/add_funders.py     # add funders from official lists (safe to re-run)
+python3 scripts/audit_funds.py     # check every listing's data (add --links to check every link)
 python3 scripts/check_funds.py     # check all pages now
 python3 scripts/build_site.py && python3 -m http.server -d site
 ```
 
 ## Data rules
 
+- Every change runs the audit on GitHub (Actions → "Audit fund list"): data checks plus a visit to every link. It fails on any broken link.
+
 - The checker never overwrites names, summaries or criteria. Anything that
   needs judgement is logged with `needsReview: true` for a person to confirm.
 - Dates are read as NZ day/month/year.
-- A site that refuses automated visits is marked `blocked`, not broken.
+- A site that refuses automated visits, or sends visitors to its host's bot check page, is marked `blocked`, not broken. A site that still times out after a longer retry is reported as `slow` and does not fail the audit.

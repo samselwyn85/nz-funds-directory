@@ -1,0 +1,33 @@
+name: Audit fund list
+
+on:
+  pull_request:
+    paths: ["site/data/funds.json", "site/app.html", "scripts/**"]
+  push:
+    branches: [main]
+    paths: ["site/data/funds.json", "site/app.html", "scripts/**"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  data:
+    name: Data checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/audit_funds.py
+
+  links:
+    name: Link checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/audit_funds.py --links

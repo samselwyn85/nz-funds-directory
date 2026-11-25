@@ -1,0 +1,483 @@
+{
+ "sport-nz-funding": {
+  "url": "https://sportnz.org.nz/funding/how-we-invest/"
+ },
+ "te-matawai-investment": {
+  "url": "https://tematawai.maori.nz/mi"
+ },
+ "trillian-trust-grants": {
+  "url": "https://www.trillian.co.nz/"
+ },
+ "tect-community-grants": {
+  "url": "https://www.manawatrust.nz/funding-faqs/",
+  "name": "Manawa Trust (formerly TECT) community grants",
+  "funder": "Manawa Trust (formerly TECT)"
+ },
+ "z-good-in-the-hood": {
+  "url": "https://www.z.co.nz/"
+ },
+ "community-trust-mid-south-canterbury-grants": {
+  "url": "https://ahu.nz/",
+  "name": "Ahu Community Trust grants",
+  "funder": "Ahu Community Trust (formerly Community Trust Mid & South Canterbury)"
+ },
+ "mainpower-community-fund": {
+  "url": "https://www.mainpower.co.nz/community/community-funding/"
+ },
+ "centralines-community-funding": {
+  "url": "https://www.centralines.co.nz/tell-me-about/community/applying-for-funding/"
+ },
+ "aoraki-foundation-grants": {
+  "url": "https://www.aorakifoundation.org.nz/"
+ },
+ "wayne-francis-charitable-trust": {
+  "url": "https://waynefrancisfoundation.nz/funding",
+  "regions": [
+   "Canterbury"
+  ],
+  "sectors": [
+   "Education & youth",
+   "Community"
+  ],
+  "summary": "Christchurch family foundation, now called the Wayne Francis Foundation, that supports young people aged about 12-25. It does not run funding rounds; groups make a guided enquiry instead.",
+  "needsReview": false
+ },
+ "te-awa-community-foundation-grants": {
+  "url": "https://www.tararuadc.govt.nz/living-here/community-funding/te-awa-community-foundation"
+ },
+ "the-wright-family-foundation": {
+  "url": "https://wrightfamilyfoundation.org.nz/"
+ },
+ "te-rourou-one-nz-foundation": {
+  "url": "https://one.nz/why-choose-us/te-rourou/"
+ },
+ "air-rescue-services-grants": {
+  "url": "https://www.airrescueservices.co.nz/grants/",
+  "regions": [
+   "Auckland",
+   "Wellington",
+   "Manawatū-Whanganui",
+   "Marlborough",
+   "West Coast",
+   "Canterbury"
+  ],
+  "sectors": [
+   "Health & wellbeing",
+   "Community"
+  ],
+  "summary": "Gaming machine company set up in 2002 that funds rescue and medical services and other community groups in the areas where its venues are. Applications are online, with a cut-off on the 1st of each month.",
+  "needsReview": false
+ },
+ "blue-waters-community-trust-grants": {
+  "remove": true,
+  "reason": "Website no longer exists (DNS fails)"
+ },
+ "bluesky-community-trust-grants": {
+  "url": "https://bluesky.org.nz/grants/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Community",
+   "Sport & recreation",
+   "Arts & culture"
+  ],
+  "summary": "Non-profit company that runs gaming machines and funds education, arts and cultural festivals, amenities and amateur sport. Priority goes to applicants in cities with its venues. Applications are online and close on the 10th of each month.",
+  "needsReview": false
+ },
+ "constellation-communities-trust-grants": {
+  "url": "https://www.constellationtrust.org.nz/grants",
+  "regions": [
+   "Auckland"
+  ],
+  "sectors": [
+   "Community",
+   "Sport & recreation"
+  ],
+  "summary": "North Shore, Auckland trust that gives grants to local community groups and the North Shore athletics community, and sponsors programmes at AUT Millennium.",
+  "needsReview": false
+ },
+ "dragon-community-trust-grants": {
+  "url": "https://dragon.org.nz/grants/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Community",
+   "Arts & culture"
+  ],
+  "summary": "Gaming trust that gives priority to applications supporting the Asian community, especially young and elderly people. Only clubs and non-profits can apply. Applications are online with a monthly cut-off on the 10th.",
+  "needsReview": false
+ },
+ "first-light-community-foundation-grants": {
+  "url": "https://www.firstlightfoundation.co.nz/grants.html",
+  "regions": [
+   "Hawke's Bay",
+   "Waikato"
+  ],
+  "sectors": [
+   "Community",
+   "Sport & recreation"
+  ],
+  "summary": "Hawke's Bay foundation that returns gaming machine funds to the communities they came from, including Hastings, Wairoa, Mahia and Taupō. Applications are online by the last day of each month.",
+  "needsReview": false
+ },
+ "grassroots-trust-central-grants": {
+  "url": "https://www.grassrootstrustcentral.co.nz/apply-for-a-grant/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Community",
+   "Sport & recreation"
+  ],
+  "summary": "Hamilton-based gaming trust that gives grants to community groups. Applications are made online through its grants portal.",
+  "needsReview": false
+ },
+ "kiwi-gaming-foundation-grants": {
+  "url": "https://www.kiwigaming.org.nz/grants.html",
+  "regions": [
+   "Canterbury",
+   "Wellington",
+   "Gisborne",
+   "Auckland"
+  ],
+  "sectors": [
+   "Sport & recreation",
+   "Education & youth",
+   "Arts & culture"
+  ],
+  "summary": "Gaming foundation that funds amateur sport, education, arts and culture and other community projects. It welcomes applications from groups in Canterbury, Lower Hutt, Gisborne and Auckland and reviews them every two weeks.",
+  "needsReview": false
+ },
+ "mainland-foundation-grants": {
+  "url": "https://mainlandfoundation.co.nz/grant-funding/",
+  "regions": [
+   "Canterbury"
+  ],
+  "sectors": [
+   "Sport & recreation",
+   "Community",
+   "Arts & culture"
+  ],
+  "summary": "Christchurch-based gaming society that funds sports clubs, cultural and community groups, charities and educational organisations. Applications are online, and its committee usually meets twice a month.",
+  "needsReview": false
+ },
+ "milestone-foundation-grants": {
+  "url": "https://www.milestonefoundation.co.nz/grants.html",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Education & youth",
+   "Health & wellbeing",
+   "Arts & culture"
+  ],
+  "summary": "Gaming foundation set up in 2015 that funds education, health and activities supporting Asian cultures in New Zealand. Applications are online and close on the 10th of each month.",
+  "needsReview": false
+ },
+ "one-foundation-grants": {
+  "url": "https://onefoundation.nz/grants",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Community",
+   "Arts & culture",
+   "Education & youth",
+   "Health & wellbeing",
+   "Sport & recreation"
+  ],
+  "summary": "Licensed gaming trust that funds arts, community and culture, education, health and welfare, and sport. Applications go through its online portal by set closing dates.",
+  "needsReview": false
+ },
+ "oxford-sports-trust-grants": {
+  "url": "https://www.oxfordsportstrust.org.nz/grants.htm",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Sport & recreation",
+   "Community"
+  ],
+  "summary": "Whangārei-based trust that funds amateur sport (travel, equipment, uniforms, ground hire), charitable purposes and racing. Funds go mainly to the communities where they were raised.",
+  "needsReview": false
+ },
+ "pelorus-trust-grants": {
+  "url": "https://www.pelorustrust.net.nz/grants",
+  "regions": [
+   "Auckland",
+   "Wellington",
+   "Marlborough",
+   "West Coast",
+   "Canterbury"
+  ],
+  "sectors": [
+   "Community",
+   "Sport & recreation"
+  ],
+  "summary": "Lower Hutt gaming trust with venues from North Shore, Auckland to Christchurch. It funds charitable, philanthropic and sporting purposes, and online applications close on set dates.",
+  "needsReview": false
+ },
+ "rano-community-trust-grants": {
+  "url": "https://rano.org.nz/grants/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Sport & recreation",
+   "Education & youth",
+   "Community"
+  ],
+  "summary": "Auckland-based gaming trust that gives priority to amateur sport, religion, education and community groups in the cities where its venues are. Applications are open online and close on the 10th of each month.",
+  "needsReview": false
+ },
+ "redwood-trust-grants": {
+  "url": "https://www.redwoodtrust.org.nz",
+  "regions": [
+   "Marlborough"
+  ],
+  "sectors": [
+   "Community"
+  ],
+  "summary": "Marlborough charitable trust that raises money from gaming machines and gives all net proceeds to the local community.",
+  "needsReview": false
+ },
+ "bendigo-valley-sports-and-charity-foundation-grants": {
+  "remove": true,
+  "reason": "Wound up (Nov 2023). Remove from the directory or mark as closed."
+ },
+ "north-and-south-trust-grants": {
+  "url": "https://www.nstl.co.nz/apply-for-grants/",
+  "regions": [
+   "Auckland"
+  ],
+  "sectors": [
+   "Sport & recreation",
+   "Community"
+  ],
+  "summary": "Gaming trust with venues in Auckland and Rodney that was set up mainly to support amateur rugby and sport in Auckland. It also funds charitable and not-for-profit groups, and its board meets monthly.",
+  "needsReview": false
+ },
+ "trust-aoraki-grants": {
+  "url": "https://trustaoraki.co.nz/grant-applications/",
+  "regions": [
+   "Canterbury",
+   "Otago"
+  ],
+  "sectors": [
+   "Community",
+   "Sport & recreation"
+  ],
+  "summary": "Not-for-profit gaming trust that funds major community projects and community and sports groups in Timaru, Temuka, Fairlie, Twizel, Kurow and Omarama. Applications are online.",
+  "needsReview": false
+ },
+ "trust-house-foundation-grants": {
+  "url": "https://trusthouse.org.nz",
+  "regions": [
+   "Wellington",
+   "Hawke's Bay"
+  ],
+  "sectors": [
+   "Community",
+   "Sport & recreation"
+  ],
+  "summary": "Licensed gaming foundation in Masterton that gives over $4 million a year to local not-for-profits in Wairarapa, Rimutaka and Flaxmere. Applications go through its Fluxx portal by set deadlines.",
+  "needsReview": false
+ },
+ "we-care-community-trust-grants": {
+  "url": "https://wecare.org.nz",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Community",
+   "Arts & culture",
+   "Sport & recreation"
+  ],
+  "summary": "Non-profit company that runs gaming machines and funds education, arts and cultural festivals, amenities and amateur sport. Priority goes to applicants in cities with its venues. Applications close on the last working day of each month.",
+  "needsReview": false
+ },
+ "youthtown-grants": {
+  "url": "https://youthtowntrust.org.nz/webpages/apply-for-support/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Education & youth",
+   "Sport & recreation"
+  ],
+  "summary": "Auckland-based youth charity that runs gaming venues around New Zealand. Proceeds fund its own youth programmes and other community organisations.",
+  "needsReview": false
+ },
+ "len-reynolds-trust": {
+  "url": "https://www.lenreynoldstrust.co.nz/what-we-fund/",
+  "regions": [
+   "Waikato"
+  ],
+  "sectors": [
+   "Education & youth",
+   "Environment",
+   "Māori & iwi"
+  ],
+  "summary": "Waikato philanthropic trust that focuses on children and young people and on the environment, including Māori-led solutions. Under a new strategy it funds fewer organisations, more closely.",
+  "needsReview": false
+ },
+ "clare-foundation": {
+  "url": "https://clare.nz/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Environment",
+   "Health & wellbeing",
+   "Education & youth"
+  ],
+  "summary": "Philanthropic foundation that invests in solutions for climate and waste, oral health, youth wellbeing, and equity for women.",
+  "needsReview": false
+ },
+ "hynds-foundation": {
+  "remove": true,
+  "reason": "Still operating, but the site says funding is fully committed and given without an application process. Consider removing it or marking it not open."
+ },
+ "dv-bryant-trust": {
+  "url": "https://www.bryanttrust.co.nz/funding",
+  "regions": [
+   "Waikato"
+  ],
+  "sectors": [
+   "Community"
+  ],
+  "summary": "Charitable trust that funds community projects to improve wellbeing in the Waikato.",
+  "needsReview": false
+ },
+ "the-wilberforce-foundation": {
+  "url": "https://www.wilberforce.org.nz/how-we-can-help",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Community"
+  ],
+  "summary": "Christian philanthropic foundation that supports Christian organisations and individuals working for change in their communities, and offers scholarships.",
+  "needsReview": false
+ },
+ "whakatupu-aotearoa-foundation": {
+  "url": "https://whakatupuaotearoa.org.nz/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Environment",
+   "Community"
+  ],
+  "summary": "Private philanthropic trust set up in 2020 that funds non-profits and impact investments working on climate, biodiversity, waste and community wellbeing in Aotearoa. Funding is by invitation only.",
+  "howToApply": "Check funder",
+  "eligible": [
+   "Community groups",
+   "Charities"
+  ],
+  "needsReview": false
+ },
+ "catalytic-foundation": {
+  "url": "https://catalytic.org.nz/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Community"
+  ],
+  "summary": "Foundation working to create thriving communities throughout New Zealand. Third-party listings show it runs a yearly community grants round, usually closing in October.",
+  "needsReview": false
+ },
+ "milford-foundation": {
+  "url": "https://milfordfoundation.co.nz/",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Education & youth"
+  ],
+  "summary": "Milford Asset Management's foundation that backs young people facing barriers to education, employment and wellbeing, through selected charity partners, crisis funding and scholarships.",
+  "needsReview": false
+ },
+ "bnz-foundation": {
+  "summary": "BNZ Foundation grants for NZ registered charities and social enterprises (operating at least a year), through Manaaki Taiao for biodiversity regeneration and Manaaki Tangata for economic empowerment and housing pathways.",
+  "regions": [
+   "Nationwide"
+  ],
+  "sectors": [
+   "Environment",
+   "Community"
+  ],
+  "eligible": [
+   "Community groups",
+   "Charities",
+   "Businesses"
+  ],
+  "howToApply": "Check funder",
+  "needsReview": false
+ },
+ "fisher-paykel-healthcare-foundation": {
+  "summary": "Fisher & Paykel Healthcare Foundation supports rangatahi, especially Māori and Pacific young people, into STEM and trades careers in South Auckland through technology access, industry exposure, scholarships and preventative health initiatives.",
+  "regions": [
+   "Auckland"
+  ],
+  "sectors": [
+   "Education & youth",
+   "Health & wellbeing"
+  ],
+  "eligible": [
+   "Community groups",
+   "Charities",
+   "Schools"
+  ],
+  "howToApply": "Check funder",
+  "needsReview": false
+ },
+ "lottery-community": {
+  "name": "Lottery Fund",
+  "url": "https://www.communitymatters.govt.nz/lottery-fund",
+  "summary": "Distributes New Zealand lottery profits to not-for-profit legal entities for projects with community benefit, across community capacity, participation, community and environmental health, arts/culture/heritage, and sport and recreation. Four rounds in 2026/27, applied for through DIA's online grants system.",
+  "sectors": [
+   "Community",
+   "Arts & culture",
+   "Sport & recreation"
+  ],
+  "eligible": [
+   "Community groups",
+   "Charities",
+   "Marae, iwi & hapū"
+  ]
+ },
+ "waste-minimisation-fund": {
+  "url": "https://environment.govt.nz/what-you-can-do/funding/waste-minimisation-fund/"
+ },
+ "te-atiawa-taranaki-education-grants": {
+  "summary": "Te Ātiawa o Te Waka-a-Māui Trust education grants partly repay fees and costs such as books and equipment. Registered members in full-time fee-paying tertiary study or at secondary school can apply.",
+  "regions": [
+   "Nelson",
+   "Marlborough",
+   "Tasman"
+  ],
+  "sectors": [
+   "Māori & iwi",
+   "Education & youth"
+  ],
+  "eligible": [
+   "Individuals"
+  ],
+  "howToApply": "Set rounds",
+  "needsReview": false
+ },
+ "nzgif-investment-for-investees": {
+  "remove": true,
+  "note": "NZGIF stopped funding new green investments in April 2025 (managed wind-down), per nzgif.co.nz"
+ },
+ "nelson-city-council-community-investment-fund": {
+  "eligible": [
+   "Community groups",
+   "Charities"
+  ]
+ }
+}
