@@ -187,5 +187,77 @@
   "text": "Page has moved to https://www.z.co.nz:443/",
   "url": "https://z.co.nz/",
   "needsReview": true
+ },
+ {
+  "date": "2026-11-25",
+  "fund": "eeca-co-funding",
+  "name": "EECA co-funding",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.eeca.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-25",
+  "fund": "mpi-funding-programmes",
+  "name": "MPI funding programmes",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.mpi.govt.nz/funding-rural-support/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-25",
+  "fund": "pub-charity-grants",
+  "name": "Pub Charity grants",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.pubcharitylimited.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-25",
+  "fund": "foundation-north-grants",
+  "name": "Foundation North grants",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.foundationnorth.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-25",
+  "fund": "rotorua-trust-grants",
+  "name": "Rotorua Trust grants",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.rotoruatrust.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-25",
+  "fund": "eastern-central-community-trust-grants",
+  "name": "Eastern & Central Community Trust grants",
+  "kind": "link_blocked",
+  "text": "Site refused our checker (403); needs a manual look",
+  "url": "https://www.ecct.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-25",
+  "fund": "toi-foundation-grants",
+  "name": "Toi Foundation grants",
+  "kind": "link_moved",
+  "text": "Page has moved to https://www.toifoundation.org.nz/sitehost-verify?r=%2f%3f",
+  "url": "https://www.toifoundation.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-25",
+  "fund": "toi-foundation-grants",
+  "name": "Toi Foundation grants",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.toifoundation.org.nz/",
+  "needsReview": true
  }
 ]
