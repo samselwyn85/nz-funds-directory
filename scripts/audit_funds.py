@@ -100,7 +100,7 @@ def check_data(funds):
         if u.scheme not in ("http", "https") or not u.netloc or "." not in u.netloc or re.search(r"\s", f["url"]):
             err(f, f"bad website address '{f['url']}'")
         host = (u.hostname or "").removeprefix("www.")
-        if port and port != {"http": 80, "https": 443}.get(u.scheme):
+        if port is not None and port != {"http": 80, "https": 443}.get(u.scheme):
             host += f":{port}"
         page = (f["funder"].lower(), host + u.path.rstrip("/"), u.query)
         if page in pages:
