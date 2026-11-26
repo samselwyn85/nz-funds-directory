@@ -358,5 +358,50 @@
   "text": "The funder updated this page",
   "url": "https://hamilton.govt.nz/",
   "needsReview": true
+ },
+ {
+  "date": "2026-11-27",
+  "fund": "nz-on-air-funding",
+  "name": "NZ On Air funding",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.nzonair.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-27",
+  "fund": "nz-on-air-funding",
+  "name": "NZ On Air funding",
+  "kind": "new_date",
+  "text": "New closing date found: 7 January 2027",
+  "url": "https://www.nzonair.govt.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-27",
+  "fund": "foundation-north-grants",
+  "name": "Foundation North grants",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.foundationnorth.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-27",
+  "fund": "eastern-central-community-trust-grants",
+  "name": "Eastern & Central Community Trust grants",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://www.ecct.org.nz/",
+  "needsReview": true
+ },
+ {
+  "date": "2026-11-27",
+  "fund": "hamilton-city-council-grants",
+  "name": "Hamilton City Council grants",
+  "kind": "page_changed",
+  "text": "The funder updated this page",
+  "url": "https://hamilton.govt.nz/",
+  "needsReview": true
  }
 ]

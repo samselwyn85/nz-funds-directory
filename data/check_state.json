@@ -1,238 +1,238 @@
 {
  "lottery-community": {
   "status": "blocked",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "community-organisation-grants-scheme-cogs": {
   "status": "blocked",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "creative-new-zealand-funding": {
   "hash": "885b6289fa05af65a8d320b8a9790bc84520010ca6c268260362d4c215322fca",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "creative-communities-scheme": {
   "hash": "885b6289fa05af65a8d320b8a9790bc84520010ca6c268260362d4c215322fca",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "sport-nz-funding": {
   "hash": "5804479c42c68ea48a1e2c90636fafb45731b51a04af07e8b5975b09a84def78",
   "status": "moved",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "nz-on-air-funding": {
-  "hash": "84b5b5f6fabd3b15f93071b6266a15637a123fb7fe7d93634ca05bf8d7c6d439",
+  "hash": "a1a37b2561bd35c8f8ffbcfce055d3ca1dea638c2fff48ed37cb6361186e3b21",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "ministry-for-culture-and-heritage-funds": {
   "status": "blocked",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "doc-community-fund": {
   "hash": "b193182459c98596e52bf9d3030d64ae6a8e28921cbe954f8ebacc98ccc41c08",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "waste-minimisation-fund": {
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "te-puni-kokiri-funding": {
   "hash": "dfee56a2722020853deb1e278e4d4ddeaeb08da7228dcca746f3f8458facdda2",
   "status": "moved",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "te-matawai-investment": {
   "hash": "5187b4b308ae46181388a8534187fa4fde71d52586e2dd19fa7332105cbe30fc",
   "status": "moved",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "eeca-co-funding": {
   "hash": "b3ea7a4c0106c4b3b4b5ddec374160eaae16cb3ef9ee13f04452f9c8532d0ddd",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "mpi-funding-programmes": {
   "hash": "6caadcf4345d2198d7ce48f4ad725e141902b040a2d218642e3308b1f7b34bc7",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "government-business-funding-funding-explorer": {
   "hash": "2ebda12abd167a4fcc5dbf9b0cfe8a3c03eedc30fa6e7105bee774af5732f9ab",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "nzct-grants": {
   "hash": "18d5ad71fe8ff030c59dfcefe5b1d8596e5e425034904a1b9d185a0de1908a89",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "pub-charity-grants": {
   "hash": "e7831c152cef63303e61038dd4e47ec45a3bc45f05be7ae37623b2cda0938914",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "lion-foundation-grants": {
   "hash": "84cc5d0a763c577f761f57b876bf720cd18bb91c37a2ce367ce698f601a19666",
   "status": "moved",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "four-winds-foundation-grants": {
   "status": "broken",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "aotearoa-gaming-trust-grants": {
   "status": "broken",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "trillian-trust-grants": {
   "status": "broken",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "grassroots-trust-grants": {
   "hash": "8e1029c8392ff8b2410229318cb5d0c24c845edb3ca52a9e0897220d3e908b4c",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "the-trusts-community-foundation-grants": {
   "status": "broken",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "foundation-north-grants": {
-  "hash": "f1139797e631995a882da73ea1927c8fc0aa6c9eb4b2e6c28126ed9e94c12773",
+  "hash": "69477989e41813b16329f20738d14d55ec53899477cf810675246f9b415c89cf",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "rata-foundation-grants": {
   "hash": "559b6000c5cca8d7caf5d83a7b1e56cf18eb7862a3a310467b430afad538b0e6",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "trust-waikato-grants": {
   "hash": "d106f8257613c93b03edbe3ed7d507ab41b33786100b2a3f379a85404b3027d9",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "tect-community-grants": {
   "hash": "7901812495ab107d53cc4cc53550fc2e493a142e244a8345044efd7219da2a84",
   "status": "moved",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "bay-trust-grants": {
   "hash": "8a81a09411ab86215fcc2cc1013678e3d3ad372896659670e01c3065caed14ff",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "rotorua-trust-grants": {
   "hash": "e2c417c4be4e2c8fb60db6f6b66bbb11856ebcee0fd191e353d119d56ed43dd1",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "wellington-community-fund": {
   "hash": "68ab20b0f8f3f17af476b641ce7217898666542bd5dd66ba744104a69446c1ff",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "eastern-central-community-trust-grants": {
-  "hash": "654763a9865c757e7c410edaffb83fc6cd8084fa12ffafe70e7a7e3ca58d763f",
+  "hash": "d262b407de77b5aef19138df2dde314bf26d17ebfa895ec19eeeb11e80afe362",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "toi-foundation-grants": {
   "hash": "822e5aab770e7119d980f18d0b764ad563d96a3cf0942b4db888f047085d71b2",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "otago-community-trust-grants": {
   "hash": "40cec9785d96f314c926ddc6874792e4b10c99f76e0b146f1e2cc2604f21a33f",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "community-trust-south-grants": {
   "hash": "291e12e5201af38091cdfd3788515afe2e0bf44f4a6eeff5917442e81ff50211",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "j-r-mckenzie-trust-grants": {
   "hash": "64b79e054eeef5987ef4640b50dc692389a0e0d7f95f1ce8b62678055ae7bfce",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "the-tindall-foundation": {
   "hash": "e4dd0ccc73a730e4a0bde885a2c7e71b80dde7a41373cea4b2060634765e4d68",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "todd-foundation": {
   "hash": "6b5faa76454bc7fe6cb4350c55fe7b6249a0811c93bf6dd41cd5ed901738c63b",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "hugh-green-foundation": {
   "status": "broken",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "perpetual-guardian-foundation": {
   "hash": "da0f7f506dcd775b2cd69f1af4acbed55159a452588f6016a5e5fbaca4d8d7a4",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "public-trust-grants": {
   "hash": "c9abb7684d6d3559add4cc4001835dd43c1b794ee42124029a5bb6e26dff45de",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "acorn-foundation-grants": {
   "hash": "34fd333d9a9720609d343d8303c662dcde1e6b9aceec357bbfe608025864cc81",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "philanthropy-nz-fundseeker": {
   "hash": "cec78061c82c2c3b5c9690b1aee17b5e77f5832be993de9d3f40236c6e8aea20",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "auckland-council-grants": {
   "status": "broken",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "wellington-city-council-funding": {
   "status": "blocked",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "christchurch-city-council-funding": {
   "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "dunedin-city-council-grants": {
   "status": "blocked",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "hamilton-city-council-grants": {
-  "hash": "8b0a961aee6d6ae0097349f3a4ce3124306ced0d38c7724b32c160983648a06d",
+  "hash": "55c5fa027d2c0198164be634e8f76a94c75d59923fea081511ac5c01dd1433d4",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "tasman-district-council-grants": {
   "hash": "1ecb78e3debde2980f8e87890766eb4d8eeea7a093e96a063566542cf7636260",
   "status": "ok",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "selwyn-district-council-funding": {
   "status": "blocked",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "manawatu-district-council-funding": {
   "status": "blocked",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  },
  "z-good-in-the-hood": {
   "hash": "b149d8fba6d1b7c9b6335767954798e47c3f8771568668277ffde16b384deca8",
   "status": "moved",
-  "checked": "2026-11-26T11:56:48+13:00"
+  "checked": "2026-11-27T11:49:02+13:00"
  }
 }
