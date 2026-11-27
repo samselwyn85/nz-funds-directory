@@ -117,6 +117,14 @@ aside.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);alig
 .save:hover{background:var(--subtle);color:var(--ink)}
 .save[aria-pressed="true"]{color:var(--brand)}
 .save[aria-pressed="true"] svg{fill:currentColor}
+.qlinks{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:14px}
+.qlinks a{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink);text-decoration:none;font-weight:500;font-size:.92rem}
+.qlinks a:hover{border-color:var(--line-strong)}
+.qlinks a svg{width:16px;height:16px;flex:none;color:var(--faint)}
+.tsearch{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.tsearch input{flex:1 1 240px;min-width:0;font:inherit;padding:10px 12px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);color:var(--ink)}
+.tsel{font:inherit;padding:10px 12px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);color:var(--ink);flex:1 1 140px}
+.trow .ids{font-family:var(--mono);font-size:.76rem;color:var(--faint)}
 .empty{background:var(--subtle);border:1px dashed var(--line-strong);border-radius:10px;padding:28px;text-align:center;color:var(--muted)}
 .empty b{color:var(--ink);display:block;margin-bottom:4px}
 
@@ -189,7 +197,7 @@ footer.site .wrap{padding-block:28px;display:flex;gap:24px;justify-content:space
   .facts{grid-template-columns:1fr}
   .facts dt{border-bottom:0;padding-bottom:0}
   .sort span{display:none}
-  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--surface);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+  .tabbar{display:grid;grid-template-columns:repeat(6,1fr);position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--surface);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
   .tabbar a{display:grid;justify-items:center;gap:3px;text-decoration:none;color:var(--faint);font-size:.7rem;font-weight:500;padding:4px 0}
   .tabbar a svg{width:22px;height:22px}
   .tabbar a[aria-current="page"]{color:var(--brand)}
@@ -210,6 +218,7 @@ footer.site .wrap{padding-block:28px;display:flex;gap:24px;justify-content:space
   <symbol id="i-rss" viewBox="0 0 24 24"><path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1.2"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
   <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-case" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
 </svg>
 
@@ -223,6 +232,7 @@ footer.site .wrap{padding-block:28px;display:flex;gap:24px;justify-content:space
       <a href="#browse" data-nav="browse">Find funding</a>
       <a href="#match" data-nav="match">Eligibility match</a>
       <a href="#saved" data-nav="saved">Saved</a>
+      <a href="#tenders" data-nav="tenders">Tenders</a>
       <a href="#updates" data-nav="updates">What's changed</a>
       <a href="#about" data-nav="about">How it works</a>
     </nav>
@@ -245,6 +255,7 @@ footer.site .wrap{padding-block:28px;display:flex;gap:24px;justify-content:space
   <a href="#browse" data-nav="browse"><svg class="i"><use href="#i-search"/></svg>Explore</a>
   <a href="#match" data-nav="match"><svg class="i"><use href="#i-filter"/></svg>Match</a>
   <a href="#saved" data-nav="saved"><svg class="i"><use href="#i-bookmark"/></svg>Saved</a>
+  <a href="#tenders" data-nav="tenders"><svg class="i"><use href="#i-case"/></svg>Tenders</a>
   <a href="#updates" data-nav="updates"><svg class="i"><use href="#i-bell"/></svg>Changes</a>
   <a href="#about" data-nav="about"><svg class="i"><use href="#i-info"/></svg>About</a>
 </nav>
@@ -466,6 +477,66 @@ function updates(){
       : `<div class="empty" style="margin-top:24px"><b>No changes recorded yet</b>The first nightly check is running. Changes it finds will appear here.</div>`}
   </section>`;
 }
+let AWARDS = null;
+const TQ = { cat:"building", region:"", q:"", n:40 };
+const TCATS = [["building","All building work",["Building & construction","Roading & civil works"]],["Building & construction","Building & construction"],["Roading & civil works","Roading & civil"],["Facilities & maintenance","Facilities & maintenance"],["Health & social services","Health & social"],["IT & digital","IT & digital"],["Consultancy & professional","Consultancy"],["Transport & fleet","Transport"],["Other","Other"],["all","Everything"]];
+const TREGIONS = ["New Zealand (nationwide)", ...REGIONS];
+const GETS = "https://www.gets.govt.nz";
+const GETS_SEARCH = [["Construction","construction"],["Building","building"],["Roofing","roof"],["Roading","road"],["Bridges & civil","civil"],["Maintenance","maintenance"],["Health & social services","services"],["Software & digital","software"]];
+function tcatOf(k){ const c = TCATS.find(x=>x[0]===k); return k==="all" ? null : (c && c[2]) || [k]; }
+function amatch(a, k){
+  const cats = tcatOf(k), q = TQ.q.toLowerCase();
+  const rg = TQ.region === "New Zealand (nationwide)" ? "New Zealand" : TQ.region;
+  return (!cats || cats.includes(a.category)) && (!rg || a.regions.includes(rg)) && (!q || (a.title+" "+a.agency+" "+a.suppliers.join(" ")).toLowerCase().includes(q));
+}
+const nzd = d => new Date(d+"T12:00:00+13:00").toLocaleDateString("en-NZ",{day:"numeric",month:"short",year:"numeric"});
+const money = n => n >= 1e9 ? "$"+(n/1e9).toLocaleString("en-NZ",{maximumFractionDigits:2})+"b" : n >= 1e6 ? "$"+(n/1e6).toLocaleString("en-NZ",{maximumFractionDigits:1})+"m" : "$"+n.toLocaleString("en-NZ");
+function arow(a){
+  return `<article class="row trow">
+    <div style="min-width:0">
+      <div class="top-line"><span class="label">${esc(a.category)}</span></div>
+      <h3><a href="${GETS}/ExternalTenderDetails.htm?id=${encodeURIComponent(a.rfxId)}" target="_blank" rel="noopener">${esc(a.title)}</a></h3>
+      <div class="by">${esc(a.agency)}</div>
+      <p>Won by ${esc(a.suppliers.length ? a.suppliers.slice(0,4).join(", ") + (a.suppliers.length>4?` and ${a.suppliers.length-4} more`:"") : "not published")}</p>
+      <div class="ids">GETS RFx ${esc(a.rfxId)}${a.type?` · ${esc(a.type)}`:""}</div>
+    </div>
+    <dl class="side">
+      <div><dt>Awarded</dt><dd>${esc(nzd(a.awarded))}</dd></div>
+      <div><dt>Value</dt><dd>${a.amount ? esc(money(a.amount)) : "Not published"}</dd></div>
+      <div><dt>Region</dt><dd>${esc(a.regions.length ? a.regions.slice(0,2).join(", ").replace("New Zealand","Nationwide") + (a.regions.length>2?" +"+(a.regions.length-2):"") : "Not stated")}</dd></div>
+    </dl>
+  </article>`;
+}
+function tenders(){
+  if (AWARDS === null){
+    app.innerHTML = `<section class="wrap page"><p class="small">Loading tenders…</p></section>`;
+    fetch("data/awards.json").then(r => r.ok ? r.json() : {}).catch(() => ({})).then(d => { AWARDS = d && Array.isArray(d.awards) ? d : {awards:[]}; if ((location.hash||"")==="#tenders") tenders(); });
+    return;
+  }
+  const all = AWARDS.awards, list = all.filter(a=>amatch(a, TQ.cat));
+  app.innerHTML = `<section class="wrap page" style="max-width:1080px">
+    <div class="label">Government tenders</div>
+    <h1>Contracts you can bid for, from councils and government.</h1>
+    <p>Public agencies in New Zealand advertise contracts on GETS, the Government Electronic Tenders Service run by MBIE. It's free to search and free to register. You need a GETS account to download tender documents and respond.</p>
+    <h2 style="font-size:1.05rem;margin-top:28px">Find open tenders on GETS</h2>
+    <div class="qlinks">${GETS_SEARCH.map(([l,q])=>`<a href="${GETS}/ExternalTenderSearching.htm?SearchingText=${encodeURIComponent(q)}" target="_blank" rel="noopener">${esc(l)}${icon("ext")}</a>`).join("")}<a href="${GETS}/ExternalIndex.htm" target="_blank" rel="noopener">All current tenders${icon("ext")}</a><a href="${GETS}/FutureProcurementOpportunitiesIndex.htm" target="_blank" rel="noopener">Coming up soon${icon("ext")}</a></div>
+    <p class="small" style="margin-top:10px">Planning ahead? Te Waihanga's <a href="https://tewaihanga.govt.nz/the-pipeline" target="_blank" rel="noopener">National Infrastructure Pipeline</a> lists building and infrastructure projects that are planned but not yet out to tender.</p>
+    ${all.length ? `
+      <h2 style="font-size:1.05rem;margin-top:36px">Who's winning government work</h2>
+      <p class="small">Contracts awarded through GETS from ${esc(nzd(AWARDS.from))} to ${esc(nzd(AWARDS.to))}. See which agencies buy the work you do, how big the jobs are and who wins them.</p>
+      <div class="tabs" role="tablist" style="margin-top:8px">${TCATS.map(([k,l])=>{ const n = all.filter(a=>amatch(a,k)).length; return (n || k===TQ.cat) ? `<button role="tab" data-tcat="${esc(k)}" aria-selected="${TQ.cat===k}">${esc(l)}<span class="n">${n}</span></button>` : ""; }).join("")}</div>
+      <form class="tsearch" id="tform" role="search">
+        <input id="tq" type="search" aria-label="Search awarded contracts" placeholder="Search, e.g. school, roof, Downer" value="${esc(TQ.q)}">
+        <select id="treg" aria-label="Region" class="tsel"><option value="">All regions</option>${TREGIONS.map(x=>`<option ${TQ.region===x?"selected":""}>${esc(x)}</option>`).join("")}</select>
+        <button class="btn">${icon("search")} Search</button>
+      </form>
+      <p class="small">${list.length.toLocaleString("en-NZ")} contract${list.length===1?"":"s"}. Work types are worked out from each notice's categories and title.</p>
+      <div class="rows">${list.length ? list.slice(0,TQ.n).map(arow).join("") : `<div class="empty"><b>No contracts match</b>Try another work type or region, or clear the search.</div>`}</div>
+      ${list.length > TQ.n ? `<p style="text-align:center;margin-top:16px"><button class="btn ghost" id="tmore">Show more</button></p>` : ""}
+      <p class="note" style="margin-top:18px">Award data: <a href="${esc(AWARDS.sourceUrl)}" target="_blank" rel="noopener">New Zealand government procurement open data</a>, Ministry of Business, Innovation and Employment, Crown copyright, licensed under CC BY 4.0. Refreshed weekly; MBIE updates it quarterly.</p>`
+    : ""}
+  </section>`;
+}
 function about(){
   app.innerHTML = `<section class="wrap page">
     <div class="label">How it works</div>
@@ -498,6 +569,7 @@ function route(){
   if (h.startsWith("fund-")) detail(h.slice(5));
   else if (h === "match") match();
   else if (h === "updates") updates();
+  else if (h === "tenders") tenders();
   else if (h === "about") about();
   else if (h === "saved"){ state.tab="saved"; browse(); }
   else { if (state.tab==="saved") state.tab="all"; browse(); }
@@ -518,6 +590,8 @@ app.addEventListener("click", e => {
   if (t.id==="closesheet"||t.id==="applysheet"){ state.sheet=false; browse(); refocus("#openfilters"); return; }
   if (t.dataset.m){ M[t.dataset.m] = t.dataset.v; match(); refocus(`[data-m="${t.dataset.m}"][data-v="${CSS.escape(t.dataset.v)}"]`); return; }
   if (t.id==="showmatch"){ state.who=new Set([M.who]); state.region=new Set([M.region]); state.sector=new Set([M.sector]); state.tab="all"; location.hash="browse"; return; }
+  if (t.id==="tmore"){ TQ.n+=40; tenders(); return; }
+  if (t.dataset.tcat){ TQ.cat=t.dataset.tcat; TQ.n=40; tenders(); refocus(`[data-tcat="${CSS.escape(TQ.cat)}"]`); return; }
   if (t.id==="report"){ document.getElementById("reported").hidden=false; t.hidden=true; }
 });
 app.addEventListener("change", e => {
@@ -533,6 +607,7 @@ app.addEventListener("submit", e => {
     state.region=new Set(rg?[rg]:[]); state.who=new Set(wh?[wh]:[]);
     browse(); document.querySelector(".tabs")?.scrollIntoView({behavior:"smooth",block:"start"}); return;
   }
+  if (e.target.id==="tform"){ TQ.q=document.getElementById("tq").value.trim(); TQ.region=document.getElementById("treg").value; TQ.n=40; tenders(); refocus("#tq"); return; }
 });
 document.addEventListener("keydown", e => {
   if (e.key!=="Escape") return;

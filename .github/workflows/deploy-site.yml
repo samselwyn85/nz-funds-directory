@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths: ["site/**", "scripts/build_site.py"]
   workflow_run:
-    workflows: ["Nightly fund check"]
+    workflows: ["Nightly fund check", "Weekly tenders refresh"]
     types: [completed]
   workflow_dispatch: {}
 
