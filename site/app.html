@@ -26,6 +26,7 @@ body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);-webkit-fo
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
 a{color:var(--brand)}
 h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.015em;text-wrap:balance;line-height:1.2}
+p{text-wrap:pretty}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
 svg.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .wrap{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
@@ -49,8 +50,8 @@ nav.main a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(-
 /* search band */
 .band{background:var(--subtle);border-bottom:1px solid var(--line)}
 .band .wrap{padding-block:44px 32px}
-.band h1{font-size:clamp(1.8rem,3.6vw,2.6rem);max-width:22ch}
-.band p.lede{color:var(--muted);max-width:60ch;margin:10px 0 0;font-size:1.05rem}
+.band h1{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.band p.lede{color:var(--muted);margin:10px 0 0;font-size:1.05rem}
 .seg{margin-top:24px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) auto;background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;padding:6px;max-width:900px;box-shadow:var(--shadow)}
 .seg label{display:grid;padding:6px 14px;border-right:1px solid var(--line);min-width:0;cursor:text}
 .seg label:nth-child(3){border-right:0}
@@ -92,7 +93,7 @@ aside.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);alig
 .fbtn{display:none}
 
 .rows{display:grid;gap:12px}
-.row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:24px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;transition:border-color .15s, box-shadow .15s}
+.row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:24px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;transition:border-color .15s, box-shadow .15s}
 .row:hover{border-color:var(--line-strong);box-shadow:var(--shadow)}
 .row .top-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-right:40px}
 .row h3{font-size:1.06rem;margin-top:6px}
@@ -110,7 +111,7 @@ aside.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);alig
 .side{border-left:1px solid var(--line);padding-left:20px;display:grid;gap:10px;align-content:start;font-size:.86rem}
 .side dt{color:var(--faint);font-size:.74rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
 .side dd{margin:0;color:var(--ink);font-weight:500}
-.health{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.8rem}
+.health{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.8rem;white-space:nowrap}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--faint);flex:none}
 .dot.ok{background:var(--ok)} .dot.moved{background:var(--amber)} .dot.broken,.dot.blocked{background:var(--bad)}
 .save{position:absolute;top:14px;right:14px;z-index:1;width:34px;height:34px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--faint);cursor:pointer;display:grid;place-items:center}
@@ -121,14 +122,15 @@ aside.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);alig
 .empty b{color:var(--ink);display:block;margin-bottom:4px}
 
 /* pages */
-.page{padding-block:40px 72px;max-width:760px}
+.page{padding-block:40px 72px;max-width:1040px}
+.page p .btn{vertical-align:middle}
 .page h1{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:6px}
-.page p{max-width:65ch;color:var(--muted)}
+.page p{color:var(--muted)}
 .crumbs{font-size:.86rem;color:var(--muted);display:flex;gap:6px;align-items:center;margin-bottom:16px}
 .crumbs a{color:var(--muted)}
 .detail{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;padding-block:32px 72px}
 .detail h1{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:10px}
-.detail .lead{font-size:1.06rem;max-width:62ch;margin-top:14px}
+.detail .lead{font-size:1.06rem;margin-top:14px}
 .facts{display:grid;grid-template-columns:170px minmax(0,1fr);border-top:1px solid var(--line);margin-top:28px}
 .facts dt,.facts dd{padding:12px 0;border-bottom:1px solid var(--line);margin:0}
 .facts dt{color:var(--muted);font-size:.9rem}
@@ -249,6 +251,7 @@ footer.site .wrap{padding-block:28px;display:flex;gap:24px;justify-content:space
   <a href="#about" data-nav="about"><svg class="i"><use href="#i-info"/></svg>About</a>
 </nav>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 <script>
 (function(){
 const SECTORS = ["Community","Arts & culture","Sport & recreation","Environment","Māori & iwi","Education & youth","Health & wellbeing","Business & innovation","Heritage","Media"];
@@ -364,7 +367,7 @@ function browse(){
       <label for="qw"><span>Who's applying</span><select id="qw"><option value="">Anyone</option>${WHO.map(x=>`<option ${state.who.size===1&&state.who.has(x)?"selected":""}>${esc(x)}</option>`).join("")}</select></label>
       <button class="btn" type="submit">${icon("search")} Search</button>
     </form>
-    <div class="trust"><span><b>${DATA.funds.length}</b> funds</span><span class="sep"></span><span><b>${funders}</b> funders</span><span class="sep"></span><span>${DATA.updated ? `Last checked <b>${esc(ago(DATA.updated))}</b>` : "Checked <b>every night</b>"}</span><span class="sep"></span><span>Government · Gaming trusts · Community trusts · Councils · Philanthropy · Corporate</span></div>
+    <div class="trust"><span><b data-count="${DATA.funds.length}">${DATA.funds.length}</b> funds</span><span class="sep"></span><span><b data-count="${funders}">${funders}</b> funders</span><span class="sep"></span><span>${DATA.updated ? `Last checked <b>${esc(ago(DATA.updated))}</b>` : "Checked <b>every night</b>"}</span><span class="sep"></span><span>Government · Gaming trusts · Community trusts · Councils · Philanthropy · Corporate</span></div>
   </div></section>
   <section class="wrap dir">
     <aside class="filters" aria-label="Filters">
@@ -501,14 +504,36 @@ function route(){
   else if (h === "about") about();
   else if (h === "saved"){ state.tab="saved"; browse(); }
   else { if (state.tab==="saved") state.tab="all"; browse(); }
+  motion(h === "saved" || !document.querySelector("#app .page, #app .detail") ? "browse" : "page");
 }
+// Motion: short, purposeful, skipped for people who ask for reduced motion.
+const calm = () => !window.anime || matchMedia("(prefers-reduced-motion: reduce)").matches;
+let firstPaint = true;
+function motion(view){
+  if (calm()) { firstPaint = false; return; }
+  const ease = "cubicBezier(.2,.7,.2,1)";
+  if (view === "browse" && firstPaint){
+    anime({ targets: ".band .label, .band h1, .band .lede, .band .seg, .band .trust", translateY:[14,0], opacity:[.25,1], delay: anime.stagger(70), duration:700, easing:ease });
+    document.querySelectorAll(".trust b[data-count]").forEach(b => {
+      const o = { v:0 }; const to = +b.dataset.count;
+      anime({ targets:o, v:to, round:1, duration:1100, delay:250, easing:"easeOutExpo", update:() => { b.textContent = o.v; } });
+    });
+  }
+  if (view === "browse"){
+    anime({ targets: Array.from(document.querySelectorAll(".rows .row")).slice(0,10), translateY:[10,0], opacity:[.35,1], delay: anime.stagger(35), duration:420, easing:ease });
+  } else {
+    anime({ targets: "#app .page > *, #app .detail > * > *", translateY:[10,0], opacity:[.35,1], delay: anime.stagger(40, {start:20}), duration:480, easing:ease });
+  }
+  firstPaint = false;
+}
+function pop(el){ if (calm() || !el) return; anime({ targets: el, scale:[.8,1], duration:420, easing:"spring(1, 90, 12, 0)" }); }
 function refocus(sel){ const el = document.querySelector(sel); el && el.focus({preventScroll:true}); }
 
 app.addEventListener("click", e => {
   const t = e.target.closest("button, a");
   if (!t) return;
-  if (t.dataset.save){ e.preventDefault(); const id=t.dataset.save; saved.has(id)?saved.delete(id):saved.add(id); persistSaved(); location.hash.startsWith("#fund-") ? detail(id) : browse(); refocus(`[data-save="${CSS.escape(id)}"]`); return; }
-  if (t.dataset.tab){ state.tab=t.dataset.tab; browse(); refocus(`[data-tab="${t.dataset.tab}"]`); return; }
+  if (t.dataset.save){ e.preventDefault(); const id=t.dataset.save; saved.has(id)?saved.delete(id):saved.add(id); persistSaved(); location.hash.startsWith("#fund-") ? detail(id) : browse(); refocus(`[data-save="${CSS.escape(id)}"]`); pop(document.querySelector(`[data-save="${CSS.escape(id)}"] svg`)); return; }
+  if (t.dataset.tab){ state.tab=t.dataset.tab; browse(); refocus(`[data-tab="${t.dataset.tab}"]`); motion("browse"); return; }
   if (t.dataset.rm){ state[t.dataset.rm].delete(t.dataset.v); browse(); return; }
   if (t.dataset.rmq){ state.q=""; browse(); return; }
   if (t.dataset.clr){ state[t.dataset.clr].clear(); browse(); return; }
@@ -522,7 +547,7 @@ app.addEventListener("click", e => {
 });
 app.addEventListener("change", e => {
   const t = e.target;
-  if (t.dataset.k){ t.checked ? state[t.dataset.k].add(t.value) : state[t.dataset.k].delete(t.value); browse(); refocus(`${state.sheet?".sheet ":"aside "}input[data-k="${t.dataset.k}"][value="${CSS.escape(t.value)}"]`); }
+  if (t.dataset.k){ t.checked ? state[t.dataset.k].add(t.value) : state[t.dataset.k].delete(t.value); browse(); if (!state.sheet) motion("browse"); refocus(`${state.sheet?".sheet ":"aside "}input[data-k="${t.dataset.k}"][value="${CSS.escape(t.value)}"]`); }
   if (t.id==="sort"){ state.sort=t.value; browse(); refocus("#sort"); }
 });
 app.addEventListener("submit", e => {
@@ -531,7 +556,7 @@ app.addEventListener("submit", e => {
     state.q=document.getElementById("q").value.trim();
     const rg=document.getElementById("qr").value, wh=document.getElementById("qw").value;
     state.region=new Set(rg?[rg]:[]); state.who=new Set(wh?[wh]:[]);
-    browse(); document.querySelector(".tabs")?.scrollIntoView({behavior:"smooth",block:"start"}); return;
+    browse(); motion("browse"); document.querySelector(".tabs")?.scrollIntoView({behavior:"smooth",block:"start"}); return;
   }
 });
 document.addEventListener("keydown", e => {
