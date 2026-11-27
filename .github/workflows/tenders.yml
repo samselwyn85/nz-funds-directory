@@ -1,0 +1,45 @@
+name: Weekly tenders refresh
+
+# Downloads MBIE's open data of contracts awarded through GETS (CC BY 4.0)
+# and rebuilds site/data/awards.json. We never scrape gets.govt.nz itself:
+# its terms ban robots, so the site links to GETS searches instead.
+on:
+  schedule:
+    - cron: "30 15 * * 0"   # Monday 4:30am NZDT / 3:30am NZST
+  push:
+    branches: [main]
+    paths: ["scripts/fetch_awards.py"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-commits
+  cancel-in-progress: false
+
+jobs:
+  awards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the importer against saved sample data
+        run: |
+          cp site/data/awards.json /tmp/awards.json 2>/dev/null || true
+          python3 scripts/fetch_awards.py --dir tests/fixtures/awards
+          python3 -c "import json; d=json.load(open('site/data/awards.json')); assert len(d['awards']) == 14, len(d['awards'])"
+          cp /tmp/awards.json site/data/awards.json 2>/dev/null || rm -f site/data/awards.json
+      - name: Download MBIE award notices
+        run: python3 scripts/fetch_awards.py
+      - name: Save updated list
+        run: |
+          git config user.name "puna-checker"
+          git config user.email "actions@users.noreply.github.com"
+          git add site/data/awards.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Weekly tenders refresh $(date -u +%F)"
+          git pull --rebase origin main
+          git push
